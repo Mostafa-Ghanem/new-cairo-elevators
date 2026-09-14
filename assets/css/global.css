@@ -974,13 +974,13 @@ p,
   display: block;
   object-fit: cover;
   object-position: center;
-  transform: scale(1.01);
+  transform: none;
   transition: opacity .2s var(--ease), transform .4s var(--ease);
 }
 
 .site-header .mega-preview-media.is-changing img {
   opacity: .34;
-  transform: scale(1.035);
+  transform: scale(1.015);
 }
 
 .site-header .mega-preview-overlay {
