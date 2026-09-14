@@ -4,6 +4,13 @@
 
 ## 2026-09-14
 
+### Fixed — Mobile Elevators full-row trigger
+- إزالة CSS/JS القديم الخاص بـ`.mobile-menu` من صفحات الموقع؛ كان selector عام مثل `.mobile-menu summary` يفرض `46px × 46px` وborder/radius على `summary` الداخلي الخاص بـ«المصاعد».
+- نقل ملكية سلوك وشكل الـMobile Navigation بالكامل للـShared Header/`global.css`/`site-navigation.js` لمنع تعارضات الصفحات.
+- تحويل صف «المصاعد» إلى `mobile-products-trigger` بعرض 100%؛ الكلمة والفراغ وعلامة `+` كلها داخل نفس الـ`summary` وبالتالي كامل الصف Click/Tap target واحد.
+- إزالة الـboxed shape من حاوية «المصاعد»، مع إبقاء حالة open/focus واضحة بدون حدود زائدة.
+- توثيق Shared Shell ownership invariant في `docs/ARCHITECTURE.md` و`AGENTS.md`.
+
 ### Fixed — Mega Menu Preview + Responsive QA
 - إصلاح السبب الفعلي لقص الـLive Preview: `white-space: nowrap` الموروث من الـDesktop navigation كان يفرض min-content أعرض من عمود الـPreview ويجعل المحتوى الداخلي ~746px داخل Card بعرض ~340px.
 - جعل الـMega Menu يعيد `white-space: normal`، وتقييد Grid track والـchildren بـ`min-width: 0` حتى الصورة والنص والأزرار تحترم عرض الـCard.

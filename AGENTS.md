@@ -49,3 +49,5 @@ npm run check
 - Build: `npm run build`.
 - Output: `dist`.
 - لا تستخدم خدمة Cloudflare مدفوعة بدون قرار صريح من مالك المشروع.
+
+- ممنوع إضافة CSS/JS خاص بالـHeader أو Footer أو Navigation داخل صفحات منفردة؛ التعديل يتم حصريًا في الـshared shell (`components/*`, `assets/css/global.css`, `assets/js/site-navigation.js`).

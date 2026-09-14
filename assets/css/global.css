@@ -1127,7 +1127,7 @@ p,
 }
 
 .site-header .mobile-menu > summary::-webkit-details-marker,
-.site-header .mobile-products > summary::-webkit-details-marker {
+.site-header .mobile-products > .mobile-products-trigger::-webkit-details-marker {
   display: none;
 }
 
@@ -1198,36 +1198,69 @@ p,
 }
 
 .site-header .mobile-products {
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #FCFCFB;
+  width: 100%;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
-.site-header .mobile-products > summary {
-  min-height: 48px;
+.site-header .mobile-products > .mobile-products-trigger {
+  width: 100%;
+  min-width: 0;
+  min-height: 52px;
+  margin: 0;
   padding: 10px 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
+  box-sizing: border-box;
   list-style: none;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
   color: var(--navy-900);
   font-size: var(--type-label) !important;
   line-height: var(--leading-ui) !important;
   font-weight: var(--weight-bold) !important;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.site-header .mobile-products > summary span {
+.site-header .mobile-products > .mobile-products-trigger:hover,
+.site-header .mobile-products > .mobile-products-trigger:focus-visible {
+  background: var(--surface-2);
+}
+
+.site-header .mobile-products-label {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.site-header .mobile-products-plus {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  color: #536472;
   font-size: 18px !important;
   line-height: 1 !important;
   font-weight: var(--weight-regular) !important;
-  transition: transform .18s var(--ease);
+  pointer-events: none;
+  transition: transform .18s var(--ease), color .18s var(--ease), background .18s var(--ease);
 }
 
-.site-header .mobile-products[open] > summary span {
+.site-header .mobile-products[open] > .mobile-products-trigger {
+  background: var(--surface-2);
+}
+
+.site-header .mobile-products[open] > .mobile-products-trigger .mobile-products-plus {
   transform: rotate(45deg);
+  color: var(--navy-900);
+  background: #fff;
 }
 
 .site-header .mobile-products-grid {
@@ -1393,7 +1426,7 @@ p,
   .site-header .mega-icon,
   .site-header .mega-preview-media img,
   .site-header .menu-bars i,
-  .site-header .mobile-products > summary span {
+  .site-header .mobile-products-plus {
     transition: none;
   }
 }
