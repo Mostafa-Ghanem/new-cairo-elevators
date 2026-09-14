@@ -744,6 +744,7 @@ p,
   background: rgba(255,255,255,.99);
   box-shadow: 0 28px 70px rgba(7,18,29,.16);
   backdrop-filter: blur(18px);
+  white-space: normal;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -760,7 +761,7 @@ p,
 
 .site-header .mega-layout-c {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px;
+  grid-template-columns: minmax(0, 1fr) 360px;
   gap: 16px;
   align-items: stretch;
 }
@@ -944,18 +945,25 @@ p,
 }
 
 .site-header .mega-preview {
+  width: 100%;
   min-width: 0;
   overflow: hidden;
   display: grid;
-  grid-template-rows: 202px minmax(0,1fr);
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  align-self: stretch;
   border-radius: 17px;
+  white-space: normal;
   background: var(--navy-900);
   color: #fff;
 }
 
 .site-header .mega-preview-media {
   position: relative;
+  width: 100%;
+  min-width: 0;
   min-height: 0;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: #0D2030;
 }
@@ -965,6 +973,7 @@ p,
   height: 100%;
   display: block;
   object-fit: cover;
+  object-position: center;
   transform: scale(1.01);
   transition: opacity .2s var(--ease), transform .4s var(--ease);
 }
@@ -998,8 +1007,9 @@ p,
 }
 
 .site-header .mega-preview-content {
-  min-height: 232px;
-  padding: 20px;
+  min-width: 0;
+  min-height: 0;
+  padding: 18px 20px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1029,12 +1039,16 @@ p,
   font-size: 11px !important;
   line-height: 1.9 !important;
   font-weight: var(--weight-regular) !important;
+  white-space: normal;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
 }
 
 .site-header .mega-preview-actions {
-  margin-top: 20px;
+  min-width: 0;
+  margin-top: 18px;
   display: grid;
-  grid-template-columns: minmax(0,1fr) auto;
+  grid-template-columns: repeat(2, minmax(0,1fr));
   gap: 7px;
 }
 
@@ -1050,6 +1064,8 @@ p,
   font-size: 10.5px !important;
   line-height: var(--leading-ui) !important;
   font-weight: var(--weight-semibold) !important;
+  white-space: normal;
+  text-align: center;
 }
 
 .site-header .mega-preview-primary {
@@ -1287,6 +1303,11 @@ p,
 }
 
 @media (min-width: 1181px) and (max-width: 1260px) {
+  .site-header .mega-layout-c {
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 14px;
+  }
+
   .site-header .brand {
     min-width: 205px;
   }
@@ -1338,7 +1359,21 @@ p,
 }
 
 @media (max-width: 560px) {
+  .site-header .header-inner {
+    gap: 12px;
+  }
+
+  .site-header .brand {
+    min-width: 0;
+    max-width: calc(100% - 56px);
+  }
+
   .site-header .brand-name {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
     font-size: 12px !important;
   }
 
