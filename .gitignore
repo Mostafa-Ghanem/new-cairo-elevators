@@ -10,3 +10,8 @@ desktop.ini
 *.log
 .vscode/
 .idea/
+
+# Build output / Node
+dist/
+node_modules/
+.wrangler/

@@ -12,6 +12,7 @@
 - **تحسين محركات البحث (SEO Optimized)**: عناوين، أوسمة ميتات، هيكلية H1-H6، وسرعة تحميل فائقة بدون أي مكتبات خارجية ثقيلة.
 - **تطبيق ويب متكامل (PWA Ready)**: يحتوي على ملف `manifest.json` جاهز لتثبيت الويب.
 - **تجربة متكاملة لطلب عروض الأسعار**: صفحات مخصصة لطلب الاستشارات، جداول الأسعار، وفهرس شامل للمناطق المخدومة.
+- **Shared Layout Components**: الهيدر والـMega Menu والفوتر لهم مصدر واحد ويتم حقنهم وقت الـbuild في جميع صفحات HTML، تمهيدًا للانتقال إلى Astro بدون إعادة بناء الواجهات.
 
 ---
 
@@ -52,19 +53,46 @@
   - `Paper` (`#FBFAF8`) & `Surface` (`#FFFFFF`) — الخلفيات الفاتحة المريحة للعين.
 - **الخطوط**: خط `Alexandria` العربي المودرن من Google Fonts.
 - **الملفات البرمجية والتنسيق**:
-  - `assets/css/global.css`: المتغيرات والأشكال والأنماط العامة للموقع.
+  - `assets/css/global.css`: المتغيرات والأشكال والأنماط العامة للموقع والمكونات المشتركة.
+  - `components/site-header.html`: الهيدر والـMega Menu الموحدان.
+  - `components/site-footer.html`: الفوتر الموحد.
+  - `assets/js/site-navigation.js`: تفاعل المنيو والحالة النشطة.
+  - `scripts/build.mjs`: تجميع الصفحات إلى `dist/`.
 
 ---
 
 ## 🚀 طريقة التشغيل والنشر
 
-### 1. التشغيل المحلي:
-لا يتطلب المشروع أي بيئة تشغيل خاصة (No Build Tools Required). يمكنك فقط فتح أي ملف HTML (مثل `index.html`) مباشرة في المتصفح، أو استخدام إضافة مثل **Live Server** في VS Code.
+### 1. التشغيل المحلي
+المشروع يستخدم **Build صغير بدون Dependencies** لتجميع الـHeader والـFooter المشتركين داخل كل صفحات HTML. يتطلب Node.js 20 أو أحدث:
 
-### 2. النشر على GitHub Pages:
-1. اذهب إلى إعدادات المستودع على GitHub: `Settings` > `Pages`.
-2. حدد الفرع `main` والمجلد الرئيسي `/(root)`.
-3. اضغط **Save** وسيتم نشر الموقع مجاناً على رابط GitHub Pages الخاص بك.
+```bash
+npm run build
+```
+
+الناتج النهائي الجاهز للنشر يوجد داخل `dist/`. لا تعدّل `dist/` يدويًا لأنه ملف ناتج Build وغير محفوظ في Git.
+
+### 2. Cloudflare Pages
+إعدادات الإنتاج المعتمدة:
+
+- Production branch: `main`
+- Build command: `npm run build`
+- Build output directory: `dist`
+- Root directory: `/`
+
+أي Push جديد على `main` يشغّل Build جديد وينشر النسخة الناتجة تلقائيًا.
+
+### 3. المكونات المشتركة
+
+- `components/site-header.html` — الـTopbar + Header + Desktop Mega Menu + Mobile Menu.
+- `components/site-footer.html` — الفوتر الموحد وروابط الموقع.
+- `assets/js/site-navigation.js` — الحالة النشطة للمنيو وسلوك الـMega Menu.
+- `scripts/build.mjs` — Compiler بسيط يجمع المكونات داخل صفحات HTML ويعمل فحصًا للروابط المحلية.
+
+> **مهم:** لا تنسخ Header أو Footer داخل صفحة منفردة. عدّل الـComponent المشترك فقط.
+
+التفاصيل المعمارية وخطة الانتقال إلى Astro موجودة في [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md).
+سياسة توثيق التعديلات موجودة في [`AGENTS.md`](./AGENTS.md) و[`CHANGELOG.md`](./CHANGELOG.md).
 
 ---
 

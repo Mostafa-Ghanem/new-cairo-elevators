@@ -1,0 +1,13 @@
+{
+  "name": "new-cairo-elevators",
+  "version": "1.1.0",
+  "private": true,
+  "description": "New Cairo Elevators static site with build-time shared layout components",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
