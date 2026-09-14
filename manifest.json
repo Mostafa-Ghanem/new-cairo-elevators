@@ -1,0 +1,28 @@
+{
+  "domain": "newcairoelevator.com",
+  "phone": "01060781020",
+  "whatsapp": "01276611628",
+  "address": "عمارة 23 ب، التقسيم الجنوبي، محور السادات، التجمع الأول، القاهرة الجديدة",
+  "design_system": "Premium Corporate / Alexandria Arabic UI",
+  "corporate_pages": [
+    "about-us.html",
+    "services.html",
+    "contact-us.html",
+    "request-quote.html",
+    "faq.html",
+    "service-areas.html",
+    "privacy-policy.html",
+    "404.html"
+  ],
+  "note": "External images are demo placeholders. Replace with owned/licensed assets before production. Privacy policy requires legal review and final tracking-tool alignment.",
+  "global_design_system": "assets/css/global.css",
+  "global_design_system_version": "1.0",
+  "typography": {
+    "font": "Alexandria",
+    "body": "16px desktop / 15px mobile",
+    "display_h1": "40–56px desktop / 34–40px small mobile",
+    "h2": "30–42px desktop / 27–32px small mobile",
+    "h3": "20–24px desktop / 20px small mobile",
+    "weights": "400 body, 500 labels/nav, 600 H3/buttons, 700 H1/H2"
+  }
+}

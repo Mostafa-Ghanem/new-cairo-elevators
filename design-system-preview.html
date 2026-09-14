@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Global Design System Preview</title>
+<link rel="stylesheet" href="assets/css/global.css?v=1.0">
+<style>
+.preview{max-width:1100px;margin:auto;padding:64px 22px}
+.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.swatch{min-height:110px;border-radius:16px;padding:14px;display:flex;align-items:end;font-size:12px}
+.sample{padding:28px;background:#fff;border:1px solid var(--line);border-radius:18px;margin-bottom:16px}
+@media(max-width:700px){.demo-grid,.swatches{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="preview">
+<div class="kicker">GLOBAL DESIGN SYSTEM v1.0</div>
+<h1>عنوان رئيسي H1 — القاهرة الجديدة للمصاعد</h1>
+<p class="info-lead">ده مثال للنص الداعم الكبير. الهدف إن الـHierarchy يفضل واضح من غير ما العناوين تاكل الشاشة أو النصوص الصغيرة تختفي.</p>
+
+<div class="sample">
+<h2>عنوان Section H2</h2>
+<p>Alexandria بوزن 400 للنص الأساسي، مع line-height مناسب للعربية لسهولة القراءة.</p>
+<h3>عنوان Card / Subsection H3</h3>
+<p style="font-size:var(--type-body-sm)!important">النص الثانوي والكروت لا ينزل عن 14px في النظام الحالي.</p>
+</div>
+
+<div class="demo-grid">
+<div class="sample">
+<div class="kicker">UI ELEMENTS</div>
+<h3>الأزرار والـLabels</h3>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<a class="btn btn-primary">زر أساسي</a>
+<a class="btn btn-gold">طلب معاينة</a>
+<a class="btn btn-outline">زر ثانوي</a>
+</div>
+</div>
+<div class="sample">
+<div class="kicker">WEIGHTS</div>
+<p style="font-weight:400!important">400 — نص القراءة الأساسي</p>
+<p style="font-weight:500!important">500 — Navigation / Labels</p>
+<p style="font-weight:600!important">600 — Buttons / H3</p>
+<p style="font-weight:700!important">700 — H1 / H2</p>
+</div>
+</div>
+
+<h2 style="margin-top:52px">ألوان البراند</h2>
+<div class="swatches">
+<div class="swatch" style="background:var(--navy-900);color:#fff">--navy-900</div>
+<div class="swatch" style="background:var(--champagne);color:#18120B">--champagne</div>
+<div class="swatch" style="background:var(--paper)">--paper</div>
+<div class="swatch" style="background:var(--surface-2)">--surface-2</div>
+</div>
+</div>
+</body>
+</html>

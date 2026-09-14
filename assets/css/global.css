@@ -1,0 +1,598 @@
+/* ==========================================================================
+   NEW CAIRO ELEVATORS — GLOBAL DESIGN SYSTEM
+   Version: 1.0
+   --------------------------------------------------------------------------
+   ده الملف الوحيد المطلوب تعديله للتحكم في:
+   1) الخط وأوزانه
+   2) أحجام الخطوط على Desktop / Mobile
+   3) ألوان البراند
+   4) المسافات العامة
+   5) Border Radius / Shadows / Buttons
+
+   IMPORTANT:
+   كل صفحات الموقع تحمل هذا الملف كآخر Stylesheet، لذلك القيم هنا لها الأولوية.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   01. FONT LOAD — ALEXANDRIA
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&display=swap");
+
+
+/* ==========================================================================
+   02. GLOBAL CONTROL PANEL
+   غيّر القيم هنا فقط في أغلب الحالات.
+   ========================================================================== */
+
+:root {
+
+  /* ---------- FONT FAMILY ---------- */
+  --font-primary: "Alexandria", "Segoe UI", Tahoma, Arial, sans-serif;
+
+
+  /* ---------- ARABIC FONT WEIGHTS ----------
+     Alexandria في العربي:
+     400 = نصوص القراءة
+     500 = Navigation / Labels
+     600 = Buttons / H3
+     700 = H1 / H2
+     800 = أرقام أو emphasis محدود فقط
+  */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+
+  /* ---------- TYPE SCALE / DESKTOP ----------
+     تم تقليل الـHero والـHeadings عمدًا حتى لا تبتلع الشاشة.
+  */
+  --type-display: clamp(40px, 4.25vw, 56px);
+  --type-h1:      clamp(36px, 3.60vw, 48px);
+  --type-h2:      clamp(30px, 3.00vw, 42px);
+  --type-h3:      clamp(20px, 1.65vw, 24px);
+
+  --type-body-lg: 17px;
+  --type-body:    16px;
+  --type-body-sm: 14px;
+  --type-label:   13px;
+  --type-caption: 12px;
+  --type-micro:   11px;
+
+
+  /* ---------- ARABIC LINE HEIGHT ---------- */
+  --leading-display: 1.38;
+  --leading-h1:      1.42;
+  --leading-h2:      1.48;
+  --leading-h3:      1.58;
+  --leading-body:    1.90;
+  --leading-ui:      1.65;
+
+
+  /* ---------- BRAND COLORS ---------- */
+  --navy-950: #07121D;
+  --navy-900: #0A1724;
+  --navy-850: #0D1D2C;
+  --navy-800: #11273A;
+  --navy-700: #17344C;
+
+  --champagne:      #B99256;
+  --champagne-2:    #D7BC8A;
+  --champagne-soft: #F2E9DA;
+
+  --ink:      #122131;
+  --muted:    #667482;
+  --muted-2:  #8C98A3;
+
+  --paper:        #FBFAF8;
+  --surface:      #FFFFFF;
+  --surface-2:    #F4F3F0;
+  --surface-blue: #F2F6F9;
+
+  --line:      #E2E5E7;
+  --line-dark: rgba(255,255,255,.12);
+  --success:   #167A63;
+
+
+  /* ---------- LAYOUT ---------- */
+  --container: 1240px;
+
+  --space-section:    96px;
+  --space-section-sm: 68px;
+
+
+  /* ---------- SHAPE ---------- */
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 22px;
+  --r-xl: 28px;
+
+
+  /* ---------- ELEVATION ---------- */
+  --shadow-1: 0 8px 26px rgba(7,18,29,.06);
+  --shadow-2: 0 24px 64px rgba(7,18,29,.12);
+
+  --ease: cubic-bezier(.2,.7,.2,1);
+
+
+  /* ---------- COMPATIBILITY ----------
+     المتغيرات دي موجودة عشان الصفحات القديمة كلها تسمع نفس الـGlobal Scale.
+  */
+  --font: var(--font-primary);
+
+  --display: var(--type-display);
+  --h2: var(--type-h2);
+  --h3: var(--type-h3);
+
+  --fs-h1: var(--type-display);
+  --fs-h2: var(--type-h2);
+  --fs-h3: var(--type-h3);
+  --fs-body-lg: var(--type-body-lg);
+  --fs-body: var(--type-body);
+
+  --section: var(--space-section);
+}
+
+
+/* ==========================================================================
+   03. HARD FONT LOCK
+   يمنع أي Component قديم من استخدام Font أو tracking مختلف.
+   ========================================================================== */
+
+html,
+body,
+body *,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-primary) !important;
+}
+
+body {
+  font-size: var(--type-body) !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: var(--leading-body) !important;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+button,
+input,
+select,
+textarea {
+  font-weight: var(--weight-regular);
+}
+
+
+/* العربي لا يحتاج negative tracking المستخدم عادةً في العناوين اللاتينية */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+button,
+label,
+input,
+select,
+textarea,
+.kicker,
+.nav,
+.brand-name,
+.product-meta,
+.service-content .number {
+  letter-spacing: 0 !important;
+}
+
+
+/* ==========================================================================
+   04. GLOBAL ARABIC TYPOGRAPHY
+   ========================================================================== */
+
+/* الصفحة Hero / العنوان الرئيسي */
+h1,
+.hero-copy h1,
+.page-hero h1,
+.product-hero h1 {
+  font-size: var(--type-display) !important;
+  line-height: var(--leading-display) !important;
+  font-weight: var(--weight-bold) !important;
+  margin-bottom: 20px !important;
+}
+
+
+/* Section headings */
+h2,
+.section-head h2,
+.contact-panel h2,
+.contact-copy h2,
+.maintenance-copy h2,
+.process-intro h2,
+.policy h2 {
+  font-size: var(--type-h2) !important;
+  line-height: var(--leading-h2) !important;
+  font-weight: var(--weight-bold) !important;
+}
+
+
+/* Card / subsection headings */
+h3,
+.card h3,
+.feature h3,
+.how-item h3,
+.why-item h3,
+.process-step h3,
+.process-item h3,
+.use-card h3,
+.related-copy h3,
+.service-copy h3,
+.product-copy h3 {
+  font-size: var(--type-h3) !important;
+  line-height: var(--leading-h3) !important;
+  font-weight: var(--weight-semibold) !important;
+}
+
+
+/* Main reading text */
+p,
+.article p,
+.policy p,
+.policy li {
+  font-size: var(--type-body) !important;
+  line-height: var(--leading-body) !important;
+  font-weight: var(--weight-regular) !important;
+}
+
+
+/* Hero/supporting lead: أكبر درجة واحدة فقط من الـbody */
+.hero-copy > p,
+.info-lead {
+  font-size: var(--type-body-lg) !important;
+  line-height: 1.95 !important;
+  font-weight: var(--weight-regular) !important;
+}
+
+
+/* Secondary / cards */
+.card p,
+.feature p,
+.how-item p,
+.why-item p,
+.process-step p,
+.process-item p,
+.use-card p,
+.related-copy p,
+.service-copy p,
+.product-copy p,
+.contact-copy p,
+.maintenance-copy > p,
+.form > p,
+.form-top p,
+.answer {
+  font-size: var(--type-body-sm) !important;
+  line-height: 1.85 !important;
+  font-weight: var(--weight-regular) !important;
+}
+
+
+/* UI labels */
+.nav,
+.btn,
+.kicker,
+.field label,
+.footer-title,
+.credential b,
+.contact-item b,
+.hero-label strong,
+.gallery-label b {
+  line-height: var(--leading-ui) !important;
+}
+
+.nav {
+  font-size: var(--type-label) !important;
+  font-weight: var(--weight-medium) !important;
+}
+
+.btn {
+  font-size: 14px !important;
+  font-weight: var(--weight-semibold) !important;
+}
+
+.kicker {
+  font-size: var(--type-caption) !important;
+  font-weight: var(--weight-medium) !important;
+}
+
+.field label {
+  font-size: var(--type-caption) !important;
+  font-weight: var(--weight-medium) !important;
+}
+
+.field input,
+.field select,
+.field textarea {
+  font-size: var(--type-body-sm) !important;
+}
+
+
+/* Branding */
+.brand-name {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+  font-weight: var(--weight-bold) !important;
+}
+
+.brand-name small {
+  font-size: 9px !important;
+  line-height: 1.5 !important;
+  font-weight: var(--weight-medium) !important;
+  letter-spacing: .3px !important;
+}
+
+
+/* Small information */
+.breadcrumb,
+.product-meta,
+.service-content .number,
+.use-tag,
+.hero-label small,
+.related-copy small,
+.footer-copy,
+.footer-links,
+.footer-bottom,
+.form-note,
+#formMsg,
+#msg,
+#qmsg {
+  font-size: var(--type-caption) !important;
+  line-height: 1.75 !important;
+}
+
+
+/* Prevent tiny text in trust / credential / contact areas */
+.credential span,
+.contact-item span,
+.hero-trust span,
+.trust-item span,
+.gallery-label span {
+  font-size: var(--type-caption) !important;
+  line-height: 1.75 !important;
+}
+
+.credential b,
+.contact-item b,
+.trust-item b,
+.gallery-label b {
+  font-size: var(--type-label) !important;
+  font-weight: var(--weight-semibold) !important;
+}
+
+
+/* ==========================================================================
+   05. COMPONENT SIZE NORMALIZATION
+   ========================================================================== */
+
+.container {
+  width: min(var(--container), calc(100% - 40px));
+}
+
+.section {
+  padding-block: var(--space-section) !important;
+}
+
+.section-sm,
+.section-tight {
+  padding-block: var(--space-section-sm) !important;
+}
+
+
+/* Hero height is controlled so typography + image stay balanced */
+.hero-frame,
+.hero-box {
+  min-height: 560px !important;
+}
+
+.hero-media {
+  min-height: 560px !important;
+}
+
+.hero-copy {
+  padding: 58px 52px !important;
+}
+
+
+/* Headings shouldn't span the entire viewport */
+.hero-copy h1 {
+  max-width: 760px;
+}
+
+.section-head h2 {
+  max-width: 720px;
+}
+
+
+/* Better reading widths */
+.hero-copy > p {
+  max-width: 680px !important;
+}
+
+.article-section > p,
+.policy p {
+  max-width: 820px;
+}
+
+
+/* Cards */
+.card,
+.feature,
+.how-item,
+.use-card {
+  border-radius: var(--r-md) !important;
+}
+
+
+/* Buttons */
+.btn {
+  min-height: 48px !important;
+  padding-inline: 20px !important;
+  border-radius: var(--r-sm) !important;
+}
+
+
+/* Forms */
+.field input,
+.field select {
+  min-height: 50px !important;
+}
+
+.field textarea {
+  min-height: 100px !important;
+}
+
+
+/* ==========================================================================
+   06. HOME PAGE SPECIFIC NORMALIZATION
+   ========================================================================== */
+
+/* Home had an older 80px Display scale — this guarantees it obeys Global */
+.hero-copy h1,
+.hero h1 {
+  font-size: var(--type-display) !important;
+}
+
+.service-feature h3 {
+  font-size: clamp(24px, 2.2vw, 30px) !important;
+  line-height: 1.5 !important;
+}
+
+.service-card h3,
+.usecase-card h3,
+.why-item h3,
+.process-step h3 {
+  font-size: 19px !important;
+  line-height: 1.55 !important;
+}
+
+.contact-info h2 {
+  font-size: var(--type-h2) !important;
+}
+
+
+/* ==========================================================================
+   07. PRODUCT PAGE SPECIFIC NORMALIZATION
+   ========================================================================== */
+
+.product-copy h3 {
+  font-size: 22px !important;
+}
+
+.form-top h3 {
+  font-size: 20px !important;
+  line-height: 1.55 !important;
+}
+
+.inline-cta h3,
+.bottom-cta h2 {
+  max-width: 720px;
+}
+
+
+/* ==========================================================================
+   08. MOBILE TYPE SCALE
+   ========================================================================== */
+
+@media (max-width: 820px) {
+  :root {
+    --type-display: clamp(36px, 7.5vw, 46px);
+    --type-h1:      clamp(32px, 6.7vw, 40px);
+    --type-h2:      clamp(28px, 5.8vw, 36px);
+    --type-h3:      clamp(19px, 4.4vw, 22px);
+
+    --type-body-lg: 16px;
+    --type-body:    15px;
+    --type-body-sm: 14px;
+    --type-label:   13px;
+    --type-caption: 12px;
+
+    --space-section:    76px;
+    --space-section-sm: 56px;
+  }
+
+  .hero-frame,
+  .hero-box {
+    min-height: 0 !important;
+  }
+
+  .hero-media {
+    min-height: 400px !important;
+  }
+
+  .hero-copy {
+    padding: 46px 28px 36px !important;
+  }
+}
+
+
+@media (max-width: 560px) {
+  :root {
+    --type-display: clamp(34px, 9.2vw, 40px);
+    --type-h1:      clamp(30px, 8vw, 36px);
+    --type-h2:      clamp(27px, 7vw, 32px);
+    --type-h3:      20px;
+
+    --type-body-lg: 16px;
+    --type-body:    15px;
+    --type-body-sm: 14px;
+
+    --space-section:    64px;
+    --space-section-sm: 48px;
+  }
+
+  h1,
+  .hero-copy h1,
+  .page-hero h1,
+  .product-hero h1 {
+    line-height: 1.45 !important;
+  }
+
+  h2 {
+    line-height: 1.5 !important;
+  }
+
+  .hero-media {
+    min-height: 310px !important;
+  }
+
+  .hero-copy {
+    padding: 40px 22px 30px !important;
+  }
+
+  .btn {
+    min-height: 46px !important;
+    font-size: 14px !important;
+  }
+}
+
+
+/* ==========================================================================
+   09. ACCESSIBILITY / USER PREFERENCES
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

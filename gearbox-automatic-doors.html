@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#0A1724" name="theme-color"/>
+<title>مصعد جيربوكس أبواب أوتوماتيك | القاهرة الجديدة للمصاعد</title>
+<meta content="مصعد جيربوكس بأبواب أوتوماتيك للمباني السكنية والتجارية لتجربة استخدام أكثر راحة. اطلب معاينة لتحديد الماكينة والأبواب والمواصفات." name="description"/>
+
+
+
+
+
+
+<style>
+/* =========================================================
+   NEW CAIRO ELEVATORS
+   PRODUCT PAGE DESIGN SYSTEM v1
+   Premium Corporate / Arabic-first Alexandria
+   This structure is intended to be reused for all product pages.
+   ========================================================= */
+
+:root{
+  --navy-950:#07121D;
+  --navy-900:#0A1724;
+  --navy-850:#0D1D2C;
+  --navy-800:#11273A;
+  --navy-700:#17344C;
+
+  --champagne:#B99256;
+  --champagne-2:#D7BC8A;
+  --champagne-soft:#F2E9DA;
+
+  --ink:#122131;
+  --muted:#667482;
+  --muted-2:#8C98A3;
+  --paper:#FBFAF8;
+  --surface:#FFFFFF;
+  --surface-2:#F4F3F0;
+  --surface-blue:#F2F6F9;
+  --line:#E2E5E7;
+  --line-dark:rgba(255,255,255,.12);
+  --success:#167A63;
+
+  /* Arabic type scale */
+  --fs-caption:12px;
+  --fs-small:13px;
+  --fs-label:14px;
+  --fs-body:16px;
+  --fs-body-lg:18px;
+  --fs-h3:clamp(22px,1.8vw,27px);
+  --fs-h2:clamp(34px,3.5vw,48px);
+  --fs-h1:clamp(44px,5vw,68px);
+
+  --container:1240px;
+  --section:104px;
+
+  --r-sm:10px;
+  --r-md:16px;
+  --r-lg:24px;
+  --r-xl:32px;
+
+  --shadow-1:0 8px 26px rgba(7,18,29,.06);
+  --shadow-2:0 24px 64px rgba(7,18,29,.12);
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body,body *,button,input,select,textarea{
+  font-family:"Alexandria","Segoe UI",Tahoma,Arial,sans-serif!important;
+}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-size:var(--fs-body);
+  font-weight:400;
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{width:100%;height:100%;object-fit:cover;display:block}
+button,input,select,textarea{font:inherit}
+svg{display:block}
+::selection{background:var(--champagne-soft);color:var(--navy-900)}
+
+.container{width:min(var(--container),calc(100% - 40px));margin-inline:auto}
+.section{padding:var(--section) 0}
+.section-sm{padding:72px 0}
+.section-soft{background:var(--surface-2)}
+.section-dark{background:var(--navy-900);color:#fff}
+
+h1,h2,h3,p{margin-top:0}
+h1,h2,h3{
+  color:var(--navy-900);
+  letter-spacing:0;
+}
+h1{
+  font-size:var(--fs-h1);
+  line-height:1.3;
+  font-weight:700;
+  margin-bottom:22px;
+}
+h2{
+  font-size:var(--fs-h2);
+  line-height:1.4;
+  font-weight:700;
+  margin-bottom:17px;
+}
+h3{
+  font-size:var(--fs-h3);
+  line-height:1.48;
+  font-weight:600;
+  margin-bottom:9px;
+}
+p{
+  color:var(--muted);
+  font-size:var(--fs-body);
+  line-height:1.9;
+  font-weight:400;
+}
+
+.kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  color:var(--champagne);
+  font-size:var(--fs-small);
+  line-height:1.7;
+  font-weight:500;
+  margin-bottom:14px;
+}
+.kicker:before{content:"";width:32px;height:1px;background:currentColor}
+.section-dark .kicker{color:var(--champagne-2)}
+
+.btn{
+  min-height:52px;
+  padding:0 22px;
+  border-radius:10px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  border:1px solid transparent;
+  font-size:15px;
+  font-weight:600;
+  line-height:1.4;
+  cursor:pointer;
+  transition:.22s var(--ease);
+}
+.btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
+.btn-primary{background:var(--navy-900);color:#fff}
+.btn-primary:hover{background:var(--navy-800);transform:translateY(-2px);box-shadow:var(--shadow-1)}
+.btn-gold{background:var(--champagne);color:#18120B}
+.btn-gold:hover{background:#C5A26B;transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--navy-900);border-color:#CDD3D7}
+.btn-outline:hover{border-color:var(--navy-900);background:#fff}
+.btn-light{background:#fff;color:var(--navy-900)}
+
+.pattern-grid{position:relative;isolation:isolate}
+.pattern-grid>*{position:relative;z-index:2}
+.pattern-grid:after{
+  content:"";
+  position:absolute;z-index:0;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(10,23,36,.028) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(10,23,36,.028) 1px,transparent 1px);
+  background-size:38px 38px;
+  mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+}
+.section-dark.pattern-grid:after{
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+}
+
+/* Header */
+.topline{background:var(--navy-950);color:#C4CFD8;font-size:11px}
+.topline .container{min-height:36px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.topline-links{display:flex;gap:20px}
+.header{
+  position:sticky;top:0;z-index:80;
+  background:rgba(251,250,248,.94);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(226,229,231,.9)
+}
+.header-inner{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.brand{display:flex;align-items:center;gap:12px;min-width:268px}
+.brand-mark{
+  width:46px;height:46px;border-radius:11px;background:var(--navy-900);
+  display:grid;place-items:center;color:var(--champagne-2)
+}
+.brand-mark svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.55}
+.brand-name{font-size:15px;line-height:1.55;font-weight:700;color:var(--navy-900)}
+.brand-name small{display:block;font-size:10px;line-height:1.4;color:#85909A;font-weight:500;letter-spacing:.4px}
+.nav{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:500;color:#4C5B69}
+.nav a{padding:10px 1px;position:relative}
+.nav a:after{
+  content:"";position:absolute;right:0;left:0;bottom:4px;height:1px;background:var(--champagne);
+  transform:scaleX(0);transition:.2s
+}
+.nav a:hover{color:var(--navy-900)}
+.nav a:hover:after{transform:scaleX(1)}
+.header-actions{display:flex;gap:8px}
+.mobile-menu{display:none}
+
+/* Breadcrumb */
+.breadcrumb{
+  padding:17px 0 0;
+  color:#7E8B96;
+  font-size:12px;
+}
+.breadcrumb a{color:#596A78}
+.breadcrumb span{margin:0 8px;color:#B1BAC0}
+
+/* Hero */
+.product-hero{padding:18px 0 0}
+.hero-frame{
+  min-height:600px;
+  display:grid;
+  grid-template-columns:.95fr 1.05fr;
+  border-radius:var(--r-xl);
+  overflow:hidden;
+  background:#fff;
+  border:1px solid var(--line);
+}
+.hero-copy{
+  padding:66px 58px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  position:relative;
+}
+.hero-copy:before{
+  content:"";position:absolute;top:30px;right:58px;width:76px;height:2px;
+  background:linear-gradient(90deg,var(--champagne),transparent)
+}
+.hero-copy>p{font-size:var(--fs-body-lg);line-height:1.95;max-width:650px;margin-bottom:24px}
+.hero-copy h1 span{color:var(--champagne)}
+.hero-actions{display:flex;gap:9px;flex-wrap:wrap}
+.hero-points{
+  margin-top:34px;padding-top:22px;border-top:1px solid var(--line);
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px
+}
+.hero-point{display:flex;align-items:flex-start;gap:8px}
+.hero-point i{
+  width:7px;height:7px;border-radius:50%;background:var(--success);
+  flex:none;margin-top:8px
+}
+.hero-point span{font-size:12px;line-height:1.65;color:#657582}
+
+.hero-media{position:relative;min-height:600px;background:var(--navy-900);overflow:hidden}
+.hero-media:after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(0deg,rgba(7,18,29,.52),transparent 48%)
+}
+.hero-media:before{
+  content:"";position:absolute;z-index:2;top:26px;left:26px;width:78px;height:78px;
+  border-top:1px solid rgba(215,188,138,.72);border-left:1px solid rgba(215,188,138,.72)
+}
+.hero-label{
+  position:absolute;z-index:3;right:24px;bottom:24px;
+  padding:15px 18px;border-radius:14px;background:rgba(7,18,29,.83);
+  border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);color:#fff
+}
+.hero-label small{display:block;color:var(--champagne-2);font-size:10px;margin-bottom:3px}
+.hero-label strong{font-size:15px;font-weight:600}
+
+/* Anchor nav */
+.page-nav{padding:14px 0 0}
+.page-nav-inner{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  padding:10px;border:1px solid var(--line);border-radius:15px;background:#fff
+}
+.page-nav a{
+  padding:8px 12px;border-radius:8px;color:#596A77;font-size:12px;font-weight:500
+}
+.page-nav a:hover{background:var(--surface-2);color:var(--navy-900)}
+
+/* Main content with sticky form */
+.content-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 365px;
+  gap:42px;
+  align-items:start;
+}
+.article{min-width:0}
+.article-section{
+  padding:0 0 62px;
+  margin-bottom:62px;
+  border-bottom:1px solid var(--line)
+}
+.article-section:last-child{border-bottom:0;margin-bottom:0}
+.article-section>p{max-width:790px}
+
+.info-lead{
+  font-size:18px!important;
+  line-height:2!important;
+  color:#465B6C!important;
+  max-width:820px!important;
+}
+.feature-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:24px
+}
+.feature{
+  padding:20px;border:1px solid var(--line);border-radius:16px;background:#fff;
+  display:grid;grid-template-columns:46px 1fr;gap:13px
+}
+.feature-icon{
+  width:46px;height:46px;border-radius:13px;
+  display:grid;place-items:center;
+  background:var(--champagne-soft);color:#89652F;border:1px solid #E4D5BA
+}
+.feature-icon svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.65}
+.feature h3{font-size:17px;margin:1px 0 4px}
+.feature p{font-size:13px;line-height:1.8;margin:0}
+
+.how-grid{
+  margin-top:26px;
+  display:grid;
+  grid-template-columns:.82fr 1.18fr;
+  gap:16px
+}
+.tech-image{
+  min-height:390px;border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--line);
+  display:grid;place-items:center;padding:24px
+}
+.tech-image img{object-fit:contain}
+.how-list{display:grid;gap:10px}
+.how-item{
+  padding:20px;border-radius:16px;background:#fff;border:1px solid var(--line);
+  display:grid;grid-template-columns:42px 1fr;gap:12px
+}
+.how-no{
+  width:42px;height:42px;border-radius:12px;background:var(--navy-900);color:#fff;
+  display:grid;place-items:center;font-size:11px;font-weight:600
+}
+.how-item h3{font-size:17px;margin:1px 0 4px}
+.how-item p{font-size:13px;margin:0;line-height:1.8}
+
+/* Sticky form */
+.form-card{
+  position:sticky;
+  top:100px;
+  border-radius:20px;
+  background:#fff;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-1);
+  overflow:hidden
+}
+.form-top{
+  padding:22px 22px 19px;
+  background:var(--navy-900);color:#fff
+}
+.form-top .kicker{margin-bottom:9px}
+.form-top h3{color:#fff;font-size:22px;margin-bottom:6px}
+.form-top p{font-size:12px;line-height:1.8;color:#B9C6D0;margin:0}
+.form-body{padding:20px}
+.field{display:grid;gap:6px;margin-bottom:11px}
+.field label{font-size:12px;font-weight:500;color:#5C6E7C}
+.field input,.field select,.field textarea{
+  width:100%;min-height:48px;border:1px solid #D7DCE0;border-radius:9px;
+  background:#FAFAF9;padding:0 12px;outline:none;color:var(--ink);font-size:14px;font-weight:400
+}
+.field textarea{height:82px;padding:11px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:var(--champagne);box-shadow:0 0 0 3px rgba(185,146,86,.11);background:#fff
+}
+.form-body .btn{width:100%;margin-top:4px}
+.form-note{text-align:center;font-size:11px;color:#89949C;margin:9px 0 0}
+.form-contact{
+  display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px
+}
+.mini-contact{
+  min-height:40px;border-radius:8px;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  font-size:11px;font-weight:500;color:#526575
+}
+.mini-contact:hover{border-color:#AEB8C0;color:var(--navy-900)}
+
+/* Use cases */
+.use-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.use-card{
+  min-height:172px;padding:19px;border-radius:16px;background:#fff;border:1px solid var(--line);
+  position:relative;overflow:hidden
+}
+.use-card:after{
+  content:"";position:absolute;left:-30px;bottom:-36px;width:100px;height:100px;
+  border-radius:28px;transform:rotate(18deg);background:var(--champagne-soft)
+}
+.use-card h3{font-size:17px;position:relative;z-index:2}
+.use-card p{font-size:13px;line-height:1.8;margin:0;position:relative;z-index:2}
+.use-tag{
+  display:inline-block;margin-bottom:24px;color:var(--champagne);font-size:10px;font-weight:600;
+  position:relative;z-index:2
+}
+
+/* Decision factors */
+.factor-list{display:grid;gap:10px;margin-top:24px}
+.factor{
+  padding:18px 0;border-top:1px solid var(--line);
+  display:grid;grid-template-columns:48px 1fr;gap:14px
+}
+.factor:first-child{border-top:0;padding-top:0}
+.factor-no{color:var(--champagne);font-size:12px;font-weight:700;padding-top:3px}
+.factor h3{font-size:17px;margin-bottom:4px}
+.factor p{font-size:13px;margin:0}
+
+/* Process */
+.process-list{display:grid;gap:0;margin-top:26px;position:relative}
+.process-list:before{
+  content:"";position:absolute;right:23px;top:25px;bottom:25px;width:1px;background:#D6DBDF
+}
+.process-step{
+  display:grid;grid-template-columns:48px 1fr;gap:16px;padding:0 0 24px;position:relative
+}
+.process-dot{
+  width:46px;height:46px;border-radius:50%;background:var(--navy-900);color:#fff;
+  display:grid;place-items:center;font-size:11px;font-weight:600;z-index:2;
+  box-shadow:0 0 0 7px var(--paper)
+}
+.process-step h3{font-size:17px;margin:2px 0 3px}
+.process-step p{font-size:13px;margin:0}
+
+/* FAQ */
+.faq{display:grid;gap:9px;margin-top:24px}
+.faq details{
+  border:1px solid var(--line);border-radius:13px;background:#fff;overflow:hidden
+}
+.faq summary{
+  list-style:none;padding:16px 18px;cursor:pointer;font-size:14px;font-weight:600;color:var(--navy-900);
+  display:flex;align-items:center;justify-content:space-between;gap:16px
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";font-size:20px;font-weight:400;color:var(--champagne)}
+.faq details[open] summary:after{content:"−"}
+.faq .answer{padding:0 18px 17px;color:var(--muted);font-size:13px;line-height:1.9}
+
+/* Inline CTA */
+.inline-cta{
+  padding:28px;border-radius:20px;background:var(--navy-900);color:#fff;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:26px;
+  position:relative;overflow:hidden
+}
+.inline-cta:after{
+  content:"";position:absolute;left:-35px;top:-50px;width:145px;height:145px;border-radius:50%;
+  border:1px solid rgba(215,188,138,.20)
+}
+.inline-cta h3{color:#fff;font-size:21px;margin-bottom:4px}
+.inline-cta p{color:#B8C5CE;font-size:12px;margin:0}
+.inline-cta .btn{position:relative;z-index:2;flex:none}
+
+/* Related */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.related-card{
+  background:#fff;border:1px solid var(--line);border-radius:17px;overflow:hidden;
+  transition:.22s var(--ease)
+}
+.related-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-1)}
+.related-img{height:170px;overflow:hidden}
+.related-card:hover img{transform:scale(1.03)}
+.related-img img{transition:.4s var(--ease)}
+.related-copy{padding:17px}
+.related-copy small{font-size:10px;color:var(--champagne);font-weight:600}
+.related-copy h3{font-size:17px;margin:4px 0}
+.related-copy p{font-size:12px;line-height:1.75;margin:0}
+
+/* Bottom CTA */
+.bottom-cta{
+  padding:54px;border-radius:var(--r-xl);background:var(--navy-900);color:#fff;
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:36px
+}
+.bottom-cta h2{color:#fff;margin-bottom:8px}
+.bottom-cta p{color:#B8C5CF;max-width:700px;margin:0}
+.bottom-actions{display:flex;gap:9px}
+
+/* Footer */
+.footer{background:var(--navy-950);color:#A8B7C3;padding:52px 0 30px}
+.footer .brand-name{color:#fff}
+.footer-grid{display:grid;grid-template-columns:1.3fr .7fr .7fr;gap:48px}
+.footer-copy{font-size:12px;color:#718697;max-width:430px;margin-top:14px}
+.footer-title{color:#fff;font-size:12px;font-weight:600;margin-bottom:11px}
+.footer-links{display:grid;gap:7px;color:#718697;font-size:12px}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.08);margin-top:32px;padding-top:17px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#587082;font-size:10px
+}
+.mobile-actions{display:none}
+
+/* Responsive */
+@media(max-width:1080px){
+  .nav{display:none}
+  .header-actions .btn-outline{display:none}
+  .mobile-menu{display:block;position:relative}
+  .mobile-menu summary{
+    list-style:none;width:46px;height:46px;border:1px solid var(--line);
+    border-radius:10px;background:#fff;display:grid;place-items:center;cursor:pointer
+  }
+  .mobile-menu summary::-webkit-details-marker{display:none}
+  .mobile-menu nav{
+    position:absolute;top:56px;left:0;width:230px;padding:8px;background:#fff;
+    border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow-2);display:grid
+  }
+  .mobile-menu nav a{padding:10px;border-radius:8px;font-size:12px;font-weight:500}
+  .mobile-menu nav a:hover{background:var(--surface-2)}
+  .content-layout{grid-template-columns:minmax(0,1fr) 330px;gap:28px}
+}
+@media(max-width:860px){
+  :root{--section:82px}
+  .topline{display:none}
+  .header-inner{min-height:68px}
+  .brand{min-width:0}
+  .brand-mark{width:42px;height:42px}
+  .brand-name{font-size:12px}
+  .brand-name small{display:none}
+  .header-actions{display:none}
+
+  .hero-frame{grid-template-columns:1fr}
+  .hero-copy{padding:54px 28px 38px}
+  .hero-media{min-height:460px}
+  .content-layout{grid-template-columns:1fr}
+  .form-card{position:relative;top:auto;grid-row:1;margin-bottom:10px}
+  .article{grid-row:2}
+  .how-grid{grid-template-columns:1fr}
+  .tech-image{min-height:340px}
+  .use-grid{grid-template-columns:1fr 1fr}
+  .related-grid{grid-template-columns:1fr 1fr}
+  .bottom-cta{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:25px}
+
+  .mobile-actions{
+    display:grid;grid-template-columns:1fr 1fr;gap:8px;
+    position:fixed;z-index:100;right:10px;left:10px;bottom:10px;
+    padding:8px;background:rgba(255,255,255,.95);border:1px solid var(--line);
+    border-radius:14px;backdrop-filter:blur(15px);box-shadow:var(--shadow-2)
+  }
+  .footer{padding-bottom:104px}
+}
+@media(max-width:560px){
+  :root{
+    --fs-body:15px;
+    --fs-body-lg:16px;
+    --fs-h3:22px;
+    --fs-h2:clamp(30px,8vw,36px);
+    --fs-h1:clamp(38px,10vw,46px)
+  }
+  .container{width:min(var(--container),calc(100% - 22px))}
+  h1{line-height:1.38}
+  h2{line-height:1.45}
+  .breadcrumb{font-size:11px}
+  .hero-actions{display:grid;grid-template-columns:1fr}
+  .hero-points{grid-template-columns:1fr 1fr}
+  .hero-point:last-child{grid-column:1/-1}
+  .hero-media{min-height:350px}
+  .page-nav{display:none}
+  .feature-grid,.use-grid,.related-grid{grid-template-columns:1fr}
+  .inline-cta{display:grid}
+  .bottom-cta{padding:30px 22px}
+  .bottom-actions{display:grid;grid-template-columns:1fr}
+  .form-contact{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{transition:none!important}
+}
+</style>
+<link rel="stylesheet" href="assets/css/global.css?v=1.0">
+</head>
+<body>
+<div class="topline">
+<div class="container">
+<span>توريد • تركيب • صيانة • تحديث المصاعد</span>
+<div class="topline-links">
+<a href="tel:01060781020">01060781020</a>
+<a href="https://wa.me/201276611628" rel="noopener" target="_blank">واتساب 01276611628</a>
+</div>
+</div>
+</div>
+<header class="header">
+<div class="container header-inner">
+<a class="brand" href="#">
+<span class="brand-mark">
+<svg viewbox="0 0 24 24"><path d="M7 20V4h10v16M4 20h16M9.2 8.5 12 5.7l2.8 2.8M9.2 15.5 12 18.3l2.8-2.8"></path></svg>
+</span>
+<span class="brand-name">القاهرة الجديدة للمصاعد<small>NEW CAIRO ELEVATORS</small></span>
+</a>
+<nav class="nav">
+<a href="#about">عن الخدمة</a>
+<a href="#features">المميزات</a>
+<a href="#suitable">مناسب لمين</a>
+<a href="#process">خطوات التنفيذ</a>
+<a href="#faq">الأسئلة الشائعة</a>
+</nav>
+<div class="header-actions">
+<a class="btn btn-outline" href="https://wa.me/201276611628" rel="noopener" target="_blank">واتساب</a>
+<a class="btn btn-primary" href="#quote">اطلب معاينة</a>
+</div>
+<details class="mobile-menu">
+<summary>☰</summary>
+<nav>
+<a href="#about">عن الخدمة</a>
+<a href="#features">المميزات</a>
+<a href="#suitable">مناسب لمين</a>
+<a href="#process">خطوات التنفيذ</a>
+<a href="#faq">الأسئلة الشائعة</a>
+</nav>
+</details>
+</div>
+</header>
+<main>
+<div class="container breadcrumb"><a href="#">الرئيسية</a><span>›</span><a href="#">الخدمات والمنتجات</a><span>›</span>مصعد جيربوكس أبواب أوتوماتيك</div>
+<section class="product-hero">
+<div class="container">
+<div class="hero-frame">
+<div class="hero-copy">
+<div class="kicker">GEARBOX + AUTOMATIC DOORS</div>
+<h1>جيربوكس مع أبواب أوتوماتيك: راحة استخدام أعلى في كل توقف.</h1>
+<p>يجمع بين منظومة الجر بالجيربوكس والأبواب الأوتوماتيك لتقديم تجربة دخول وخروج أكثر سهولة ومظهر أكثر تكاملًا، مع تحديد نوع الباب ومقاسه وفق البئر ومساحة الدور.</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#quote">
+            اطلب معاينة
+            <svg viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+<a class="btn btn-outline" href="https://wa.me/201276611628" rel="noopener" target="_blank">تواصل على واتساب</a>
+</div>
+<div class="hero-points">
+<div class="hero-point"><i></i><span>فتح وغلق أوتوماتيكي</span></div>
+<div class="hero-point"><i></i><span>حل مناسب للسكني والتجاري</span></div>
+<div class="hero-point"><i></i><span>تكامل بين الماكينة والأبواب</span></div>
+</div>
+</div>
+<div class="hero-media">
+<img alt="مصعد جيربوكس أبواب أوتوماتيك" src="https://liftquotes.com.au/_next/image?q=75&amp;url=%2Fimages%2Fhero-commercial-lifts.webp&amp;w=3840"/>
+<div class="hero-label">
+<small>PRODUCT PAGE / 01</small>
+<strong>GEARBOX + AUTOMATIC DOORS</strong>
+</div>
+</div>
+</div>
+<div class="page-nav">
+<div class="page-nav-inner">
+<a href="#about">عن الخدمة</a>
+<a href="#features">المميزات</a>
+<a href="#suitable">الاستخدامات</a>
+<a href="#decision">عوامل الاختيار</a>
+<a href="#process">خطوات التنفيذ</a>
+<a href="#faq">FAQ</a>
+</div>
+</div>
+</div>
+</section>
+<section class="section pattern-grid">
+<div class="container content-layout">
+<article class="article">
+<section class="article-section" id="about">
+<div class="kicker">عن مصعد جيربوكس أبواب أوتوماتيك</div>
+<h2>نظام الجر التقليدي مع تجربة أبواب أكثر راحة.</h2>
+<p class="info-lead">يستخدم المصعد ماكينة جيربوكس لتحريك منظومة الجر، بينما تعمل أبواب الكابينة والأدوار آليًا وفق نظام التحكم. هذا يقلل الحاجة للتعامل اليدوي مع الأبواب ويعطي تجربة استخدام أكثر تطورًا.</p>
+<div class="how-grid">
+<div class="tech-image">
+<img alt="مصعد جيربوكس أبواب أوتوماتيك" src="https://liftquotes.com.au/_next/image?q=75&amp;url=%2Fimages%2Fhero-commercial-lifts.webp&amp;w=3840"/>
+</div>
+<div class="how-list"><div class="how-item"><div class="how-no">01</div><div><h3>جر جيربوكس</h3><p>الماكينة وصندوق التروس يحركان منظومة الجر.</p></div></div><div class="how-item"><div class="how-no">02</div><div><h3>مشغل أبواب أوتوماتيك</h3><p>يدير فتح وغلق الأبواب في التوقيت المناسب.</p></div></div><div class="how-item"><div class="how-no">03</div><div><h3>تكامل مع التحكم</h3><p>لوحة التحكم تنسق الحركة والتوقف وفتح الأبواب.</p></div></div></div>
+</div>
+</section>
+<section class="article-section" id="features">
+<div class="kicker">المميزات الرئيسية</div>
+<h2>المهم هو تأثير الحل على الاستخدام اليومي.</h2>
+<p>المواصفات النهائية لكل مشروع يتم تأكيدها بعد المعاينة والعرض الفني؛ وهذه أهم النقاط التي نراجعها عند اختيار الحل.</p>
+<div class="feature-grid"><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"></path></svg></div><div><h3>راحة يومية</h3><p>لا يحتاج المستخدم لفتح الباب يدويًا.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM8 12l3 3 5-6"></path></svg></div><div><h3>شكل متكامل</h3><p>الأبواب الأوتوماتيك تمنح المدخل طابعًا أحدث.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M13 2 6 13h5l-1 9 8-12h-5V2Z"></path></svg></div><div><h3>مفيد للاستخدام المتكرر</h3><p>يساعد على دخول وخروج أكثر سلاسة.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M4 20V4h16v16M12 4v16M8 12h1M15 12h1"></path></svg></div><div><h3>خيارات أبواب</h3><p>المقاس وطريقة الفتح حسب عرض البئر.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M14 6a4 4 0 0 0-5.5 5.5L4 16l4 4 4.5-4.5A4 4 0 0 0 18 10l-3 3-4-4 3-3Z"></path></svg></div><div><h3>سكني وتجاري</h3><p>يمكن تخصيص الماكينة والباب والتحكم.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M4 20V7l8-4 8 4v13M8 20V9h8v11"></path></svg></div><div><h3>إمكانية التحديث</h3><p>يمكن دراسة تحديث الأبواب في بعض المصاعد القائمة.</p></div></div></div>
+<div class="inline-cta">
+<div>
+<h3>مش متأكد إن ده الحل المناسب لمشروعك؟</h3>
+<p>المعاينة تحدد الأبعاد والاستخدام والتجهيزات قبل اختيار النظام.</p>
+</div>
+<a class="btn btn-gold" href="#quote">اطلب معاينة</a>
+</div>
+</section>
+<section class="article-section" id="suitable">
+<div class="kicker">أين يناسب هذا الحل؟</div>
+<h2>الاستخدام يحدد الأولويات والمواصفات.</h2>
+<p>نفس نوع المصعد قد يحتاج تكوينًا مختلفًا حسب طبيعة المبنى وحجم الحركة.</p>
+<div class="use-grid"><div class="use-card"><span class="use-tag">RESIDENTIAL</span><h3>العمارات</h3><p>لسهولة الاستخدام وشكل المدخل.</p></div><div class="use-card"><span class="use-tag">OFFICES</span><h3>المكاتب</h3><p>لحركة المستخدمين المتكررة.</p></div><div class="use-card"><span class="use-tag">COMMERCIAL</span><h3>التجاري</h3><p>لمشروعات ذات حركة مرتفعة.</p></div><div class="use-card"><span class="use-tag">NEW BUILD</span><h3>مبنى جديد</h3><p>لتخطيط عرض الفتحات منذ البداية.</p></div><div class="use-card"><span class="use-tag">UPGRADE</span><h3>تحديث مصعد</h3><p>بعد مراجعة البئر والتحكم الحالي.</p></div><div class="use-card"><span class="use-tag">PREMIUM</span><h3>تشطيب متكامل</h3><p>لتنسيق الباب والكبينة مع المشروع.</p></div></div>
+</section>
+<section class="article-section" id="decision">
+<div class="kicker">قبل اختيار الحل</div>
+<h2>4 عوامل نراجعها قبل العرض.</h2>
+<p>الهدف أن تكون المواصفات مبنية على المبنى والاستخدام الفعلي، وليس على اسم المنتج وحده.</p>
+<div class="factor-list"><div class="factor"><div class="factor-no">01</div><div><h3>عرض البئر</h3><p>نوع الباب وطريقة الفتح تعتمدان على المساحة.</p></div></div><div class="factor"><div class="factor-no">02</div><div><h3>حركة المستخدمين</h3><p>تؤثر على اختيار مشغل الباب.</p></div></div><div class="factor"><div class="factor-no">03</div><div><h3>الماكينة والتحكم</h3><p>يجب أن تعمل المنظومة كوحدة متوافقة.</p></div></div><div class="factor"><div class="factor-no">04</div><div><h3>التشطيب</h3><p>الحلق والباب يحتاجان تنسيقًا مع الطوابق.</p></div></div></div>
+</section>
+<section class="article-section" id="process">
+<div class="kicker">خطوات التنفيذ</div>
+<h2>من أول مكالمة إلى التشغيل والمتابعة.</h2>
+<p>نفس المسار سيظهر في جميع صفحات المنتجات لأن طريقة العمل جزء ثابت من تجربة الشركة.</p>
+<div class="process-list">
+<div class="process-step"><div class="process-dot">01</div><div><h3>التواصل الأولي</h3><p>إرسال بيانات المشروع الأساسية وتحديد موعد مناسب للمعاينة.</p></div></div>
+<div class="process-step"><div class="process-dot">02</div><div><h3>المعاينة الميدانية</h3><p>تقييم البئر والمساحة والتجهيزات وطبيعة الاستخدام الفعلية.</p></div></div>
+<div class="process-step"><div class="process-dot">03</div><div><h3>العرض الفني والمالي</h3><p>تحديد النظام والمكونات والتشطيب وخطة التنفيذ وفق احتياج المشروع.</p></div></div>
+<div class="process-step"><div class="process-dot">04</div><div><h3>الاتفاق والتجهيز</h3><p>اعتماد المواصفات والبدء في تجهيز المكونات وأعمال الموقع المطلوبة.</p></div></div>
+<div class="process-step"><div class="process-dot">05</div><div><h3>التركيب والضبط</h3><p>تنفيذ أعمال التركيب والتوصيلات وضبط منظومة التشغيل.</p></div></div>
+<div class="process-step"><div class="process-dot">06</div><div><h3>الاختبار والتسليم</h3><p>اختبار التشغيل والحركة والأبواب والأنظمة المرتبطة قبل التسليم.</p></div></div>
+<div class="process-step"><div class="process-dot">07</div><div><h3>الصيانة والمتابعة</h3><p>تحديد برنامج المتابعة والصيانة المناسب بعد التشغيل.</p></div></div>
+</div>
+</section>
+<section class="article-section" id="faq">
+<div class="kicker">الأسئلة الشائعة</div>
+<h2>أسئلة مهمة عن مصعد جيربوكس أبواب أوتوماتيك.</h2>
+<div class="faq"><details open=""><summary>ما الفرق عن الأبواب اليدوية؟</summary><div class="answer">الأوتوماتيك تفتح وتغلق آليًا وتوفر استخدامًا أكثر راحة.</div></details><details><summary>هل يمكن إضافتها لمصعد قائم؟</summary><div class="answer">قد يكون ممكنًا بعد مراجعة البئر والفتحات والتحكم.</div></details><details><summary>هل الأبواب تحتاج صيانة؟</summary><div class="answer">نعم، المشغل والحساسات والأجزاء المتحركة تحتاج متابعة.</div></details><details><summary>هل يصلح للعمارات؟</summary><div class="answer">نعم إذا سمحت أبعاد البئر بالمواصفات المطلوبة.</div></details><details><summary>هل يمكن اختيار الشكل؟</summary><div class="answer">الخامات والمقاسات تُحدد ضمن الخيارات المناسبة للمشروع.</div></details><details><summary>كيف أحدد المقاس؟</summary><div class="answer">المعاينة وقياس فتحة البئر هما البداية الصحيحة.</div></details></div>
+</section>
+<section class="article-section">
+<div class="kicker">منتجات أخرى</div>
+<h2>أنواع مصاعد أخرى للمقارنة.</h2>
+<p>في النسخ التالية من التمبلت يتم تغيير المحتوى والصور فقط مع الحفاظ على نفس الهيكل البصري.</p>
+<div class="related-grid">
+<a class="related-card" href="#">
+<div class="related-img"><img alt="مصعد هيدروليك بانوراما" src="https://static.gooecloud.com/upload/img/GY076088693142/a-modern-luxury-villa-featuring-a-sleek-glass-home-elevator-2.jpg?x-oss-process=image%2Fformat%2Cwebp%2Fquality%2CQ_100"/></div>
+<div class="related-copy"><small>PANORAMIC HYDRAULIC</small><h3>هيدروليك بانوراما</h3><p>حل للفيلات والمشروعات التي تجمع بين الحركة والتصميم البانورامي.</p></div>
+</a>
+<a class="related-card" href="#">
+<div class="related-img"><img alt="مصعد جيربوكس" src="https://liftquotes.com.au/_next/image?q=75&amp;url=%2Fimages%2Fhero-commercial-lifts.webp&amp;w=3840"/></div>
+<div class="related-copy"><small>GEARBOX</small><h3>مصعد جيربوكس</h3><p>حل عملي للمباني السكنية والتجارية وفق احتياج المشروع.</p></div>
+</a>
+<a class="related-card" href="#">
+<div class="related-img"><img alt="مصعد خارجي" src="https://newcairoelevators.com/img/01.jpg"/></div>
+<div class="related-copy"><small>OUTDOOR</small><h3>مصعد خارجي</h3><p>حل لإضافة المصعد خارج كتلة المبنى بعد دراسة الواجهة والمساحة.</p></div>
+</a>
+</div>
+</section>
+</article>
+<aside class="form-card" id="quote">
+<div class="form-top">
+<div class="kicker">اطلب معاينة</div>
+<h3>عايز جيربوكس بأبواب أوتوماتيك؟</h3>
+<p>أرسل بيانات بسيطة وسنتواصل معك لتحديد الاحتياج والخطوة التالية.</p>
+</div>
+<form class="form-body" onsubmit="event.preventDefault();document.getElementById('formMsg').textContent='تم تسجيل الطلب في نسخة الديمو — سيتم ربط النموذج بنظام استقبال الطلبات عند التنفيذ.';">
+<input name="product" type="hidden" value="مصعد جيربوكس أبواب أوتوماتيك"/>
+<div class="field">
+<label for="name">الاسم</label>
+<input id="name" name="name" placeholder="اكتب اسمك" required="" type="text"/>
+</div>
+<div class="field">
+<label for="phone">رقم الموبايل</label>
+<input id="phone" inputmode="tel" name="phone" placeholder="01xxxxxxxxx" required="" type="tel"/>
+</div>
+<div class="field">
+<label for="project">نوع المشروع</label>
+<select id="project" name="project" required="">
+<option value="">اختر نوع المشروع</option>
+<option>فيلا</option>
+<option>عمارة سكنية</option>
+<option>مبنى إداري</option>
+<option>مبنى تجاري</option>
+<option>مبنى قائم يحتاج تحديث</option>
+<option>أخرى</option>
+</select>
+</div>
+<div class="field">
+<label for="floors">عدد الأدوار</label>
+<select id="floors" name="floors">
+<option value="">اختر إن أمكن</option>
+<option>2 - 4 أدوار</option>
+<option>5 - 8 أدوار</option>
+<option>9 أدوار أو أكثر</option>
+<option>غير محدد بعد</option>
+</select>
+</div>
+<div class="field">
+<label for="area">المنطقة</label>
+<input id="area" name="area" placeholder="مثال: التجمع الخامس" type="text"/>
+</div>
+<div class="field">
+<label for="notes">معلومة إضافية — اختياري</label>
+<textarea id="notes" name="notes" placeholder="مثال: المصعد لمبنى قائم أو مشروع جديد"></textarea>
+</div>
+<button class="btn btn-gold" type="submit">إرسال طلب المعاينة</button>
+<p class="form-note" id="formMsg">لن نطلب منك تفاصيل طويلة قبل التواصل.</p>
+<div class="form-contact">
+<a class="mini-contact" href="tel:01060781020">☎ 01060781020</a>
+<a class="mini-contact" href="https://wa.me/201276611628" rel="noopener" target="_blank">واتساب مباشر</a>
+</div>
+</form>
+</aside>
+</div>
+</section>
+<section class="section-sm section-dark pattern-grid">
+<div class="container">
+<div class="bottom-cta">
+<div>
+<div class="kicker">الخطوة التالية</div>
+<h2>اختيار المصعد يبدأ من معاينة المشروع.</h2>
+<p>تواصل معنا لتحديد النظام المناسب ومساحة البئر والمواصفات المطلوبة قبل اتخاذ قرار الشراء.</p>
+</div>
+<div class="bottom-actions">
+<a class="btn btn-gold" href="#quote">اطلب معاينة</a>
+<a class="btn btn-light" href="https://wa.me/201276611628" rel="noopener" target="_blank">واتساب</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div>
+<a class="brand" href="#">
+<span class="brand-mark">
+<svg viewbox="0 0 24 24"><path d="M7 20V4h10v16M4 20h16M9.2 8.5 12 5.7l2.8 2.8M9.2 15.5 12 18.3l2.8-2.8"></path></svg>
+</span>
+<span class="brand-name">القاهرة الجديدة للمصاعد<small>NEW CAIRO ELEVATORS</small></span>
+</a>
+<p class="footer-copy">توريد وتركيب وصيانة وتحديث المصاعد للمباني السكنية والتجارية والفيلات.</p>
+</div>
+<div>
+<div class="footer-title">أنواع المصاعد</div>
+<div class="footer-links">
+<a href="#">مصعد مستشفيات</a>
+<a href="#">مصعد خارجي</a>
+<a href="#">مصعد جيربوكس</a>
+<a href="#">مصعد كهربا</a>
+<a href="#">هيدروليك بانوراما</a>
+<a href="#">مصعد جيرلس</a>
+</div>
+</div>
+<div>
+<div class="footer-title">تواصل</div>
+<div class="footer-links">
+<a href="tel:01060781020">01060781020</a>
+<a href="https://wa.me/201276611628" rel="noopener" target="_blank">01276611628 — واتساب</a>
+<a href="#quote">طلب معاينة</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© 2026 القاهرة الجديدة للمصاعد</span>
+<span>Product Page System v1 · Premium Corporate · Alexandria Arabic UI</span>
+</div>
+</div>
+</footer>
+<div class="mobile-actions">
+<a class="btn btn-outline" href="tel:01060781020">اتصال</a>
+<a class="btn btn-primary" href="https://wa.me/201276611628" rel="noopener" target="_blank">واتساب</a>
+</div>
+<script>
+document.querySelectorAll('.mobile-menu a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    const d=a.closest('details');
+    if(d) d.open=false;
+  });
+});
+</script>
+</body>
+</html>
