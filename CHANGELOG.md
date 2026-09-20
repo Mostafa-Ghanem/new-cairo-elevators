@@ -2,6 +2,14 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-09-20
+
+### Changed — Brand logo in shared header/footer
+- نقل ملف الشعار الأصلي من `assets/Logo.png` إلى `assets/images/brand/logo-source.png` لتنظيم أصول الهوية داخل مسار مخصص.
+- إنشاء نسخة Web محسنة `assets/images/brand/logo.png` بمقاس 384×384 بدل تحميل الأصل 1254×1254 في كل صفحة؛ الحجم انخفض من نحو 1.52MB إلى نحو 192KB.
+- استبدال أيقونة الـplaceholder في `components/site-header.html` و`components/site-footer.html` بالشعار الفعلي مع الحفاظ على اسم الشركة النصي وAccessible label.
+- ضبط عرض الشعار كعلامة دائرية Responsive من خلال `assets/css/global.css` بدون CSS خاص داخل الصفحات.
+
 ## 2026-09-14
 
 ### Fixed — Mobile Elevators full-row trigger
