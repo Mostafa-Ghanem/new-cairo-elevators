@@ -4,6 +4,11 @@
 
 ## 2026-09-20
 
+### Changed — New production brand logo
+- اعتماد الشعار الجديد المرفوع بصيغة WebP كشعار الموقع الأساسي، وإعادة تسميته إلى `assets/images/brand/logo.webp` بدل اسم الملف الطويل المولّد تلقائيًا.
+- تحديث الـShared Header والـShared Footer لاستخدام `logo.webp` مباشرة، مع الحفاظ على أبعاد الصورة الأصلية 1254×1254 ونفس الـresponsive styling الحالي.
+- حذف الملف ذي الاسم المؤقت `ChatGPT Image Sep 20, 2026, 04_59_23 PM.webp` بعد نقله للاسم النهائي.
+
 ### Added — Product media upload folders
 - إضافة مجلد مستقل للصور لكل صفحة منتج تحت `assets/images/products/<product-slug>/`.
 - إضافة مجلد مستقل للفيديو لكل صفحة منتج تحت `assets/videos/products/<product-slug>/`.
