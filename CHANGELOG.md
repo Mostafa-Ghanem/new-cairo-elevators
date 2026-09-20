@@ -4,6 +4,11 @@
 
 ## 2026-09-20
 
+### Added — Product media upload folders
+- إضافة مجلد مستقل للصور لكل صفحة منتج تحت `assets/images/products/<product-slug>/`.
+- إضافة مجلد مستقل للفيديو لكل صفحة منتج تحت `assets/videos/products/<product-slug>/`.
+- إضافة ملفات `.gitkeep` فقط للحفاظ على المجلدات الفارغة في Git حتى يتم رفع أصول المنتجات الفعلية.
+
 ### Changed — Brand logo in shared header/footer
 - نقل ملف الشعار الأصلي من `assets/Logo.png` إلى `assets/images/brand/logo-source.png` لتنظيم أصول الهوية داخل مسار مخصص.
 - إنشاء نسخة Web محسنة `assets/images/brand/logo.png` بمقاس 384×384 بدل تحميل الأصل 1254×1254 في كل صفحة؛ الحجم انخفض من نحو 1.52MB إلى نحو 192KB.
