@@ -4,6 +4,14 @@
 
 ## 2026-09-21
 
+
+### Added — Product media integration on feature branch
+- ربط صور المنتجات المحلية بالـHero في صفحات المنتجات الحالية بدل الاعتماد على صور Hero خارجية.
+- إضافة Product Media Showcase موحّد للفيديوهات الفعلية باستخدام `controls`, `playsinline`, و`preload="metadata"` بدون autoplay.
+- إضافة معرض صور أفقي Responsive لصفحة `gearless-elevator.html` مع استخدام الصور المحلية بدون تكرار داخل الصفحة.
+- إضافة رابط «صور وفيديو» داخل Page Navigation للصفحات التي تحتوي على فيديو.
+- تنفيذ كل تنسيقات الميديا المشتركة داخل `assets/css/global.css` فقط، بدون CSS مشترك داخل ملفات الصفحات.
+- إبقاء `elevator-maintenance.html` بصورة Hero محلية فقط لعدم وجود فيديو صيانة في الملفات الحالية.
 ### Added — Product media imported from Drive
 - نقل صور وفيديوهات المنتجات من فولدر Google Drive المعتمد إلى مسارات الميديا المنظمة داخل `assets/images/products/` و`assets/videos/products/`.
 - اعتماد أسماء صفحات الموقع المنشورة كمرجع للمجلدات: `gearless-elevator`, `gearbox-elevator`, `gearbox-automatic-doors`, `electric-elevator`, `hydraulic-panoramic-elevator`, `hospital-elevator`, `outdoor-elevator`, `elevator-maintenance`.
