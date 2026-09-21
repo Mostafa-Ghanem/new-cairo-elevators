@@ -1,0 +1,70 @@
+name: One-time product media import
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  import-media:
+    if: github.event.head_commit.message == 'Stage product media import'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download original product videos
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/videos/products/electric-elevator \
+                   assets/videos/products/outdoor-elevator \
+                   assets/videos/products/hospital-elevator \
+                   assets/videos/products/hydraulic-panoramic-elevator \
+                   assets/videos/products/gearless-elevator \
+                   assets/videos/products/gearbox-automatic-doors \
+                   assets/videos/products/gearbox-elevator
+          curl -L --fail --retry 3 "https://github.com/Mostafa-Ghanem/new-cairo-elevators/releases/download/media-import-20260921/electric-elevator--overview.mp4" -o assets/videos/products/electric-elevator/overview.mp4
+          curl -L --fail --retry 3 "https://github.com/Mostafa-Ghanem/new-cairo-elevators/releases/download/media-import-20260921/outdoor-elevator--overview.mp4" -o assets/videos/products/outdoor-elevator/overview.mp4
+          curl -L --fail --retry 3 "https://github.com/Mostafa-Ghanem/new-cairo-elevators/releases/download/media-import-20260921/hospital-elevator--overview.mp4" -o assets/videos/products/hospital-elevator/overview.mp4
+          curl -L --fail --retry 3 "https://github.com/Mostafa-Ghanem/new-cairo-elevators/releases/download/media-import-20260921/hydraulic-panoramic-elevator--overview.mp4" -o assets/videos/products/hydraulic-panoramic-elevator/overview.mp4
+          curl -L --fail --retry 3 "https://github.com/Mostafa-Ghanem/new-cairo-elevators/releases/download/media-import-20260921/gearless-elevator--overview.mp4" -o assets/videos/products/gearless-elevator/overview.mp4
+          curl -L --fail --retry 3 "https://github.com/Mostafa-Ghanem/new-cairo-elevators/releases/download/media-import-20260921/gearbox-automatic-doors--automatic-doors.mp4" -o assets/videos/products/gearbox-automatic-doors/automatic-doors.mp4
+          curl -L --fail --retry 3 "https://github.com/Mostafa-Ghanem/new-cairo-elevators/releases/download/media-import-20260921/gearbox-automatic-doors--gearbox-overview.mp4" -o assets/videos/products/gearbox-elevator/overview.mp4
+          cp assets/videos/products/gearbox-elevator/overview.mp4 assets/videos/products/gearbox-automatic-doors/gearbox-overview.mp4
+
+      - name: Verify video integrity
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "9cbc3958ddb6afbabe1aec1b86feb72b16a90d7990793ffb6d5f947ae4c987a3  assets/videos/products/electric-elevator/overview.mp4" | sha256sum -c -
+          echo "f75d6ff36a21aa15d6d9e3528153fd93677be074ae0606d1017a1ed750b6e97c  assets/videos/products/outdoor-elevator/overview.mp4" | sha256sum -c -
+          echo "c5d103c7789e0a1f1ee6c6fb26c3a3222ecf437d6bd8071fd0828dc5331b9232  assets/videos/products/hospital-elevator/overview.mp4" | sha256sum -c -
+          echo "d19ac1c56e480456899225e773c2ef84d2a9b3c3fd63961864602e6590453ccf  assets/videos/products/hydraulic-panoramic-elevator/overview.mp4" | sha256sum -c -
+          echo "7362a9c5248e6a3794338539a93f6322a3c375c5899baf981174ae5a53a95530  assets/videos/products/gearless-elevator/overview.mp4" | sha256sum -c -
+          echo "3488c6abaec0ed708f6400887c93bc9952e58207464662283add5e8b7184fa18  assets/videos/products/gearbox-automatic-doors/automatic-doors.mp4" | sha256sum -c -
+          echo "febc5b72dafa78f488c0971b1d28c9915bd1f5860e43c3f606649811c7527f3b  assets/videos/products/gearbox-elevator/overview.mp4" | sha256sum -c -
+          echo "febc5b72dafa78f488c0971b1d28c9915bd1f5860e43c3f606649811c7527f3b  assets/videos/products/gearbox-automatic-doors/gearbox-overview.mp4" | sha256sum -c -
+
+      - name: Build check
+        run: npm run check
+
+      - name: Commit original videos
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f assets/videos/products/electric-elevator/.gitkeep \
+                assets/videos/products/outdoor-elevator/.gitkeep \
+                assets/videos/products/hospital-elevator/.gitkeep \
+                assets/videos/products/hydraulic-panoramic-elevator/.gitkeep \
+                assets/videos/products/gearless-elevator/.gitkeep \
+                assets/videos/products/gearbox-automatic-doors/.gitkeep \
+                assets/videos/products/gearbox-elevator/.gitkeep
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/videos/products
+          git commit -m "Import original product videos from Drive"
+          git push origin HEAD:main

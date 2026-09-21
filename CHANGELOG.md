@@ -2,6 +2,15 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-09-21
+
+### Added — Product media imported from Drive
+- نقل صور وفيديوهات المنتجات من فولدر Google Drive المعتمد إلى مسارات الميديا المنظمة داخل `assets/images/products/` و`assets/videos/products/`.
+- اعتماد أسماء صفحات الموقع المنشورة كمرجع للمجلدات: `gearless-elevator`, `gearbox-elevator`, `gearbox-automatic-doors`, `electric-elevator`, `hydraulic-panoramic-elevator`, `hospital-elevator`, `outdoor-elevator`, `elevator-maintenance`.
+- ربط ملفات فولدر Drive «مصاعد بضائع» بمجلد `electric-elevator` وفق اسم صفحة الموقع الحالية، بدون إنشاء slug أو صفحة جديدة.
+- إعادة تسمية الملفات بأسماء Web نظيفة (`hero`, `gallery-XX`, `overview`) مع الإبقاء على الملفات الأصلية من حيث المحتوى دون تعديل أو ضغط في هذه المرحلة.
+- لم يتم بعد إدراج الصور أو الفيديوهات داخل HTML؛ هذه المرحلة تخص نقل وتنظيم الأصول فقط تمهيدًا لمرحلة دمج الميديا في الصفحات.
+
 ## 2026-09-20
 
 ### Changed — New production brand logo
