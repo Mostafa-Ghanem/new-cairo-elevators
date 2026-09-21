@@ -4,6 +4,10 @@
 
 ## 2026-09-21
 
+### Preview — GitHub Pages build branch
+- إنشاء فرع معاينة منفصل من ناتج `npm run build` لمراجعة دمج صور وفيديوهات صفحات المنتجات قبل الدمج إلى `main`.
+
+
 
 ### Added — Product media integration on feature branch
 - ربط صور المنتجات المحلية بالـHero في صفحات المنتجات الحالية بدل الاعتماد على صور Hero خارجية.
