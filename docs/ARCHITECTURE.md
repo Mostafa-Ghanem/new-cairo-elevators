@@ -90,3 +90,7 @@ Root directory: /
 - `components/site-header.html`, `components/site-footer.html`, `assets/css/global.css`, and `assets/js/site-navigation.js` exclusively own shared header/footer/navigation behavior.
 - Page-level `<style>` or `<script>` blocks must not target `.site-header`, `.mobile-menu`, `.mobile-products`, `.desktop-nav`, `.mega-menu`, or other shared-shell selectors.
 - Responsive navigation changes are made once in the shared shell and validated at desktop, tablet, and mobile widths before deployment.
+
+## SEO output
+
+`scripts/build.mjs` generates `dist/sitemap.xml` and `dist/robots.txt` at build time; internal pages (`review-pages.html`, `design-system-preview.html`, `404.html`) are excluded.

@@ -77,18 +77,18 @@ p{color:var(--muted);font-size:var(--fs-body);line-height:1.9;font-weight:400}
 <div class="contact-item"><div class="icon"><svg viewBox="0 0 24 24"><path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"/></svg></div><div><b>المنطقة</b><span>لتنسيق المعاينة ومراجعة نطاق الخدمة</span></div></div>
 </div></div>
 
-<form class="form-card" onsubmit="event.preventDefault();document.getElementById('qmsg').textContent='تم تسجيل الطلب في نسخة الديمو — سيتم ربط النموذج عند التنفيذ.';">
+<form class="form-card" data-lead-form>
 <div class="kicker">بيانات المشروع</div><h2>اطلب معاينة</h2>
 <div class="form-grid">
-<div class="field"><label>الاسم</label><input required placeholder="اسمك"></div>
-<div class="field"><label>رقم الموبايل</label><input required type="tel" inputmode="tel" placeholder="01xxxxxxxxx"></div>
-<div class="field"><label>نوع المبنى</label><select required><option value="">اختر</option><option>فيلا</option><option>عمارة سكنية</option><option>تجاري / إداري</option><option>منشأة طبية</option><option>أخرى</option></select></div>
-<div class="field"><label>عدد الأدوار</label><select><option value="">اختر إن أمكن</option><option>2 - 4</option><option>5 - 8</option><option>9 أو أكثر</option><option>غير محدد</option></select></div>
-<div class="field"><label>نوع الطلب</label><select required><option value="">اختر</option><option>مصعد جديد</option><option>استبدال / تحديث</option><option>صيانة / عطل</option></select></div>
-<div class="field"><label>المنطقة</label><input placeholder="مثال: بيت الوطن"></div>
-<div class="field full"><label>ملاحظات — اختياري</label><textarea placeholder="أي تفاصيل عن البئر، المبنى أو المصعد الحالي"></textarea></div>
+<div class="field"><label for="f-1">الاسم</label><input id="f-1" required placeholder="اسمك"></div>
+<div class="field"><label for="f-2">رقم الموبايل</label><input id="f-2" required type="tel" inputmode="tel" placeholder="01xxxxxxxxx"></div>
+<div class="field"><label for="f-3">نوع المبنى</label><select id="f-3" required><option value="">اختر</option><option>فيلا</option><option>عمارة سكنية</option><option>تجاري / إداري</option><option>منشأة طبية</option><option>أخرى</option></select></div>
+<div class="field"><label for="f-4">عدد الأدوار</label><select id="f-4"><option value="">اختر إن أمكن</option><option>2 - 4</option><option>5 - 8</option><option>9 أو أكثر</option><option>غير محدد</option></select></div>
+<div class="field"><label for="f-5">نوع الطلب</label><select id="f-5" required><option value="">اختر</option><option>مصعد جديد</option><option>استبدال / تحديث</option><option>صيانة / عطل</option></select></div>
+<div class="field"><label for="f-6">المنطقة</label><input id="f-6" placeholder="مثال: بيت الوطن"></div>
+<div class="field full"><label for="f-7">ملاحظات — اختياري</label><textarea id="f-7" placeholder="أي تفاصيل عن البئر، المبنى أو المصعد الحالي"></textarea></div>
 </div>
-<button class="btn btn-gold" style="width:100%;margin-top:14px">إرسال الطلب</button><p id="qmsg" style="font-size:11px;margin:8px 0 0"></p>
+<button class="btn btn-gold" style="width:100%;margin-top:14px">إرسال الطلب</button><p id="qmsg" data-form-status role="status" aria-live="polite" style="font-size:11px;margin:8px 0 0"></p>
 </form>
 </div></section>
 

@@ -727,7 +727,7 @@ p{color:var(--muted);font-weight:300}
   background:#fff;
 }
 .form .btn{width:100%;margin-top:16px}
-#formMsg{font-size:9px;color:#62717F;margin-top:9px}
+#formMsg{font-size:12px;color:#62717F;margin-top:9px}
 
 /* ---------- footer ---------- */
 .footer{
@@ -1631,7 +1631,7 @@ p{
         </div>
       </div>
 
-      <form class="form" onsubmit="event.preventDefault();document.getElementById('formMsg').textContent='تم تسجيل الطلب في نسخة الديمو — سيتم ربط الفورم بالنظام عند التطوير.';">
+      <form class="form" data-lead-form>
         <h3>بيانات المعاينة</h3>
         <p>فورم مختصر مناسب للموقع والحملات الإعلانية.</p>
 
@@ -1662,7 +1662,7 @@ p{
         </div>
 
         <button class="btn btn-gold" type="submit">إرسال طلب المعاينة</button>
-        <div id="formMsg"></div>
+        <div id="formMsg" data-form-status role="status" aria-live="polite"></div>
       </form>
     </div>
   </div>
