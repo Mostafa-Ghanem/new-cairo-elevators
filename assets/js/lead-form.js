@@ -48,11 +48,52 @@
     return '';
   }
 
+  // Egyptian mobile: accepts Arabic-Indic digits, spaces, +20 / 0020 prefixes.
+  function normalizePhone(value) {
+    var digits = String(value || '').replace(/[٠-٩]/g, function (d) { return String(d.charCodeAt(0) - 1632); })
+      .replace(/[۰-۹]/g, function (d) { return String(d.charCodeAt(0) - 1776); })
+      .replace(/[^0-9]/g, '');
+    if (digits.indexOf('0020') === 0) digits = digits.slice(4);
+    else if (digits.indexOf('20') === 0 && digits.length === 12) digits = digits.slice(2);
+    if (digits.length === 10 && digits.charAt(0) === '1') digits = '0' + digits;
+    return digits;
+  }
+
+  function enhance(form) {
+    form.querySelectorAll('input[type="tel"]').forEach(function (input) {
+      input.setAttribute('autocomplete', 'tel');
+      input.setAttribute('dir', 'ltr');
+      input.addEventListener('input', function () { input.setCustomValidity(''); });
+      input.addEventListener('blur', function () {
+        if (input.value) input.value = normalizePhone(input.value);
+      });
+    });
+    var first = form.querySelector('input[type="text"], input:not([type])');
+    if (first && !first.hasAttribute('autocomplete')) first.setAttribute('autocomplete', 'name');
+  }
+  document.querySelectorAll('form[data-lead-form]').forEach(enhance);
+
+  function validPhones(form) {
+    var ok = true;
+    form.querySelectorAll('input[type="tel"]').forEach(function (input) {
+      if (!input.value) return;
+      input.value = normalizePhone(input.value);
+      if (!/^01[0125][0-9]{8}$/.test(input.value)) {
+        input.setCustomValidity('اكتب رقم موبايل مصري صحيح من 11 رقمًا يبدأ بـ 010 أو 011 أو 012 أو 015');
+        ok = false;
+      }
+    });
+    return ok;
+  }
+
   document.addEventListener('submit', function (event) {
     var form = event.target;
     if (!form.matches('form[data-lead-form]')) return;
     event.preventDefault();
+    validPhones(form);
     if (!form.reportValidity()) return;
+    var button = form.querySelector('button[type="submit"], button:not([type])');
+    if (button && button.disabled) return;
 
     var lines = ['طلب معاينة من الموقع — ' + document.title];
     var lead = { type: 'form' };
@@ -74,6 +115,12 @@
     if (!win) window.location.href = url;
     if (status) status.textContent = 'تم استلام طلبك ✓ — وتم فتح واتساب لتأكيده، اضغط «إرسال» في المحادثة. أو اتصل بنا: 01060781020.';
     form.reset();
+    if (button) {
+      var label = button.textContent;
+      button.disabled = true;
+      button.textContent = 'تم الإرسال ✓';
+      setTimeout(function () { button.disabled = false; button.textContent = label; }, 4000);
+    }
   });
 
   document.addEventListener('click', function (event) {
