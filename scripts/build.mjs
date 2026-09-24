@@ -22,7 +22,7 @@ const entries = await readdir(root, { withFileTypes: true });
 const htmlFiles = entries.filter((entry) => entry.isFile() && entry.name.endsWith('.html')).map((entry) => entry.name);
 
 const SITE = 'https://newcairoelevators.com';
-const internalPages = new Set(['design-system-preview.html', 'review-pages.html', '404.html']);
+const internalPages = new Set(['design-system-preview.html', 'review-pages.html', '404.html', 'thank-you.html']);
 const productPages = new Set(['gearless-elevator.html', 'gearbox-elevator.html', 'gearbox-automatic-doors.html', 'electric-elevator.html', 'hydraulic-panoramic-elevator.html', 'hospital-elevator.html', 'outdoor-elevator.html', 'elevator-maintenance.html']);
 const attr = (value) => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 
@@ -80,6 +80,6 @@ const sitemapUrls = htmlFiles
   .filter((file) => !internalPages.has(file))
   .map((file) => `  <url><loc>${SITE}/${file === 'index.html' ? '' : file}</loc></url>`);
 await writeFile(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls.join('\n')}\n</urlset>\n`, 'utf8');
-await writeFile(path.join(dist, 'robots.txt'), `User-agent: *\nDisallow: /review-pages.html\nDisallow: /design-system-preview.html\n\nSitemap: ${SITE}/sitemap.xml\n`, 'utf8');
+await writeFile(path.join(dist, 'robots.txt'), `User-agent: *\nDisallow: /review-pages.html\nDisallow: /design-system-preview.html\nDisallow: /thank-you.html\n\nSitemap: ${SITE}/sitemap.xml\n`, 'utf8');
 
 console.log(`Built ${htmlFiles.length} HTML pages into dist/ with shared layout components.`);

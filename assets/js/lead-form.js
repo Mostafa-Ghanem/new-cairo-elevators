@@ -1,6 +1,6 @@
 /* Shared lead handling (static site, no backend):
    1) every lead form is saved as a row in the Google Sheet CRM (Apps Script web app, see docs/google-sheets-crm.md);
-   2) the same lead opens as a ready WhatsApp message;
+   2) the visitor lands on thank-you.html, which offers the same lead as a ready WhatsApp message;
    3) WhatsApp / call button clicks are logged to the same sheet. */
 (function () {
   var WHATSAPP = '201276611628';
@@ -73,6 +73,14 @@
   }
   document.querySelectorAll('form[data-lead-form]').forEach(enhance);
 
+  // Back button from thank-you.html restores the page from cache: re-enable the forms.
+  window.addEventListener('pageshow', function () {
+    document.querySelectorAll('form[data-lead-form] button[disabled]').forEach(function (button) {
+      button.disabled = false;
+      if (button.dataset.label) button.textContent = button.dataset.label;
+    });
+  });
+
   function validPhones(form) {
     var ok = true;
     form.querySelectorAll('input[type="tel"]').forEach(function (input) {
@@ -110,17 +118,12 @@
     send(lead);
 
     var url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(lines.join('\n'));
+    try { sessionStorage.setItem('nce_lead_whatsapp', url); } catch (e) { /* thank-you page falls back to a generic message */ }
     var status = form.querySelector('[data-form-status]');
-    var win = window.open(url, '_blank', 'noopener');
-    if (!win) window.location.href = url;
-    if (status) status.textContent = 'تم استلام طلبك ✓ — وتم فتح واتساب لتأكيده، اضغط «إرسال» في المحادثة. أو اتصل بنا: 01060781020.';
-    form.reset();
-    if (button) {
-      var label = button.textContent;
-      button.disabled = true;
-      button.textContent = 'تم الإرسال ✓';
-      setTimeout(function () { button.disabled = false; button.textContent = label; }, 4000);
-    }
+    if (status) status.textContent = 'تمام، بنبعت طلبك…';
+    if (button) { button.dataset.label = button.dataset.label || button.textContent; button.disabled = true; button.textContent = 'جاري الإرسال…'; }
+    // Give the Sheets beacon a moment, then show the thank-you page (conversion page for ads).
+    setTimeout(function () { window.location.href = 'thank-you.html'; }, 250);
   });
 
   document.addEventListener('click', function (event) {

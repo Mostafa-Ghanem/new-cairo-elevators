@@ -2,6 +2,16 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-09-25
+
+### Changed — Unified Egyptian-colloquial tone
+- إعادة صياغة النصوص الظاهرة في كل الصفحات والـheader/footer بالعامية المصرية المهذبة (العناوين والفقرات والأسئلة الشائعة والأزرار والنماذج ورسالة واتساب الافتتاحية). عنوان الصفحة و`meta description` باقيين بالفصحى لأجل SEO، و`privacy-policy.html` بقيت بالفصحى لأنها نص قانوني.
+- إصلاح خطأ من تعديل سابق حوّل «المصعد الكهربائي» إلى «الكهرباءئي» في `electric-elevator.html`.
+
+### Added — Thank-you page
+- `thank-you.html` (noindex، مستبعدة من sitemap وrobots) بعد إرسال أي نموذج: تأكيد، زر «أكّد طلبك على واتساب» بالرسالة الجاهزة، الخطوات الجاية، وحدث تحويل `generate_lead` لـdataLayer/gtag وMeta `Lead`.
+- `assets/js/lead-form.js` v1.3: يحفظ الطلب في Google Sheet ثم يحوّل لصفحة الشكر (بدل فتح واتساب مباشرة)، ويعيد تفعيل الزر عند الرجوع بزر Back.
+
 ## 2026-09-24
 
 ### Fixed — Arabic copy review (2026-09-24)
