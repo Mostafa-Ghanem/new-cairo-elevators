@@ -94,3 +94,9 @@ Root directory: /
 ## SEO output
 
 `scripts/build.mjs` generates `dist/sitemap.xml` and `dist/robots.txt` at build time; internal pages (`review-pages.html`, `design-system-preview.html`, `404.html`) are excluded.
+
+## Social meta & leads
+
+- Build injects canonical/Open Graph/Twitter tags per public page (`socialMeta` in `scripts/build.mjs`).
+- All images are served locally from `assets/images/` (WebP); no third-party image hosts.
+- Lead forms use `assets/js/lead-form.js` → Google Sheets (Apps Script web app) + WhatsApp. See `docs/google-sheets-crm.md`.

@@ -2,6 +2,23 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-09-24
+
+### Changed — Local images only + WebP
+- إزالة كل الصور المستضافة على مواقع خارجية (liftquotes, otis, gooecloud, archiexpo, liftronic, dhakaintbd, tle.com.vn, newcairoelevators.com/img) من كل الصفحات و`components/site-header.html` (Mega Menu)، واستبدالها بصور المنتجات المحلية المطابقة لكل منتج.
+- تحويل صور المنتجات من PNG/JPG إلى WebP بنفس الأبعاد (quality 82): الحجم من ~15.3MB إلى ~2.2MB، مع حذف الأصول الثقيلة (موجودة في Git history).
+- إضافة `loading="lazy"`/`decoding="async"` للصور غير الأولى، وتصحيح alt «مصعد كهربا».
+
+### Added — Open Graph / Twitter / canonical
+- `scripts/build.mjs` يحقن canonical وOpen Graph وTwitter Card لكل صفحة عامة من `<title>` و`meta description` الخاصة بها.
+- صور مشاركة 1200×630: `assets/images/products/<slug>/og.jpg` لكل منتج و`assets/images/brand/og-default.jpg` لباقي الصفحات.
+- فاحص الروابط في الـbuild يتجاهل الروابط المطلقة (`https:`).
+
+### Changed — WhatsApp + Google Sheets CRM
+- توحيد كل روابط واتساب (بما فيها `wa.me/message/...`) إلى `wa.me/201276611628` مع رسالة افتتاحية جاهزة.
+- `assets/js/lead-form.js` v1.1: يحفظ كل طلب في Google Sheet (مع الصفحة وUTM وgclid/fbclid) ويفتح واتساب بنفس البيانات، ويسجّل ضغطات واتساب/الاتصال.
+- إضافة `docs/google-sheets-crm.gs` (Apps Script) و`docs/google-sheets-crm.md` (خطوات التفعيل). الـendpoint يُضبط في `data-sheet-endpoint` داخل `components/site-footer.html`.
+
 ## 2026-09-23
 
 ### Fixed — UI/UX & site audit
