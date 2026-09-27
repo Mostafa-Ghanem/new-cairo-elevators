@@ -2,6 +2,11 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-09-27
+
+### Fixed — Production domain
+- تصحيح الدومين إلى `newcairoelevator.com` (بدون s) في `scripts/build.mjs` (canonical وOpen Graph وsitemap وrobots) وفي `privacy-policy.html`.
+
 ## 2026-09-25
 
 ### Changed — Unified Egyptian-colloquial tone

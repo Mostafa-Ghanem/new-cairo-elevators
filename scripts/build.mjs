@@ -21,7 +21,7 @@ await mkdir(dist, { recursive: true });
 const entries = await readdir(root, { withFileTypes: true });
 const htmlFiles = entries.filter((entry) => entry.isFile() && entry.name.endsWith('.html')).map((entry) => entry.name);
 
-const SITE = 'https://newcairoelevators.com';
+const SITE = 'https://newcairoelevator.com';
 const internalPages = new Set(['design-system-preview.html', 'review-pages.html', '404.html', 'thank-you.html']);
 const productPages = new Set(['gearless-elevator.html', 'gearbox-elevator.html', 'gearbox-automatic-doors.html', 'electric-elevator.html', 'hydraulic-panoramic-elevator.html', 'hospital-elevator.html', 'outdoor-elevator.html', 'elevator-maintenance.html']);
 const attr = (value) => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
