@@ -51,3 +51,8 @@ npm run check
 - لا تستخدم خدمة Cloudflare مدفوعة بدون قرار صريح من مالك المشروع.
 
 - ممنوع إضافة CSS/JS خاص بالـHeader أو Footer أو Navigation داخل صفحات منفردة؛ التعديل يتم حصريًا في الـshared shell (`components/*`, `assets/css/global.css`, `assets/js/site-navigation.js`).
+
+## 8) Responsive
+
+- أي تعديل في التصميم لازم يلتزم بـ`docs/RESPONSIVE.md` ويتختبر على 390×844 و768×1024 و**1366×650** و1920×950.
+- الهيرو وأي سكشن صور لازم يدخل في شاشة لابتوب 14" (1366×650) من غير سكرول.

@@ -2,6 +2,86 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-09-27
+
+### Added — Product videos on product pages
+- سكشن «من أرض الواقع» (`#video`) في صفحات المنتجات السبعة بفيديوهات المشاريع الحقيقية اللي كانت في `assets/videos/products/` ومش مستخدمة في أي صفحة، مع لينك «فيديو من التنفيذ» في فهرس الصفحة. صفحة الجيربوكس بأبواب أوتوماتيك فيها فيديوهين.
+- ضغط الفيديوهات (H.264 CRF 27 + faststart + AAC 96k) من ~80MB لـ~30MB، وحذف `gearbox-automatic-doors/gearbox-overview.mp4` لأنه نسخة مطابقة من `gearbox-elevator/overview.mp4`.
+- صور poster WebP لكل فيديو (`*-poster.webp`) و`preload="none"` عشان الفيديو مايتحمّلش غير لما الزائر يضغط تشغيل.
+- `assets/css/global.css`: ستايل `.product-videos` (9:16، بيحترم ارتفاع لابتوب 14" وبيبقى عمود واحد على الموبايل).
+
+### Fixed — Home product card height
+- `index.html`: صورة كارت المنتج بقت `absolute + object-fit:cover` فالصور المحلية الطولية مبقتش بتمط الكارت (كان 440–500px). الكروت رجعت 240px زي تصميم `main` على الديسكتوب والتابلت، و220px للصورة على الموبايل.
+
+### Changed — Home hero image
+- صورة جديدة للهيرو في `index.html`: `assets/images/home/hero-luxury-elevator-lobby.webp` (مدخل مصعد فاخر، WebP 170KB بدل 263KB) بدل `gallery-02` (صورة أرضية فيها رجلين)، مع `fetchpriority="high"` وأبعاد صريحة وalt وصفي.
+
+### Changed — Desktop section heights + responsive rules
+- `assets/css/global.css`: قسم *Desktop viewport-height fit* — الهيرو وسكشن الخدمات بقوا يتحددوا بارتفاع الشاشة (`svh` + `clamp`) بدل 690px/520px ثابتة، والصور بقت `absolute + object-fit` فمبقتش بتطوّل الكارت. على لابتوب 14" (1366×650) الهيرو بقى كامل في أول شاشة وسكشن الخدمات بعنوانه في شاشة واحدة.
+- `index.html`: تغيير صورة «توريد وتركيب المصاعد» (`gallery-10` صورة سقف غير واضحة) لـ`gallery-03`.
+- `docs/RESPONSIVE.md` (جديد): المقاسات المعتمدة والـbreakpoints وقواعد الارتفاع والاختبار، مع إشارة في `AGENTS.md`.
+
+### Reverted — Home product cards layout
+- الرجوع لتصميم الكروت الأفقية الأصلي في `index.html` (صورة + نص + سهم) بناءً على طلب المالك؛ اللينكات لصفحات المنتجات باقية.
+
+### Fixed — Home product cards
+- كروت سكشن «بنختار نوع المصعد» في `index.html` بقت تودّي لصفحة كل منتج بدل ما تنزل لفورم `#contact`.
+
+### Fixed — Production domain
+- تصحيح الدومين إلى `newcairoelevator.com` (بدون s) في `scripts/build.mjs` (canonical وOpen Graph وsitemap وrobots) وفي `privacy-policy.html`.
+
+## 2026-09-25
+
+### Changed — Unified Egyptian-colloquial tone
+- إعادة صياغة النصوص الظاهرة في كل الصفحات والـheader/footer بالعامية المصرية المهذبة (العناوين والفقرات والأسئلة الشائعة والأزرار والنماذج ورسالة واتساب الافتتاحية). عنوان الصفحة و`meta description` باقيين بالفصحى لأجل SEO، و`privacy-policy.html` بقيت بالفصحى لأنها نص قانوني.
+- إصلاح خطأ من تعديل سابق حوّل «المصعد الكهربائي» إلى «الكهرباءئي» في `electric-elevator.html`.
+
+### Added — Thank-you page
+- `thank-you.html` (noindex، مستبعدة من sitemap وrobots) بعد إرسال أي نموذج: تأكيد، زر «أكّد طلبك على واتساب» بالرسالة الجاهزة، الخطوات الجاية، وحدث تحويل `generate_lead` لـdataLayer/gtag وMeta `Lead`.
+- `assets/js/lead-form.js` v1.3: يحفظ الطلب في Google Sheet ثم يحوّل لصفحة الشكر (بدل فتح واتساب مباشرة)، ويعيد تفعيل الزر عند الرجوع بزر Back.
+
+## 2026-09-24
+
+### Fixed — Arabic copy review (2026-09-24)
+- تصحيح «مصعد كهربا» إلى «مصعد كهرباء» في العناوين والنصوص والـmeta (مع الإبقاء على المصطلح العامي بين «» مرة واحدة في `electric-elevator.html` لأغراض البحث).
+- «اختار» → «اختر»، «ارسل» → «أرسل»، «لائمت» → «لاءمت»، «20+ عام خبرة» → «20+ عامًا من الخبرة»، وتوحيد «الكبينة» إلى «الكابينة».
+- حذف نصوص داخلية كانت ظاهرة للزوار: «ملاحظة تنفيذية» في سياسة الخصوصية، «المناطق المذكورة من العميل» (FAQ ومناطق الخدمة)، «المرجع المؤكد للشركة»، «فورم مختصر مناسب للحملات الإعلانية»، «نفس المسار سيظهر في جميع صفحات المنتجات»، و«Premium Corporate · Alexandria Arabic UI» في الفوتر.
+- تصحيح الدومين في سياسة الخصوصية إلى `newcairoelevators.com`، وتصحيح شريط الرئيسية من «5 حلول… درام، هوم ليفت» إلى الحلول الفعلية الثمانية.
+- استبدال «Premium» داخل النص العربي بـ«فاخرة».
+
+### Changed — Form & mobile UX
+- `assets/js/lead-form.js` v1.2: تحقق من رقم الموبايل المصري برسالة عربية، قبول الأرقام العربية (٠١٠…) و+20، `autocomplete` للاسم والهاتف، ومنع الإرسال المزدوج مع حالة «تم الإرسال ✓».
+- `assets/css/global.css`: روابط الفوتر على الموبايل بمساحة لمس 40px، وتحسين تباين نصوص الفوتر وتكبير سطر الحقوق إلى 12px.
+
+### Changed — Local images only + WebP
+- إزالة كل الصور المستضافة على مواقع خارجية (liftquotes, otis, gooecloud, archiexpo, liftronic, dhakaintbd, tle.com.vn, newcairoelevators.com/img) من كل الصفحات و`components/site-header.html` (Mega Menu)، واستبدالها بصور المنتجات المحلية المطابقة لكل منتج.
+- تحويل صور المنتجات من PNG/JPG إلى WebP بنفس الأبعاد (quality 82): الحجم من ~15.3MB إلى ~2.2MB، مع حذف الأصول الثقيلة (موجودة في Git history).
+- إضافة `loading="lazy"`/`decoding="async"` للصور غير الأولى، وتصحيح alt «مصعد كهربا».
+
+### Added — Open Graph / Twitter / canonical
+- `scripts/build.mjs` يحقن canonical وOpen Graph وTwitter Card لكل صفحة عامة من `<title>` و`meta description` الخاصة بها.
+- صور مشاركة 1200×630: `assets/images/products/<slug>/og.jpg` لكل منتج و`assets/images/brand/og-default.jpg` لباقي الصفحات.
+- فاحص الروابط في الـbuild يتجاهل الروابط المطلقة (`https:`).
+
+### Changed — WhatsApp + Google Sheets CRM
+- توحيد كل روابط واتساب (بما فيها `wa.me/message/...`) إلى `wa.me/201276611628` مع رسالة افتتاحية جاهزة.
+- `assets/js/lead-form.js` v1.1: يحفظ كل طلب في Google Sheet (مع الصفحة وUTM وgclid/fbclid) ويفتح واتساب بنفس البيانات، ويسجّل ضغطات واتساب/الاتصال.
+- إضافة `docs/google-sheets-crm.gs` (Apps Script) و`docs/google-sheets-crm.md` (خطوات التفعيل). الـendpoint يُضبط في `data-sheet-endpoint` داخل `components/site-footer.html`.
+
+## 2026-09-23
+
+### Fixed — UI/UX & site audit
+- نماذج طلب المعاينة في 11 صفحة كانت «ديمو» ولا ترسل أي طلب (ضياع Leads): استبدال `onsubmit` الوهمي بـ`data-lead-form` ومعالج مشترك جديد `assets/js/lead-form.js` (محمّل من `components/site-footer.html`) يرسل بيانات النموذج كرسالة واتساب جاهزة مع رسالة حالة `aria-live`.
+- ربط كل `<label>` بحقله (`for`/`id`) في نماذج الصفحات لتحسين الوصولية والضغط على العنوان في الموبايل.
+- إصلاح روابط `href="#"` الميتة: Breadcrumb (الرئيسية / الخدمات) وكروت «منتجات أخرى» في صفحات المنتجات صارت تشير لصفحات حقيقية.
+- حذف نص داخلي ظاهر للزوار «في النسخ التالية من التمبلت…» من صفحات المنتجات، وتصحيح «مصعد كهربا» إلى «مصعد كهرباء».
+- إضافة `rel="noopener"` لكل روابط `target="_blank"`.
+- تكبير رسالة حالة نموذج الرئيسية من 9px إلى 12px.
+
+### Added — SEO basics
+- `scripts/build.mjs` يولّد `dist/sitemap.xml` و`dist/robots.txt` (مع استبعاد الصفحات الداخلية).
+- `noindex` لصفحتي `review-pages.html` و`design-system-preview.html` الداخليتين.
+
 ## 2026-09-21
 
 ### Added — Product media imported from Drive
