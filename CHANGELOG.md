@@ -4,6 +4,9 @@
 
 ## 2026-09-27
 
+### Changed — Home hero image
+- صورة جديدة للهيرو في `index.html`: `assets/images/home/hero-luxury-elevator-lobby.webp` (مدخل مصعد فاخر، WebP 170KB بدل 263KB) بدل `gallery-02` (صورة أرضية فيها رجلين)، مع `fetchpriority="high"` وأبعاد صريحة وalt وصفي.
+
 ### Changed — Desktop section heights + responsive rules
 - `assets/css/global.css`: قسم *Desktop viewport-height fit* — الهيرو وسكشن الخدمات بقوا يتحددوا بارتفاع الشاشة (`svh` + `clamp`) بدل 690px/520px ثابتة، والصور بقت `absolute + object-fit` فمبقتش بتطوّل الكارت. على لابتوب 14" (1366×650) الهيرو بقى كامل في أول شاشة وسكشن الخدمات بعنوانه في شاشة واحدة.
 - `index.html`: تغيير صورة «توريد وتركيب المصاعد» (`gallery-10` صورة سقف غير واضحة) لـ`gallery-03`.
