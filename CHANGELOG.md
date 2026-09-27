@@ -4,6 +4,11 @@
 
 ## 2026-09-27
 
+### Changed — Desktop section heights + responsive rules
+- `assets/css/global.css`: قسم *Desktop viewport-height fit* — الهيرو وسكشن الخدمات بقوا يتحددوا بارتفاع الشاشة (`svh` + `clamp`) بدل 690px/520px ثابتة، والصور بقت `absolute + object-fit` فمبقتش بتطوّل الكارت. على لابتوب 14" (1366×650) الهيرو بقى كامل في أول شاشة وسكشن الخدمات بعنوانه في شاشة واحدة.
+- `index.html`: تغيير صورة «توريد وتركيب المصاعد» (`gallery-10` صورة سقف غير واضحة) لـ`gallery-03`.
+- `docs/RESPONSIVE.md` (جديد): المقاسات المعتمدة والـbreakpoints وقواعد الارتفاع والاختبار، مع إشارة في `AGENTS.md`.
+
 ### Reverted — Home product cards layout
 - الرجوع لتصميم الكروت الأفقية الأصلي في `index.html` (صورة + نص + سهم) بناءً على طلب المالك؛ اللينكات لصفحات المنتجات باقية.
 
