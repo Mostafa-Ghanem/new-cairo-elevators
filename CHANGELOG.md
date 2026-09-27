@@ -4,6 +4,9 @@
 
 ## 2026-09-27
 
+### Fixed — Home product cards
+- كروت سكشن «بنختار نوع المصعد» في `index.html` بقت تودّي لصفحة كل منتج بدل ما تنزل لفورم `#contact`.
+
 ### Fixed — Production domain
 - تصحيح الدومين إلى `newcairoelevator.com` (بدون s) في `scripts/build.mjs` (canonical وOpen Graph وsitemap وrobots) وفي `privacy-policy.html`.
 
