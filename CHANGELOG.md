@@ -4,6 +4,9 @@
 
 ## 2026-09-27
 
+### Fixed — Home product card height
+- `index.html`: صورة كارت المنتج بقت `absolute + object-fit:cover` فالصور المحلية الطولية مبقتش بتمط الكارت (كان 440–500px). الكروت رجعت 240px زي تصميم `main` على الديسكتوب والتابلت، و220px للصورة على الموبايل.
+
 ### Changed — Home hero image
 - صورة جديدة للهيرو في `index.html`: `assets/images/home/hero-luxury-elevator-lobby.webp` (مدخل مصعد فاخر، WebP 170KB بدل 263KB) بدل `gallery-02` (صورة أرضية فيها رجلين)، مع `fetchpriority="high"` وأبعاد صريحة وalt وصفي.
 
