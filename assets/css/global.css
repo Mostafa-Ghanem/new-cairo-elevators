@@ -1460,3 +1460,37 @@ p,
   .section-head { margin-bottom: 28px; }
   .section-head h2 { font-size: clamp(30px, 5vh, 38px) !important; }
 }
+
+/* ==========================================================================
+   Product page videos (vertical phone footage, 9:16)
+   ========================================================================== */
+.product-videos {
+  display: grid;
+  grid-template-columns: minmax(0, 340px);
+  gap: 18px;
+  margin-top: 22px;
+}
+.product-videos--2 { grid-template-columns: repeat(2, minmax(0, 300px)); }
+.product-video { margin: 0; }
+.product-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  max-height: calc(100svh - 140px);
+  object-fit: cover;
+  background: var(--navy-900, #0A1724);
+  border-radius: 18px;
+  border: 1px solid rgba(185, 146, 86, .28);
+  box-shadow: 0 12px 30px rgba(7, 18, 29, .12);
+}
+.product-video figcaption {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #6B7782;
+}
+@media (max-width: 560px) {
+  .product-videos,
+  .product-videos--2 { grid-template-columns: minmax(0, 1fr); justify-items: center; }
+  .product-video { width: min(100%, 320px); }
+}

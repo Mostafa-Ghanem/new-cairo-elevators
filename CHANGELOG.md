@@ -4,6 +4,12 @@
 
 ## 2026-09-27
 
+### Added — Product videos on product pages
+- سكشن «من أرض الواقع» (`#video`) في صفحات المنتجات السبعة بفيديوهات المشاريع الحقيقية اللي كانت في `assets/videos/products/` ومش مستخدمة في أي صفحة، مع لينك «فيديو من التنفيذ» في فهرس الصفحة. صفحة الجيربوكس بأبواب أوتوماتيك فيها فيديوهين.
+- ضغط الفيديوهات (H.264 CRF 27 + faststart + AAC 96k) من ~80MB لـ~30MB، وحذف `gearbox-automatic-doors/gearbox-overview.mp4` لأنه نسخة مطابقة من `gearbox-elevator/overview.mp4`.
+- صور poster WebP لكل فيديو (`*-poster.webp`) و`preload="none"` عشان الفيديو مايتحمّلش غير لما الزائر يضغط تشغيل.
+- `assets/css/global.css`: ستايل `.product-videos` (9:16، بيحترم ارتفاع لابتوب 14" وبيبقى عمود واحد على الموبايل).
+
 ### Fixed — Home product card height
 - `index.html`: صورة كارت المنتج بقت `absolute + object-fit:cover` فالصور المحلية الطولية مبقتش بتمط الكارت (كان 440–500px). الكروت رجعت 240px زي تصميم `main` على الديسكتوب والتابلت، و220px للصورة على الموبايل.
 
