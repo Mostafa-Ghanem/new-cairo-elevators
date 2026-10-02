@@ -142,6 +142,17 @@ function structuredData(file, html) {
   return html.replace('</head>', `<script type="application/ld+json">${json}</script>\n</head>`);
 }
 
+// Tiny blurred previews (scripts/lqip.json, made by scripts/make-lqip.sh) painted behind each
+// photo, so a card shows a soft version of its image instead of an empty box while it downloads.
+const lqip = JSON.parse(await readFile(path.join(root, 'scripts', 'lqip.json'), 'utf8'));
+function addLqip(html) {
+  return html.replace(/<img\b[^>]*>/g, (tag) => {
+    const src = (tag.match(/\ssrc="\/?(assets\/images\/[^"]+)"/) || [])[1];
+    if (!src || !lqip[src] || /\sstyle=/.test(tag)) return tag;
+    return tag.replace('<img', `<img style="background:url(${lqip[src]}) center/cover"`);
+  });
+}
+
 function minifyCss(css) {
   return css
     .replace(/\/\*[\s\S]*?\*\//g, '')
@@ -187,6 +198,7 @@ for (const file of htmlFiles) {
   }
   html = cleanInternalLinks(html);
   html = minifyInlineStyles(html);
+  html = addLqip(html);
   html = performanceHints(file, html);
   html = socialMeta(file, html);
   html = structuredData(file, html);

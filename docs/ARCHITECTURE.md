@@ -105,6 +105,7 @@ Root directory: /
 
 - أي صورة أعرض من 800px ليها نسخة `-720.webp` جنبها، والـ`<img>` فيه `width`/`height` و`srcset` و`sizes="(max-width: 820px) 40vw, 900px"`.
 - الـ`40vw` مقصودة: بتخلّي الموبايلات عالية الكثافة تاخد نسخة الـ720 بدل الأصلية.
+- Placeholder: `scripts/postbuild.mjs` بيحط نسخة مموّهة صغيرة (من `scripts/lqip.json`) كخلفية لكل `<img>`. بعد إضافة أو تغيير صورة شغّل `scripts/make-lqip.sh` (محتاج ImageMagick).
 
 ## Social meta & leads
 
