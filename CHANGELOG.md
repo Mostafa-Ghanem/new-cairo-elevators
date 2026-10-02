@@ -2,6 +2,16 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-10-02 — Refactor phase 2
+
+### Changed — Product pages → one template + content collection
+- الـ8 صفحات منتجات (حوالي 6,200 سطر متكرر) بقوا قالب واحد `src/pages/[product].astro` + ملف JSON لكل منتج في `src/content/products/` (schema بـZod في `src/content.config.ts`، فلو ملف ناقص حقل الـbuild بيقف).
+- `src/data/product-shared.ts` (جديد): المحتوى اللي كان متكرر بالحرف في الـ8 صفحات (خطوات التنفيذ، «منتجات أخرى»، اختيارات الفورم، الـCTA الأخير، رقم التليفون ولينك الواتساب).
+- `src/styles/product-page.css` (جديد): الـCSS اللي كان متكرر 8 مرات (18KB) بقى ملف واحد، وبيتحط inline زي ما كان.
+- `src/lib/site.ts` و`sitemap.xml.ts`: الـsitemap بقى ياخد صفحات المنتجات من الـcollection.
+- صفحة الفيديوهات الكتير (`product-videos--2`) والصيانة من غير فيديو (ولينك «فيديو من التنفيذ» بيختفي) بقوا بيتحددوا من البيانات.
+- اتقارن الـDOM بـ`main` في الـ20 صفحة: مطابق، و`sitemap.xml`/`robots.txt`/`_redirects` مطابقين حرف بحرف. التغيير الوحيد: الـbreadcrumb في صفحة الجيرلس بقى «الخدمات والمنتجات» زي باقي المنتجات بدل «أنواع المصاعد» (نفس اللينك).
+
 ## 2026-10-02 — Refactor phase 1
 
 ### Changed — BaseLayout + SEO in Astro

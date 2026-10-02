@@ -11,7 +11,12 @@ _Last updated: 2026-10-02_
 ```text
 /
 ├─ src/
-│  ├─ pages/*.astro               # صفحة لكل URL (index.astro → /، gearless-elevator.astro → /gearless-elevator)
+│  ├─ pages/*.astro               # صفحة لكل URL (index.astro → /، faq.astro → /faq)
+│  ├─ pages/[product].astro       # قالب صفحات المنتجات الـ8 (صفحة لكل ملف في content/products)
+│  ├─ content/products/*.json     # محتوى كل منتج (gearless-elevator.json → /gearless-elevator)
+│  ├─ content.config.ts           # schema الـproducts collection (Zod) — الـbuild بيقف لو ملف ناقص حقل
+│  ├─ data/product-shared.ts      # المحتوى المشترك بين المنتجات (خطوات التنفيذ، منتجات أخرى، الفورم، الـCTA)
+│  ├─ styles/product-page.css     # CSS صفحات المنتجات (بيتحط inline في الصفحة)
 │  ├─ pages/sitemap.xml.ts        # /sitemap.xml (endpoint)
 │  ├─ pages/robots.txt.ts         # /robots.txt (endpoint)
 │  ├─ layouts/BaseLayout.astro    # <html>/<head> المشترك: meta، preload، global.css، canonical/OG/Twitter، JSON-LD
@@ -98,7 +103,7 @@ Root directory: /
 
 ### خطة الـRefactoring
 1. ✅ (2026-10-02) `BaseLayout.astro` + `src/lib/site.ts` + endpoints للـsitemap/robots.
-2. صفحات المنتجات الـ8 → قالب واحد + Content Collection.
+2. ✅ (2026-10-02) صفحات المنتجات الـ8 → `src/pages/[product].astro` + `src/content/products/*.json`.
 3. الـCSS: تجميع المكرر، تقليل `is:inline` و`!important`.
 4. الصور: `astro:assets` / `<Picture>` + AVIF، وCI بـ`astro check`.
 
@@ -110,6 +115,12 @@ Root directory: /
 ## SEO output
 
 `src/pages/sitemap.xml.ts` and `src/pages/robots.txt.ts` generate `/sitemap.xml` and `/robots.txt` at build time; internal pages (`review-pages.html`, `design-system-preview.html`, `404.html`) are excluded.
+
+## صفحات المنتجات
+
+- **تعديل نص منتج:** عدّل `src/content/products/<slug>.json` بس.
+- **إضافة منتج جديد:** انسخ ملف JSON موجود باسم الـslug الجديد (هيبقى الـURL)، عدّل المحتوى، وحط الصور في `public/assets/images/products/<slug>/` (ونسخة `-720.webp` لأي صورة أعرض من 800px، و`og.jpg`)، وضيف الـslug لـ`PRODUCT_PAGES` في `src/lib/site.ts`، وشغّل `scripts/make-lqip.sh`.
+- **تعديل حاجة مشتركة** (خطوات التنفيذ، المنتجات الأخرى، الفورم): `src/data/product-shared.ts`. **تعديل الشكل:** `src/pages/[product].astro` و`src/styles/product-page.css`.
 
 ## Responsive images
 
