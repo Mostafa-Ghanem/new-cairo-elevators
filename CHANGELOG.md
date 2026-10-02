@@ -4,6 +4,9 @@
 
 ## 2026-10-02
 
+### Fixed — CSS cache busting
+- كل الصفحات: `global.css?v=1.1` → `?v=1.2` عشان Cloudflare والمتصفحات ياخدوا نسخة الـCSS الجديدة (ألوان التباين).
+
 ### Performance — Inline CSS minify
 - `scripts/build.mjs`: دالة `minifyCss` مشتركة، وبقت تصغّر بلوكات `<style>` اللي جوه كل صفحة في `dist/` (الرئيسية 79KB → 75KB). PageSpeed موبايل محلي 90 → 92، وSpeed Index 1.4 ث.
 
