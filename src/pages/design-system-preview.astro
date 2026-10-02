@@ -1,15 +1,14 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 ---
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-<meta name="robots" content="noindex, nofollow">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Global Design System Preview</title>
-<link rel="stylesheet" href="assets/css/global.css?v=1.4">
+<BaseLayout title="Global Design System Preview"
+  robots="noindex, nofollow"
+  viewport="width=device-width,initial-scale=1"
+  themeColor={null}
+  globalCssFirst>
+<Fragment slot="head">
 <style is:inline>
 .preview{max-width:1100px;margin:auto;padding:64px 22px}
 .demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -18,8 +17,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 .sample{padding:28px;background:#fff;border:1px solid var(--line);border-radius:18px;margin-bottom:16px}
 @media(max-width:700px){.demo-grid,.swatches{grid-template-columns:1fr}}
 </style>
-</head>
-<body>
+</Fragment>
 <SiteHeader />
 
 <div class="preview">
@@ -62,5 +60,4 @@ import SiteFooter from '../components/SiteFooter.astro';
 </div>
 </div>
 <SiteFooter />
-</body>
-</html>
+</BaseLayout>

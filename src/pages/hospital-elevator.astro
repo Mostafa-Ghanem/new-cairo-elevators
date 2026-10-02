@@ -1,22 +1,11 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 ---
-<!DOCTYPE html>
-
-<html dir="rtl" lang="ar">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
-<meta content="#0A1724" name="theme-color"/>
-<title>مصعد مستشفيات في القاهرة | القاهرة الجديدة للمصاعد</title>
-<meta content="مصاعد مستشفيات لنقل المرضى والأسرة والمعدات داخل المنشآت الطبية. اطلب معاينة لتحديد أبعاد الكابينة والأبواب والحمولة المناسبة." name="description"/>
-
-
-
-
-
-
+<BaseLayout title="مصعد مستشفيات في القاهرة | القاهرة الجديدة للمصاعد"
+  description="مصاعد مستشفيات لنقل المرضى والأسرة والمعدات داخل المنشآت الطبية. اطلب معاينة لتحديد أبعاد الكابينة والأبواب والحمولة المناسبة.">
+<Fragment slot="head">
 <style is:inline>
 /* =========================================================
    NEW CAIRO ELEVATORS
@@ -558,9 +547,7 @@ p{
   *,*:before,*:after{transition:none!important}
 }
 </style>
-<link rel="stylesheet" href="assets/css/global.css?v=1.4">
-</head>
-<body>
+</Fragment>
 <SiteHeader />
 <main>
 <div class="container breadcrumb"><a href="index.html">الرئيسية</a><span>›</span><a href="services.html">الخدمات والمنتجات</a><span>›</span>مصعد مستشفيات</div>
@@ -774,6 +761,4 @@ p{
 <a class="btn btn-outline" href="tel:01060781020">اتصال</a>
 <a class="btn btn-primary" href="https://wa.me/201276611628?text=%D8%A3%D9%87%D9%84%D9%8B%D8%A7%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%B5%D8%B9%D8%AF%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9%20%D9%84%D9%84%D9%85%D8%B5%D8%A7%D8%B9%D8%AF" rel="noopener" target="_blank" rel="noopener">واتساب</a>
 </div>
-
-</body>
-</html>
+</BaseLayout>

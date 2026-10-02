@@ -12,6 +12,10 @@ _Last updated: 2026-10-02_
 /
 ├─ src/
 │  ├─ pages/*.astro               # صفحة لكل URL (index.astro → /، gearless-elevator.astro → /gearless-elevator)
+│  ├─ pages/sitemap.xml.ts        # /sitemap.xml (endpoint)
+│  ├─ pages/robots.txt.ts         # /robots.txt (endpoint)
+│  ├─ layouts/BaseLayout.astro    # <html>/<head> المشترك: meta، preload، global.css، canonical/OG/Twitter، JSON-LD
+│  ├─ lib/site.ts                 # ثوابت الموقع وبيانات السيو (الشركة، صفحات المنتجات، الصفحات الداخلية، Schema)
 │  └─ components/
 │     ├─ SiteHeader.astro         # Topbar + Header + Mega Menu + Mobile Menu
 │     └─ SiteFooter.astro         # Shared footer + shared scripts
@@ -33,13 +37,15 @@ _Last updated: 2026-10-02_
 
 1. Astro بيبني كل `src/pages/*.astro` لـ`dist/<slug>.html` (`build.format: 'file'`، `compressHTML: false`) وبينسخ `public/`.
 2. كل `<style>` و`<script>` في الصفحات مكتوبين `is:inline` عشان Astro مايعملهمش scope أو bundle — الـCSS/JS بيطلع زي ما هو.
-3. `scripts/postbuild.mjs`:
+3. كل صفحة بتستخدم `BaseLayout` وبتبعتله `title` و`description` (و`robots` للصفحات الداخلية). الـ`<style is:inline>` الخاص بالصفحة بيتحط في `<Fragment slot="head">`. الـLayout بيطلّع الـhead كله: الـmeta، preload الخط (وصورة الهيرو لو اتبعت `preloadImage`)، `global.css`، الـcanonical والـOG والـTwitter والـJSON-LD من `src/lib/site.ts`.
+4. `src/pages/sitemap.xml.ts` و`robots.txt.ts` بيولّدوا الملفين من نفس بيانات `site.ts`.
+5. `scripts/postbuild.mjs` بيعمل اللي محتاج الـHTML النهائي بس:
    - يفحص روابط `.html` المحلية ويوقف الـbuild لو فيه رابط مكسور.
    - يحوّل الروابط الداخلية لـclean URLs.
    - يصغّر الـCSS المكتوب جوه الصفحات و`global.css`.
-   - يضيف preload للخط وصورة الهيرو، canonical/Open Graph/Twitter، وJSON-LD.
-   - يولّد `sitemap.xml` و`robots.txt` و`_redirects` (301 من `.html`).
-4. Cloudflare Pages ينشر `dist/`، ويطبّق `public/_headers` (cache طويل للصور والخطوط، أسبوع للـCSS/JS المتعلّمين بـ`?v=`).
+   - يحط الـLQIP (الصورة المموّهة) خلفية لكل `<img>`.
+   - يولّد `_redirects` (301 من `.html`).
+6. Cloudflare Pages ينشر `dist/`، ويطبّق `public/_headers` (cache طويل للصور والخطوط، أسبوع للـCSS/JS المتعلّمين بـ`?v=`).
 
 `npm run dev` يشغّل Astro dev server للمعاينة (من غير خطوة الـpostbuild).
 
@@ -90,7 +96,11 @@ Root directory: /
 | `assets/`, `manifest.json` | `public/assets/`, `public/manifest.json` |
 | `scripts/postbuild.mjs` | Astro + `scripts/postbuild.mjs` |
 
-خطوات لاحقة اختيارية: نقل الـCSS المكرر في الصفحات لـlayout مشترك، وصفحات المنتجات لـcontent collection.
+### خطة الـRefactoring
+1. ✅ (2026-10-02) `BaseLayout.astro` + `src/lib/site.ts` + endpoints للـsitemap/robots.
+2. صفحات المنتجات الـ8 → قالب واحد + Content Collection.
+3. الـCSS: تجميع المكرر، تقليل `is:inline` و`!important`.
+4. الصور: `astro:assets` / `<Picture>` + AVIF، وCI بـ`astro check`.
 
 ### Shared shell ownership invariant
 - `src/components/SiteHeader.astro`, `src/components/SiteFooter.astro`, `public/assets/css/global.css`, and `public/assets/js/site-navigation.js` exclusively own shared header/footer/navigation behavior.
@@ -99,7 +109,7 @@ Root directory: /
 
 ## SEO output
 
-`scripts/postbuild.mjs` generates `dist/sitemap.xml` and `dist/robots.txt` at build time; internal pages (`review-pages.html`, `design-system-preview.html`, `404.html`) are excluded.
+`src/pages/sitemap.xml.ts` and `src/pages/robots.txt.ts` generate `/sitemap.xml` and `/robots.txt` at build time; internal pages (`review-pages.html`, `design-system-preview.html`, `404.html`) are excluded.
 
 ## Responsive images
 
@@ -109,6 +119,6 @@ Root directory: /
 
 ## Social meta & leads
 
-- Build injects canonical/Open Graph/Twitter tags per public page (`socialMeta` in `scripts/postbuild.mjs`).
+- Build injects canonical/Open Graph/Twitter tags per public page (`src/layouts/BaseLayout.astro`, data in `src/lib/site.ts`).
 - All images are served locally from `public/assets/images/` (WebP); no third-party image hosts.
 - Lead forms use `public/assets/js/lead-form.js` → Google Sheets (Apps Script web app) + WhatsApp. See `docs/google-sheets-crm.md`.
