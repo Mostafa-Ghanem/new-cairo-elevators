@@ -16,7 +16,10 @@ _Last updated: 2026-10-02_
 │  ├─ content/products/*.json     # محتوى كل منتج (gearless-elevator.json → /gearless-elevator)
 │  ├─ content.config.ts           # schema الـproducts collection (Zod) — الـbuild بيقف لو ملف ناقص حقل
 │  ├─ data/product-shared.ts      # المحتوى المشترك بين المنتجات (خطوات التنفيذ، منتجات أخرى، الفورم، الـCTA)
-│  ├─ styles/product-page.css     # CSS صفحات المنتجات (بيتحط inline في الصفحة)
+│  ├─ styles/product-page.css     # CSS صفحات المنتجات
+│  ├─ styles/content-page.css     # CSS مشترك للصفحات الداخلية (من نحن، الخدمات، FAQ، تواصل، ...)
+│  ├─ styles/home.css             # CSS الرئيسية
+│  ├─ styles/thank-you.css        # إضافات صفحة الشكر فوق content-page.css
 │  ├─ pages/sitemap.xml.ts        # /sitemap.xml (endpoint)
 │  ├─ pages/robots.txt.ts         # /robots.txt (endpoint)
 │  ├─ layouts/BaseLayout.astro    # <html>/<head> المشترك: meta، preload، global.css، canonical/OG/Twitter، JSON-LD
@@ -30,6 +33,7 @@ _Last updated: 2026-10-02_
 │  ├─ assets/fonts|images|videos/
 │  └─ manifest.json
 │  └─ _headers                    # Cloudflare Pages cache rules للـassets
+├─ scripts/visual-diff.mjs        # مقارنة بصرية pixel-by-pixel بين build-ين (20 صفحة × 4 مقاسات)
 ├─ scripts/postbuild.mjs          # SEO/performance layer على dist/
 ├─ astro.config.mjs
 ├─ .node-version                  # Node 22 (Astro محتاج ≥ 22.12)
@@ -104,7 +108,9 @@ Root directory: /
 ### خطة الـRefactoring
 1. ✅ (2026-10-02) `BaseLayout.astro` + `src/lib/site.ts` + endpoints للـsitemap/robots.
 2. ✅ (2026-10-02) صفحات المنتجات الـ8 → `src/pages/[product].astro` + `src/content/products/*.json`.
-3. الـCSS: تجميع المكرر، تقليل `is:inline` و`!important`.
+3. ✅ (2026-10-02) الـCSS: كل CSS الصفحات بقى في `src/styles/*.css` (مفيش CSS مكرر بين الصفحات)، و`!important` في `global.css` نزلوا من 151 لـ39.
+   - الـ39 الباقيين لازمين: بيغطّوا على قواعد في CSS الصفحات بنفس الـspecificity أو أعلى. شيلهم محتاج إعادة ترتيب الـCSS نفسه.
+   - `is:inline` لسه موجود عن قصد: لو اتشال، Astro بيعمل scope للـCSS (بيزود attributes وspecificity) وبيغيّر ترتيب تحميله بالنسبة لـ`global.css` — وده بيغيّر الشكل. الـCSS بيتكتب في ملفات `.css` عادية وبيتحقن بـ`?raw` + `set:html`.
 4. الصور: `astro:assets` / `<Picture>` + AVIF، وCI بـ`astro check`.
 
 ### Shared shell ownership invariant
@@ -115,6 +121,18 @@ Root directory: /
 ## SEO output
 
 `src/pages/sitemap.xml.ts` and `src/pages/robots.txt.ts` generate `/sitemap.xml` and `/robots.txt` at build time; internal pages (`review-pages.html`, `design-system-preview.html`, `404.html`) are excluded.
+
+## Visual regression
+
+قبل أي تعديل في CSS أو layout:
+
+```bash
+git stash && npm run build && cp -r dist /tmp/base && git stash pop   # build الأساس
+npm run build
+CHROME_PATH=/path/to/chrome node scripts/visual-diff.mjs /tmp/base dist
+```
+
+بيصوّر الـ20 صفحة على 390/768/1366/1920 ويقارن بالبكسل؛ أي فرق بيتحفظ صور قبل/بعد في `visual-diff/`. محتاج Playwright (مش من dependencies المشروع).
 
 ## صفحات المنتجات
 
