@@ -1500,3 +1500,7 @@ p,
 /* Brand tagline contrast (WCAG AA 4.5:1) — overrides older page-level colors */
 .site-header .brand-name small{color:#5F6B76}
 .footer .brand-name small{color:#93A3B1}
+
+/* Photo placeholder while an image is still downloading (instead of the dark card showing through) */
+img[src*="images/products/"],
+img[src*="images/home/"]{background-color:#E6E0D6}
