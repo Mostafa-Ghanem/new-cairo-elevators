@@ -4,6 +4,13 @@
 
 ## 2026-10-02 — Astro
 
+### Performance — Blurred image previews + no font flash
+- فحص الموقع الحقيقي: السيرفر سريع (HTML بيوصل في ~0.1 ث، Brotli، HTTP/2+3)، والـcache و`srcset` شغالين، وكل الصور المعروضة WebP (الـJPG بس صور مشاركة السوشيال `og.jpg` لأن فيسبوك/واتساب محتاجينها).
+- السبب في الكارت الفاضي: الصور `loading="lazy"` فبتبدأ تتحمّل لما تقرّب منها؛ لو الـscroll أسرع من النت بيبان المربع فاضي. جربنا تحميلها كلها من الأول (eager) وطلع أسوأ على النت البطيء، فاترفض.
+- `scripts/make-lqip.sh` + `scripts/lqip.json` (جديد): نسخة مصغّرة جدًا (20px، ~400 byte) من كل صورة. `scripts/postbuild.mjs` بيحطها خلفية للـ`<img>`، فالكارت بيظهر فيه نسخة مموّهة من نفس الصورة فورًا لحد ما الصورة الحقيقية توصل.
+- `public/assets/css/global.css`: `font-display: block` بدل `swap` للخط (preloaded)، فالنص بيظهر بـAlexandria من أول مرة بدل ما يبدأ بخط تاني ويتبدّل. `global.css?v=1.4`.
+- مقاسات الصور في الـ20 صفحة على 4 شاشات مطابقة لـ`main`، وLighthouse موبايل محلي 95–96 (زي قبل).
+
 ### Performance — Real phones were still downloading full-size images
 - `src/pages/*.astro`: `sizes` بقى `(max-width: 820px) 40vw, 900px` (والهيرو `60vw`). الموبايلات الحقيقية شاشتها كثافتها 2.5–3x، فكانت بتختار الصورة الكبيرة (1000–1250px) بدل نسخة الـ720. دلوقتي بتاخد نسخة الـ720 (لسه حادة 2x على كارت 350px). الديسكتوب زي ما هو.
 - `src/components/SiteHeader.astro`: صورة معاينة الـMega Menu كانت بتتحمّل بالمقاس الكامل (105KB) في كل صفحة حتى على الموبايل اللي مش بيظهر فيه المنيو ده. بقت `loading="lazy"` ومعاينات المنتجات بقت نسخ `-720`.
