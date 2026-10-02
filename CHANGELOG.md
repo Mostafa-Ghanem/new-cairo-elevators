@@ -2,6 +2,14 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-10-02 — Refactor phase 3
+
+### Changed — CSS
+- `src/styles/content-page.css` (جديد): الـ13KB CSS اللي كانت متكررة بالحرف في 10 صفحات (404، من نحن، تواصل، FAQ، الخصوصية، طلب معاينة، review، المناطق، الخدمات، الشكر) بقت ملف واحد. `src/styles/home.css` و`thank-you.css` لـCSS الرئيسية وإضافات صفحة الشكر. الصفحات بتحقنها inline بـ`?raw` (نفس الناتج).
+- `public/assets/css/global.css`: `!important` نزلوا من 151 لـ39. كل واحد اتشال اتأكدنا إنه مش بيغيّر الـcomputed style لأي عنصر في الـ20 صفحة على 4 مقاسات؛ الباقيين لازمين لأنهم بيغطّوا على CSS الصفحات. `global.css?v=1.5`.
+- `scripts/visual-diff.mjs` (جديد): مقارنة بصرية pixel-by-pixel بين build-ين. النتيجة لهذا التعديل: 80/80 صورة identical مع `main`، وكمان المنيو المفتوح على الموبايل والـMega Menu على الديسكتوب.
+- `AGENTS.md` و`docs/ARCHITECTURE.md`: قاعدة الـvisual-diff قبل أي refactor، ومكان الـCSS، وليه `is:inline` باقي.
+
 ## 2026-10-02 — Refactor phase 2
 
 ### Changed — Product pages → one template + content collection

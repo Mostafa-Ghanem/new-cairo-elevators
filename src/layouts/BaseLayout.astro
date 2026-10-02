@@ -28,7 +28,7 @@ const {
   preloadImage
 } = Astro.props;
 
-const GLOBAL_CSS = 'assets/css/global.css?v=1.4';
+const GLOBAL_CSS = 'assets/css/global.css?v=1.5';
 const slug = slugFromPath(Astro.url.pathname);
 const seo = !INTERNAL_PAGES.has(slug);
 const url = cleanUrl(slug);
