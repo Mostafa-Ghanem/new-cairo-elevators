@@ -6,14 +6,19 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && node scripts/postbuild.mjs",
-    "check": "npm run build",
-    "preview": "astro preview"
+    "check": "astro check && npm run build",
+    "preview": "astro preview",
+    "typecheck": "astro check",
+    "images": "node scripts/make-images.mjs"
   },
   "engines": {
     "node": ">=22.12.0"
   },
   "devDependencies": {
-    "astro": "^7.3.5"
+    "@astrojs/check": "^0.9.10",
+    "@types/node": "^22.20.5",
+    "astro": "^7.3.5",
+    "typescript": "^6.0.3"
   },
   "type": "module"
 }

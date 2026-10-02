@@ -1444,9 +1444,9 @@ p,
   .hero-frame,
   .hero-box { min-height: min(620px, calc(100svh - 150px)); }
   .hero-media { min-height: 0; position: relative; }
-  .hero-media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .service-large > img,
-  .service-small > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-media > img, .hero-media > picture > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .service-large > img, .service-large > picture > img,
+  .service-small > img, .service-small > picture > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .services-grid { height: clamp(320px, calc(100svh - 310px), 540px); }
   .service-large,
   .service-small { min-height: 0; }
@@ -1504,3 +1504,7 @@ p,
 /* Photo placeholder while an image is still downloading (instead of the dark card showing through) */
 img[src*="images/products/"],
 img[src*="images/home/"]{background-color:#E6E0D6}
+
+/* <picture> from src/components/Img.astro (AVIF + WebP). display:contents keeps the layout exactly as a bare <img>. */
+picture{display:contents}
+picture>source{display:none}

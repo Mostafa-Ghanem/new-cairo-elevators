@@ -1,0 +1,20 @@
+name: CI
+
+# Type-checks and builds the site on every pull request and push to main.
+# The build itself fails on broken local page links and missing image files (scripts/postbuild.mjs).
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+      - run: npm run check

@@ -1,6 +1,7 @@
 // Visual regression check: screenshots every page of two builds at the AGENTS.md viewports and
 // reports any page whose pixels differ.
 //   node scripts/visual-diff.mjs <baseDistDir> <newDistDir> [outDir]
+// HIDE_IMAGES=1 hides photos (visibility only, layout kept) — for comparing builds whose image files differ (e.g. WebP → AVIF).
 // Needs Playwright + Chromium (PLAYWRIGHT_BROWSERS_PATH / CHROME_PATH). Not part of `npm run build`.
 import http from 'node:http';
 import { readFile, readdir, mkdir, writeFile } from 'node:fs/promises';
@@ -44,6 +45,7 @@ async function shoot(browser, port, file, [w, h]) {
     await Promise.all([...document.images].map((img) => img.decode().catch(() => {})));
   });
   await page.waitForLoadState('networkidle');
+  if (process.env.HIDE_IMAGES) await page.addStyleTag({ content: 'img{visibility:hidden!important}' });
   await page.evaluate(() => {
     for (const el of document.querySelectorAll('*')) if (getComputedStyle(el).position === 'sticky') el.style.setProperty('position', 'relative', 'important');
     window.scrollTo(0, 0);

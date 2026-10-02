@@ -23,6 +23,7 @@ _Last updated: 2026-10-02_
 │  ├─ pages/sitemap.xml.ts        # /sitemap.xml (endpoint)
 │  ├─ pages/robots.txt.ts         # /robots.txt (endpoint)
 │  ├─ layouts/BaseLayout.astro    # <html>/<head> المشترك: meta، preload، global.css، canonical/OG/Twitter، JSON-LD
+│  ├─ components/Img.astro        # صورة: <picture> بـAVIF + WebP + نسخة موبايل + placeholder مموّه
 │  ├─ lib/site.ts                 # ثوابت الموقع وبيانات السيو (الشركة، صفحات المنتجات، الصفحات الداخلية، Schema)
 │  └─ components/
 │     ├─ SiteHeader.astro         # Topbar + Header + Mega Menu + Mobile Menu
@@ -33,6 +34,8 @@ _Last updated: 2026-10-02_
 │  ├─ assets/fonts|images|videos/
 │  └─ manifest.json
 │  └─ _headers                    # Cloudflare Pages cache rules للـassets
+├─ scripts/make-images.mjs        # يولّد AVIF ونسخ -720 و lqip.json (npm run images)
+├─ .github/workflows/ci.yml       # astro check + build على كل PR
 ├─ scripts/visual-diff.mjs        # مقارنة بصرية pixel-by-pixel بين build-ين (20 صفحة × 4 مقاسات)
 ├─ scripts/postbuild.mjs          # SEO/performance layer على dist/
 ├─ astro.config.mjs
@@ -52,7 +55,7 @@ _Last updated: 2026-10-02_
    - يفحص روابط `.html` المحلية ويوقف الـbuild لو فيه رابط مكسور.
    - يحوّل الروابط الداخلية لـclean URLs.
    - يصغّر الـCSS المكتوب جوه الصفحات و`global.css`.
-   - يحط الـLQIP (الصورة المموّهة) خلفية لكل `<img>`.
+   - يتأكد إن كل ملف في `src`/`srcset`/`poster` موجود (صورة ناقصة = الـbuild يقف).
    - يولّد `_redirects` (301 من `.html`).
 6. Cloudflare Pages ينشر `dist/`، ويطبّق `public/_headers` (cache طويل للصور والخطوط، أسبوع للـCSS/JS المتعلّمين بـ`?v=`).
 
@@ -111,7 +114,8 @@ Root directory: /
 3. ✅ (2026-10-02) الـCSS: كل CSS الصفحات بقى في `src/styles/*.css` (مفيش CSS مكرر بين الصفحات)، و`!important` في `global.css` نزلوا من 151 لـ39.
    - الـ39 الباقيين لازمين: بيغطّوا على قواعد في CSS الصفحات بنفس الـspecificity أو أعلى. شيلهم محتاج إعادة ترتيب الـCSS نفسه.
    - `is:inline` لسه موجود عن قصد: لو اتشال، Astro بيعمل scope للـCSS (بيزود attributes وspecificity) وبيغيّر ترتيب تحميله بالنسبة لـ`global.css` — وده بيغيّر الشكل. الـCSS بيتكتب في ملفات `.css` عادية وبيتحقن بـ`?raw` + `set:html`.
-4. الصور: `astro:assets` / `<Picture>` + AVIF، وCI بـ`astro check`.
+4. ✅ (2026-10-02) الصور: `src/components/Img.astro` (AVIF + WebP) + `scripts/make-images.mjs`، و`astro check` + GitHub Actions CI.
+   - ليه مش `astro:assets`: كان هيحتاج نقل الصور لـ`src/` وتغيير مساراتها لـ`/_astro/<hash>`، وده يكسر `og.jpg` ومعاينات الـMega Menu اللي بيبدّلها الـJS بالمسار، ويخلّي Cloudflare يعالج الصور في كل build. الصور المشتقة بتتعمل مرة وتتعمل لها commit.
 
 ### Shared shell ownership invariant
 - `src/components/SiteHeader.astro`, `src/components/SiteFooter.astro`, `public/assets/css/global.css`, and `public/assets/js/site-navigation.js` exclusively own shared header/footer/navigation behavior.
@@ -137,14 +141,15 @@ CHROME_PATH=/path/to/chrome node scripts/visual-diff.mjs /tmp/base dist
 ## صفحات المنتجات
 
 - **تعديل نص منتج:** عدّل `src/content/products/<slug>.json` بس.
-- **إضافة منتج جديد:** انسخ ملف JSON موجود باسم الـslug الجديد (هيبقى الـURL)، عدّل المحتوى، وحط الصور في `public/assets/images/products/<slug>/` (ونسخة `-720.webp` لأي صورة أعرض من 800px، و`og.jpg`)، وضيف الـslug لـ`PRODUCT_PAGES` في `src/lib/site.ts`، وشغّل `scripts/make-lqip.sh`.
+- **إضافة منتج جديد:** انسخ ملف JSON موجود باسم الـslug الجديد (هيبقى الـURL)، عدّل المحتوى، وحط الصور في `public/assets/images/products/<slug>/` (و`og.jpg`)، وضيف الـslug لـ`PRODUCT_PAGES` في `src/lib/site.ts`، وشغّل `npm run images` (بيعمل نسخ `-720` والـAVIF والـplaceholder).
 - **تعديل حاجة مشتركة** (خطوات التنفيذ، المنتجات الأخرى، الفورم): `src/data/product-shared.ts`. **تعديل الشكل:** `src/pages/[product].astro` و`src/styles/product-page.css`.
 
 ## Responsive images
 
-- أي صورة أعرض من 800px ليها نسخة `-720.webp` جنبها، والـ`<img>` فيه `width`/`height` و`srcset` و`sizes="(max-width: 820px) 40vw, 900px"`.
-- الـ`40vw` مقصودة: بتخلّي الموبايلات عالية الكثافة تاخد نسخة الـ720 بدل الأصلية.
-- Placeholder: `scripts/postbuild.mjs` بيحط نسخة مموّهة صغيرة (من `scripts/lqip.json`) كخلفية لكل `<img>`. بعد إضافة أو تغيير صورة شغّل `scripts/make-lqip.sh` (محتاج ImageMagick).
+- أي صورة في صفحة بتتكتب بـ`<Img src=... width height alt />` (`src/components/Img.astro`)، مش `<img>`.
+- الكومبوننت بيطلّع `<picture>`: `<source type="image/avif">` + `<img>` WebP، ولو فيه نسخة `-720`/`-860` بيحط `srcset` و`sizes="(max-width: 820px) 40vw, 900px"` (الـ40vw مقصودة: بتخلّي الموبايلات عالية الكثافة تاخد النسخة الصغيرة)، وخلفية مموّهة من `scripts/lqip.json`.
+- `global.css`: `picture{display:contents}` و`picture>source{display:none}` فالـlayout زي `<img>` لوحده بالظبط (selectors زي `.x > img` محتاجة نسخة `.x > picture > img`).
+- بعد إضافة أو تغيير صورة: `npm run images` (sharp) — بيعمل `.avif` و`-720.webp`/`.avif` و`lqip.json` للصور اللي `src/` بيستخدمها بس، وبعدين commit للملفات.
 
 ## Social meta & leads
 

@@ -1,0 +1,33 @@
+---
+// Photo with AVIF + WebP sources, responsive variants and a blurred placeholder.
+// Derived files (<name>.avif, <name>-<w>.webp/.avif, scripts/lqip.json) come from
+// `node scripts/make-images.mjs`. The <picture> wrapper is display:contents (global.css),
+// so layout is the same as a bare <img>.
+import { existsSync } from 'node:fs';
+import path from 'node:path';
+import lqip from '../../scripts/lqip.json';
+
+interface Props {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+  loading?: 'lazy' | 'eager';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  /** Defaults to phones/tablets → small variant, desktop → full size. */
+  sizes?: string;
+}
+
+const { src, width, height, alt, loading = 'lazy', fetchpriority, sizes = '(max-width: 820px) 40vw, 900px' } = Astro.props;
+
+const base = src.replace(/\.webp$/, '');
+// Build runs from the project root (npm run build), so public/ is resolved from cwd.
+const pub = (p: string) => existsSync(path.join(process.cwd(), 'public', p));
+const variant = [720, 860].find((w) => pub(`${base}-${w}.webp`));
+const set = (ext: string) =>
+  variant ? `${base}-${variant}.${ext} ${variant}w, ${base}.${ext} ${width}w` : undefined;
+const hasAvif = pub(`${base}.avif`);
+const placeholder = (lqip as Record<string, string>)[src];
+const style = placeholder ? `background:url(${placeholder}) center/cover` : undefined;
+---
+<picture>{hasAvif && <source type="image/avif" srcset={set('avif') ?? `${base}.avif`} sizes={variant ? sizes : undefined}>}<img style={style} width={width} height={height} loading={loading} fetchpriority={fetchpriority} decoding="async" src={src} srcset={set('webp')} sizes={variant ? sizes : undefined} alt={alt}></picture>
