@@ -35,6 +35,8 @@ npm run check
 - الموقع مبني بـAstro: الصفحات في `src/pages/*.astro` والملفات الثابتة في `public/`. أي `<style>`/`<script>` جوه صفحة لازم يكون `is:inline`.
 - كل صفحة لازم تستخدم `src/layouts/BaseLayout.astro` (title/description كـprops، والـstyle في `slot="head"`). ممنوع `<html>`/`<head>` جوه صفحة.
 - بيانات السيو (الشركة، الـSchema، صفحات المنتجات، الصفحات الداخلية) مصدرها الوحيد `src/lib/site.ts`.
+- الصور في الصفحات بـ`src/components/Img.astro` (مش `<img>`). بعد إضافة/تغيير صورة شغّل `npm run images` واعمل commit للملفات الناتجة.
+- `npm run check` = `astro check` (TypeScript) + build؛ نفس اللي بيشتغل في GitHub Actions على كل PR.
 - صفحات المنتجات: المحتوى في `src/content/products/<slug>.json` والقالب `src/pages/[product].astro`. ممنوع ترجع صفحة منتج كملف `.astro` منفصل.
 - حافظ على boundaries واضحة بين Page Content وShared Layout.
 - حافظ على URLs الحالية وأسماء الصفحات ما لم يوجد قرار SEO موثق.

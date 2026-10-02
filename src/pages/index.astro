@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Img from '../components/Img.astro';
 import homeCss from '../styles/home.css?raw';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 ---
 <BaseLayout title="القاهرة الجديدة للمصاعد | توريد وتركيب وصيانة المصاعد"
   description="حلول مصاعد متكاملة للفيلات والمباني السكنية والتجارية: توريد، تركيب، تشطيب، صيانة وتحديث."
-  preloadImage={{ href: '/assets/images/home/hero-luxury-elevator-lobby.webp', srcset: '/assets/images/home/hero-luxury-elevator-lobby-860.webp 860w, /assets/images/home/hero-luxury-elevator-lobby.webp 1122w', sizes: '(max-width: 900px) 60vw, 50vw' }}>
+  preloadImage={{ href: '/assets/images/home/hero-luxury-elevator-lobby.avif', srcset: '/assets/images/home/hero-luxury-elevator-lobby-860.avif 860w, /assets/images/home/hero-luxury-elevator-lobby.avif 1122w', sizes: '(max-width: 900px) 60vw, 50vw' }}>
 <Fragment slot="head">
 <style is:inline set:html={homeCss}></style>
 </Fragment>
@@ -37,7 +38,7 @@ import SiteFooter from '../components/SiteFooter.astro';
       </div>
 
       <div class="hero-media">
-        <img loading="eager" fetchpriority="high" decoding="async" width="1122" height="1402" src="assets/images/home/hero-luxury-elevator-lobby.webp" srcset="assets/images/home/hero-luxury-elevator-lobby-860.webp 860w, assets/images/home/hero-luxury-elevator-lobby.webp 1122w" sizes="(max-width: 900px) 60vw, 50vw" alt="مدخل مصعد فاخر بأبواب ستانلس شامبين وكابينة رخام أونكس مضيء">
+        <Img src="assets/images/home/hero-luxury-elevator-lobby.webp" width={1122} height={1402} alt="مدخل مصعد فاخر بأبواب ستانلس شامبين وكابينة رخام أونكس مضيء" loading="eager" fetchpriority="high" sizes="(max-width: 900px) 60vw, 50vw" />
         <div class="hero-badge">
           <div class="hero-badge-top">
             <b>Premium Elevator Solutions</b>
@@ -83,7 +84,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 
     <div class="services-grid">
       <article class="service-large">
-        <img width="1200" height="1600" loading="lazy" decoding="async" src="assets/images/products/gearless-elevator/gallery-03.webp" srcset="assets/images/products/gearless-elevator/gallery-03-720.webp 720w, assets/images/products/gearless-elevator/gallery-03.webp 1200w" sizes="(max-width: 820px) 40vw, 900px" alt="توريد وتركيب المصاعد للمباني">
+        <Img src="assets/images/products/gearless-elevator/gallery-03.webp" width={1200} height={1600} alt="توريد وتركيب المصاعد للمباني" />
         <div class="service-content">
           <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 20V4h10v16M4 20h16M9 8h6M9 12h6M9 16h6"/></svg></div>
           <span class="number">01 — SUPPLY & INSTALLATION</span>
@@ -97,7 +98,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 
       <div class="service-side">
         <article class="service-small">
-          <img width="1086" height="1448" loading="lazy" decoding="async" src="assets/images/products/hydraulic-panoramic-elevator/hero.webp" srcset="assets/images/products/hydraulic-panoramic-elevator/hero-720.webp 720w, assets/images/products/hydraulic-panoramic-elevator/hero.webp 1086w" sizes="(max-width: 820px) 40vw, 900px" alt="تشطيبات وهوم ليفت للفيلات">
+          <Img src="assets/images/products/hydraulic-panoramic-elevator/hero.webp" width={1086} height={1448} alt="تشطيبات وهوم ليفت للفيلات" />
           <div class="service-content">
             <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19 15 8l3 3L7 22H4v-3ZM14 5l2-2 5 5-2 2"/></svg></div>
             <span class="number">02 — CABIN & FINISH</span>
@@ -108,7 +109,7 @@ import SiteFooter from '../components/SiteFooter.astro';
         </article>
 
         <article class="service-small">
-          <img width="1254" height="1254" loading="lazy" decoding="async" src="assets/images/products/elevator-maintenance/hero.webp" srcset="assets/images/products/elevator-maintenance/hero-720.webp 720w, assets/images/products/elevator-maintenance/hero.webp 1254w" sizes="(max-width: 820px) 40vw, 900px" alt="فني صيانة مصاعد">
+          <Img src="assets/images/products/elevator-maintenance/hero.webp" width={1254} height={1254} alt="فني صيانة مصاعد" />
           <div class="service-content">
             <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 6a4 4 0 0 0-5.5 5.5L4 16l4 4 4.5-4.5A4 4 0 0 0 18 10l-3 3-4-4 3-3Z"/></svg></div>
             <span class="number">03 — MAINTENANCE</span>
@@ -139,7 +140,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 
       <a class="product-card" href="hospital-elevator.html">
         <div class="product-image">
-          <img width="1024" height="1536" loading="lazy" decoding="async" src="assets/images/products/hospital-elevator/hero.webp" srcset="assets/images/products/hospital-elevator/hero-720.webp 720w, assets/images/products/hospital-elevator/hero.webp 1024w" sizes="(max-width: 820px) 40vw, 900px" alt="مصعد مستشفيات">
+          <Img src="assets/images/products/hospital-elevator/hero.webp" width={1024} height={1536} alt="مصعد مستشفيات" />
         </div>
         <div class="product-copy">
           <div class="product-meta">HOSPITAL ELEVATOR</div>
@@ -154,7 +155,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 
       <a class="product-card" href="outdoor-elevator.html">
         <div class="product-image">
-          <img width="1086" height="1448" loading="lazy" decoding="async" src="assets/images/products/outdoor-elevator/hero.webp" srcset="assets/images/products/outdoor-elevator/hero-720.webp 720w, assets/images/products/outdoor-elevator/hero.webp 1086w" sizes="(max-width: 820px) 40vw, 900px" alt="مصعد خارجي">
+          <Img src="assets/images/products/outdoor-elevator/hero.webp" width={1086} height={1448} alt="مصعد خارجي" />
         </div>
         <div class="product-copy">
           <div class="product-meta">OUTDOOR ELEVATOR</div>
@@ -169,7 +170,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 
       <a class="product-card" href="gearbox-elevator.html">
         <div class="product-image">
-          <img width="1086" height="1448" loading="lazy" decoding="async" src="assets/images/products/gearbox-elevator/hero.webp" srcset="assets/images/products/gearbox-elevator/hero-720.webp 720w, assets/images/products/gearbox-elevator/hero.webp 1086w" sizes="(max-width: 820px) 40vw, 900px" alt="مصعد جيربوكس">
+          <Img src="assets/images/products/gearbox-elevator/hero.webp" width={1086} height={1448} alt="مصعد جيربوكس" />
         </div>
         <div class="product-copy">
           <div class="product-meta">GEARED / GEARBOX ELEVATOR</div>
@@ -184,7 +185,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 
       <a class="product-card" href="gearbox-automatic-doors.html">
         <div class="product-image">
-          <img width="1086" height="1448" loading="lazy" decoding="async" src="assets/images/products/gearbox-automatic-doors/hero.webp" srcset="assets/images/products/gearbox-automatic-doors/hero-720.webp 720w, assets/images/products/gearbox-automatic-doors/hero.webp 1086w" sizes="(max-width: 820px) 40vw, 900px" alt="مصعد جيربوكس أبواب أوتوماتيك">
+          <Img src="assets/images/products/gearbox-automatic-doors/hero.webp" width={1086} height={1448} alt="مصعد جيربوكس أبواب أوتوماتيك" />
         </div>
         <div class="product-copy">
           <div class="product-meta">GEARBOX + AUTOMATIC DOORS</div>
@@ -199,7 +200,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 
       <a class="product-card" href="electric-elevator.html">
         <div class="product-image">
-          <img width="1024" height="1536" loading="lazy" decoding="async" src="assets/images/products/electric-elevator/hero.webp" srcset="assets/images/products/electric-elevator/hero-720.webp 720w, assets/images/products/electric-elevator/hero.webp 1024w" sizes="(max-width: 820px) 40vw, 900px" alt="مصعد كهرباءء">
+          <Img src="assets/images/products/electric-elevator/hero.webp" width={1024} height={1536} alt="مصعد كهرباءء" />
         </div>
         <div class="product-copy">
           <div class="product-meta">ELECTRIC ELEVATOR</div>
@@ -214,7 +215,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 
       <a class="product-card" href="hydraulic-panoramic-elevator.html">
         <div class="product-image">
-          <img width="1086" height="1448" loading="lazy" decoding="async" src="assets/images/products/hydraulic-panoramic-elevator/hero.webp" srcset="assets/images/products/hydraulic-panoramic-elevator/hero-720.webp 720w, assets/images/products/hydraulic-panoramic-elevator/hero.webp 1086w" sizes="(max-width: 820px) 40vw, 900px" alt="مصعد هيدروليك بانوراما">
+          <Img src="assets/images/products/hydraulic-panoramic-elevator/hero.webp" width={1086} height={1448} alt="مصعد هيدروليك بانوراما" />
         </div>
         <div class="product-copy">
           <div class="product-meta">PANORAMIC HYDRAULIC</div>
@@ -229,7 +230,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 
       <a class="product-card" href="gearless-elevator.html">
         <div class="product-image">
-          <img width="960" height="1280" loading="lazy" decoding="async" src="assets/images/products/gearless-elevator/gallery-01.webp" srcset="assets/images/products/gearless-elevator/gallery-01-720.webp 720w, assets/images/products/gearless-elevator/gallery-01.webp 960w" sizes="(max-width: 820px) 40vw, 900px" alt="مصعد جيرلس">
+          <Img src="assets/images/products/gearless-elevator/gallery-01.webp" width={960} height={1280} alt="مصعد جيرلس" />
         </div>
         <div class="product-copy">
           <div class="product-meta">GEARLESS ELEVATOR</div>
@@ -249,7 +250,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 <section class="section pattern-host pattern-grid" id="why">
   <div class="container why-wrap">
     <div class="why-media">
-      <img loading="lazy" decoding="async" width="1200" height="1600" src="assets/images/products/gearless-elevator/gallery-05.webp" srcset="assets/images/products/gearless-elevator/gallery-05-720.webp 720w, assets/images/products/gearless-elevator/gallery-05.webp 1200w" sizes="(max-width: 820px) 40vw, 900px" alt="مصعد منزلي زجاج فاخر">
+      <Img src="assets/images/products/gearless-elevator/gallery-05.webp" width={1200} height={1600} alt="مصعد منزلي زجاج فاخر" />
       <div class="experience-card">
         <strong>20+</strong>
         <span>عامًا من الخبرة في مجال المصاعد</span>
@@ -328,23 +329,23 @@ import SiteFooter from '../components/SiteFooter.astro';
 
     <div class="gallery-grid">
       <div class="gallery-item">
-        <img width="1200" height="1600" loading="lazy" decoding="async" src="assets/images/products/gearless-elevator/gallery-03.webp" srcset="assets/images/products/gearless-elevator/gallery-03-720.webp 720w, assets/images/products/gearless-elevator/gallery-03.webp 1200w" sizes="(max-width: 820px) 40vw, 900px" alt="مصعد داخل فيلا">
+        <Img src="assets/images/products/gearless-elevator/gallery-03.webp" width={1200} height={1600} alt="مصعد داخل فيلا" />
         <div class="gallery-label"><b>فيلات ومنازل خاصة</b><span>HOME & VILLA</span></div>
       </div>
       <div class="gallery-item">
-        <img width="1200" height="1600" loading="lazy" decoding="async" src="assets/images/products/gearless-elevator/gallery-08.webp" srcset="assets/images/products/gearless-elevator/gallery-08-720.webp 720w, assets/images/products/gearless-elevator/gallery-08.webp 1200w" sizes="(max-width: 820px) 40vw, 900px" alt="مصاعد مبنى تجاري">
+        <Img src="assets/images/products/gearless-elevator/gallery-08.webp" width={1200} height={1600} alt="مصاعد مبنى تجاري" />
         <div class="gallery-label"><b>مبانٍ تجارية وإدارية</b><span>COMMERCIAL</span></div>
       </div>
       <div class="gallery-item">
-        <img loading="lazy" decoding="async" width="1200" height="1600" src="assets/images/products/gearless-elevator/gallery-05.webp" srcset="assets/images/products/gearless-elevator/gallery-05-720.webp 720w, assets/images/products/gearless-elevator/gallery-05.webp 1200w" sizes="(max-width: 820px) 40vw, 900px" alt="مصعد زجاج حديث">
+        <Img src="assets/images/products/gearless-elevator/gallery-05.webp" width={1200} height={1600} alt="مصعد زجاج حديث" />
         <div class="gallery-label"><b>مشروعات فاخرة</b><span>PREMIUM FINISH</span></div>
       </div>
       <div class="gallery-item">
-        <img width="1200" height="1600" loading="lazy" decoding="async" src="assets/images/products/gearless-elevator/gallery-09.webp" srcset="assets/images/products/gearless-elevator/gallery-09-720.webp 720w, assets/images/products/gearless-elevator/gallery-09.webp 1200w" sizes="(max-width: 820px) 40vw, 900px" alt="مصاعد عمارات سكنية">
+        <Img src="assets/images/products/gearless-elevator/gallery-09.webp" width={1200} height={1600} alt="مصاعد عمارات سكنية" />
         <div class="gallery-label"><b>عمارات سكنية</b><span>RESIDENTIAL</span></div>
       </div>
       <div class="gallery-item">
-        <img width="1086" height="1448" loading="lazy" decoding="async" src="assets/images/products/hydraulic-panoramic-elevator/hero.webp" srcset="assets/images/products/hydraulic-panoramic-elevator/hero-720.webp 720w, assets/images/products/hydraulic-panoramic-elevator/hero.webp 1086w" sizes="(max-width: 820px) 40vw, 900px" alt="هوم ليفت">
+        <Img src="assets/images/products/hydraulic-panoramic-elevator/hero.webp" width={1086} height={1448} alt="هوم ليفت" />
         <div class="gallery-label"><b>Home Lifts</b><span>PRIVATE HOMES</span></div>
       </div>
     </div>
@@ -355,7 +356,7 @@ import SiteFooter from '../components/SiteFooter.astro';
   <div class="container">
     <div class="maintenance-card">
       <div class="maintenance-media">
-        <img width="1254" height="1254" loading="lazy" decoding="async" src="assets/images/products/elevator-maintenance/hero.webp" srcset="assets/images/products/elevator-maintenance/hero-720.webp 720w, assets/images/products/elevator-maintenance/hero.webp 1254w" sizes="(max-width: 820px) 40vw, 900px" alt="فني يقوم بصيانة مصعد">
+        <Img src="assets/images/products/elevator-maintenance/hero.webp" width={1254} height={1254} alt="فني يقوم بصيانة مصعد" />
       </div>
 
       <div class="maintenance-copy">

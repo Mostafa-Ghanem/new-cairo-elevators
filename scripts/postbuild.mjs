@@ -1,4 +1,4 @@
-import { readFile, readdir, writeFile } from 'node:fs/promises';
+import { access, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -8,23 +8,12 @@ const dist = path.join(root, 'dist');
 
 // Runs after `astro build`. Astro (BaseLayout + src/lib/site.ts) already renders the head, SEO
 // tags, sitemap.xml and robots.txt; this script only does what needs the finished HTML:
-// local link check, clean internal URLs, inline/global CSS minify, LQIP placeholders, _redirects.
+// local link check, clean internal URLs, inline/global CSS minify, _redirects.
 const entries = await readdir(dist, { withFileTypes: true });
 const htmlFiles = entries.filter((entry) => entry.isFile() && entry.name.endsWith('.html')).map((entry) => entry.name);
 
 const internalPages = new Set(['design-system-preview.html', 'review-pages.html', '404.html', 'thank-you.html']);
 const cleanPath = (file) => file === 'index.html' ? '/' : `/${file.replace(/\.html$/i, '')}`;
-
-// Tiny blurred previews (scripts/lqip.json, made by scripts/make-lqip.sh) painted behind each
-// photo, so a card shows a soft version of its image instead of an empty box while it downloads.
-const lqip = JSON.parse(await readFile(path.join(root, 'scripts', 'lqip.json'), 'utf8'));
-function addLqip(html) {
-  return html.replace(/<img\b[^>]*>/g, (tag) => {
-    const src = (tag.match(/\ssrc="\/?(assets\/images\/[^"]+)"/) || [])[1];
-    if (!src || !lqip[src] || /\sstyle=/.test(tag)) return tag;
-    return tag.replace('<img', `<img style="background:url(${lqip[src]}) center/cover"`);
-  });
-}
 
 function minifyCss(css) {
   return css
@@ -36,7 +25,17 @@ function minifyCss(css) {
 
 // Inline <style> blocks are most of each page's HTML weight; minifying them shortens time to first render.
 function minifyInlineStyles(html) {
-  return html.replace(/<style>([\s\S]*?)<\/style>/g, (match, css) => `<style>${minifyCss(css)}</style>`);
+  return html.replace(/<style>([\s\S]*?)<\/style>/g, (_match, css) => `<style>${minifyCss(css)}</style>`);
+}
+
+// Local files referenced by src / srcset / poster (e.g. AVIF and -720 variants from scripts/make-images.mjs).
+function assetRefs(html) {
+  const refs = new Set();
+  for (const [, attr, value] of html.matchAll(/\s(src|srcset|poster)="([^"]+)"/g)) {
+    const urls = attr === 'srcset' ? value.split(',').map((part) => part.trim().split(/\s+/)[0]) : [value];
+    for (const url of urls) if (/^\/?assets\//.test(url)) refs.add(url.replace(/^\//, '').split('?')[0]);
+  }
+  return refs;
 }
 
 function cleanInternalLinks(html) {
@@ -57,9 +56,11 @@ for (const file of htmlFiles) {
     const local = match[1].replace(/^\.\//, '');
     if (!publicPages.has(local)) throw new Error(`Broken local page link in ${file}: ${match[1]}`);
   }
+  for (const ref of assetRefs(html)) {
+    try { await access(path.join(dist, ref)); } catch { throw new Error(`Missing asset in ${file}: ${ref}`); }
+  }
   html = cleanInternalLinks(html);
   html = minifyInlineStyles(html);
-  html = addLqip(html);
   await writeFile(path.join(dist, file), html, 'utf8');
 }
 
@@ -73,4 +74,4 @@ const redirects = htmlFiles
   .map((file) => file === 'index.html' ? '/index.html / 301' : `/${file} ${cleanPath(file)} 301`);
 await writeFile(path.join(dist, '_redirects'), `${redirects.join('\n')}\n`, 'utf8');
 
-console.log(`Post-processed ${htmlFiles.length} Astro pages in dist/ (link check, clean URLs, minify, LQIP, redirects).`);
+console.log(`Post-processed ${htmlFiles.length} Astro pages in dist/ (link check, clean URLs, minify, redirects).`);

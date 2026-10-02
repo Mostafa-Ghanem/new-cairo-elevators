@@ -4,6 +4,7 @@
 // src/data/product-shared.ts; the page CSS is src/styles/product-page.css.
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Img from '../components/Img.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { PRODUCT_SHARED as S, PHONE, WHATSAPP_URL } from '../data/product-shared';
@@ -15,12 +16,6 @@ export async function getStaticPaths() {
 }
 
 const { p } = Astro.props;
-
-type Img = { src: string; width: number; height: number; alt: string };
-// Photos wider than 800px have a 720w sibling (<name>-720.webp) for phones.
-const srcset = (img: Img) =>
-  img.width > 800 ? `${img.src.replace(/\.webp$/, '-720.webp')} 720w, ${img.src} ${img.width}w` : undefined;
-const SIZES = '(max-width: 820px) 40vw, 900px';
 
 const nav = [
   ['#about', p.navAboutLabel],
@@ -58,7 +53,7 @@ const nav = [
 </div>
 </div>
 <div class="hero-media">
-<img width={p.hero.image.width} height={p.hero.image.height} loading="eager" decoding="async" alt={p.hero.image.alt} src={p.hero.image.src} srcset={srcset(p.hero.image)} sizes={SIZES}>
+<Img {...p.hero.image} loading="eager" />
 <div class="hero-label">
 <small>{S.labelSmall}</small>
 <strong>{p.hero.labelStrong}</strong>
@@ -81,7 +76,7 @@ const nav = [
 <p class="info-lead">{p.about.lead}</p>
 <div class="how-grid">
 <div class="tech-image">
-<img width={p.about.image.width} height={p.about.image.height} loading="lazy" decoding="async" alt={p.about.image.alt} src={p.about.image.src} srcset={srcset(p.about.image)} sizes={SIZES}>
+<Img {...p.about.image} />
 </div>
 <div class="how-list">{p.about.items.map((item) => <div class="how-item"><div class="how-no">{item.no}</div><div><h3>{item.title}</h3><p>{item.text}</p></div></div>)}</div>
 </div>
@@ -148,7 +143,7 @@ const nav = [
 <div class="related-grid">
 {S.related.items.map((card) => (
 <a class="related-card" href={card.href}>
-<div class="related-img"><img width={card.image.width} height={card.image.height} loading="lazy" decoding="async" alt={card.image.alt} src={card.image.src} srcset={srcset(card.image)} sizes={SIZES}></div>
+<div class="related-img"><Img {...card.image} /></div>
 <div class="related-copy"><small>{card.small}</small><h3>{card.title}</h3><p>{card.text}</p></div>
 </a>
 ))}

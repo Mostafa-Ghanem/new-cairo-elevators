@@ -2,6 +2,17 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-10-02 — Refactor phase 4
+
+### Changed — AVIF images + CI
+- `src/components/Img.astro` (جديد): كل صور الصفحات (39 في 9 صفحات + قالب المنتجات) بقت `<picture>` فيها AVIF والـWebP كـfallback، مع نفس الـsrcset/sizes والخلفية المموّهة. صور الرئيسية على موبايل 2.6x: 576KB → 430KB (−25%) من غير فرق ظاهر في الجودة.
+- `scripts/make-images.mjs` (جديد، `npm run images`): بيولّد بـsharp ملفات `.avif` (quality 58) ونسخ `-720` و`scripts/lqip.json` للصور المستخدمة بس. بدّل `scripts/make-lqip.sh`. الملفات الناتجة متعمل لها commit فـCloudflare مش بيعالج صور.
+- `public/assets/css/global.css`: `picture{display:contents}` و`picture>source{display:none}` + نسخة `> picture > img` من الـ3 selectors اللي كانت `> img`. `global.css?v=1.6`.
+- `scripts/postbuild.mjs`: اتشال منه الـLQIP (بقى في الكومبوننت)، واتضاف فحص إن كل ملف في `src`/`srcset`/`poster` موجود.
+- صورة الهيرو في الرئيسية بقت preload بـAVIF.
+- `astro check` + `@astrojs/check` و`typescript` و`@types/node` و`tsconfig.json`؛ `npm run check` بقى typecheck + build. `.github/workflows/ci.yml` (جديد) بيشغّله على كل PR وpush على main.
+- التحقق: `scripts/visual-diff.mjs` مع `HIDE_IMAGES=1` (اتضاف) — 80/80 صورة identical مع `main` (الـlayout والنصوص)، والصور نفسها اتقارنت بالعين.
+
 ## 2026-10-02 — Refactor phase 3
 
 ### Changed — CSS
