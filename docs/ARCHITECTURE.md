@@ -20,6 +20,7 @@ _Last updated: 2026-10-02_
 │  ├─ assets/js/                  # site-navigation.js, lead-form.js
 │  ├─ assets/fonts|images|videos/
 │  └─ manifest.json
+│  └─ _headers                    # Cloudflare Pages cache rules للـassets
 ├─ scripts/postbuild.mjs          # SEO/performance layer على dist/
 ├─ astro.config.mjs
 ├─ .node-version                  # Node 22 (Astro محتاج ≥ 22.12)
@@ -38,7 +39,7 @@ _Last updated: 2026-10-02_
    - يصغّر الـCSS المكتوب جوه الصفحات و`global.css`.
    - يضيف preload للخط وصورة الهيرو، canonical/Open Graph/Twitter، وJSON-LD.
    - يولّد `sitemap.xml` و`robots.txt` و`_redirects` (301 من `.html`).
-4. Cloudflare Pages ينشر `dist/`.
+4. Cloudflare Pages ينشر `dist/`، ويطبّق `public/_headers` (cache طويل للصور والخطوط، أسبوع للـCSS/JS المتعلّمين بـ`?v=`).
 
 `npm run dev` يشغّل Astro dev server للمعاينة (من غير خطوة الـpostbuild).
 
@@ -99,6 +100,11 @@ Root directory: /
 ## SEO output
 
 `scripts/postbuild.mjs` generates `dist/sitemap.xml` and `dist/robots.txt` at build time; internal pages (`review-pages.html`, `design-system-preview.html`, `404.html`) are excluded.
+
+## Responsive images
+
+- أي صورة أعرض من 800px ليها نسخة `-720.webp` جنبها، والـ`<img>` فيه `width`/`height` و`srcset` و`sizes="(max-width: 820px) 40vw, 900px"`.
+- الـ`40vw` مقصودة: بتخلّي الموبايلات عالية الكثافة تاخد نسخة الـ720 بدل الأصلية.
 
 ## Social meta & leads
 

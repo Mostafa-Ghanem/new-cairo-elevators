@@ -1,0 +1,12 @@
+# Cloudflare Pages cache rules (free). Asset URLs are versioned (?v=) or content-stable,
+# so browsers can reuse them instead of re-checking on every page view.
+/assets/images/*
+  Cache-Control: public, max-age=2592000
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/videos/*
+  Cache-Control: public, max-age=2592000
+/assets/css/*
+  Cache-Control: public, max-age=604800
+/assets/js/*
+  Cache-Control: public, max-age=604800
