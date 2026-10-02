@@ -2,6 +2,18 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-10-02
+
+### Performance — Mobile speed (PageSpeed موبايل 75 → 90 في اختبار محلي)
+- `assets/css/global.css`: خط Alexandria بقى self-hosted (`assets/fonts/alexandria-arabic.woff2` + `alexandria-latin.woff2`, variable 400–800) بدل `@import` من Google Fonts — شال طلبين لدومينات خارجية وCLS بقى 0.
+- `scripts/build.mjs`: preload لخط العربي بدل روابط Google Fonts، وpreload صورة الهيرو بـ`imagesrcset`.
+- `index.html`: صورة الهيرو بـ`srcset` — نسخة موبايل `hero-luxury-elevator-lobby-860.webp` (72KB بدل 170KB). الشكل زي ما هو.
+- `components/site-header.html` و`site-footer.html`: اللوجو بقى `logo-160.webp` (6KB بدل 87KB) لأنه بيتعرض 50px بس. `logo.webp` الأصلي باقي للـSchema/OG.
+- Accessibility: `aria-label` بتاع لينك اللوجو بقى يحتوي النص الظاهر (`label-content-name-mismatch`).
+
+### SEO — توثيق تعديلات سابقة على `scripts/build.mjs`
+- Clean URLs + `_redirects` 301 من `.html`، canonical/OG بالروابط النظيفة، JSON-LD (LocalBusiness/Organization/WebSite/WebPage/Service/BreadcrumbList مع عنوان وإحداثيات Google Maps)، `robots.txt` و`sitemap.xml` بالروابط النظيفة، وminify لـ`global.css` في `dist/`.
+
 ## 2026-09-27
 
 ### Added — Product videos on product pages
