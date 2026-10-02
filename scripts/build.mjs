@@ -24,6 +24,7 @@ const htmlFiles = entries.filter((entry) => entry.isFile() && entry.name.endsWit
 const SITE = 'https://newcairoelevator.com';
 const BUSINESS_ID = `${SITE}/#business`;
 const WEBSITE_ID = `${SITE}/#website`;
+const MAP_URL = 'https://maps.google.com/?cid=6830831853888756111';
 const internalPages = new Set(['design-system-preview.html', 'review-pages.html', '404.html', 'thank-you.html']);
 const productPages = new Set(['gearless-elevator.html', 'gearbox-elevator.html', 'gearbox-automatic-doors.html', 'electric-elevator.html', 'hydraulic-panoramic-elevator.html', 'hospital-elevator.html', 'outdoor-elevator.html', 'elevator-maintenance.html']);
 const attr = (value) => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
@@ -73,10 +74,25 @@ function structuredData(file, html) {
       '@type': ['LocalBusiness', 'Organization'],
       '@id': BUSINESS_ID,
       name: 'القاهرة الجديدة للمصاعد',
+      alternateName: 'شركة القاهره الجديده للمصاعد',
       url: `${SITE}/`,
       logo: `${SITE}/assets/images/brand/logo.webp`,
       image: `${SITE}/assets/images/brand/og-default.jpg`,
       telephone: '+201060781020',
+      hasMap: MAP_URL,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '3F35+8J8',
+        addressLocality: 'قسم أول القاهرة الجديدة',
+        addressRegion: 'محافظة القاهرة',
+        postalCode: '4734250',
+        addressCountry: 'EG'
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 30.0533,
+        longitude: 31.459
+      },
       areaServed: { '@type': 'Place', name: 'القاهرة الجديدة، مصر' },
       contactPoint: [{
         '@type': 'ContactPoint',
