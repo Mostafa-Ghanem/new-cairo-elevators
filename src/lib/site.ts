@@ -22,11 +22,11 @@ export const slugFromPath = (pathname: string) =>
 
 export const cleanUrl = (slug: string) => `${SITE}${slug === 'index' ? '/' : `/${slug}`}`;
 
-/** Slugs of every page in src/pages (used by the sitemap). */
-export const allPageSlugs = () =>
+/** Slugs of the static .astro pages in src/pages (dynamic routes like [product] excluded). */
+export const staticPageSlugs = () =>
   Object.keys(import.meta.glob('../pages/*.astro'))
     .map((file) => file.replace('../pages/', '').replace('.astro', ''))
-    .sort();
+    .filter((slug) => !slug.includes('['));
 
 export const ogImage = (slug: string) =>
   `${SITE}/assets/images/${PRODUCT_PAGES.has(slug) ? `products/${slug}/og.jpg` : 'brand/og-default.jpg'}`;

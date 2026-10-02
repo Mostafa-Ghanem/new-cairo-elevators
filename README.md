@@ -25,14 +25,14 @@
 | **الصفحة الرئيسية** | [`index.html`](./src/pages/index.astro) | الصفحة التعريفية الكبرى، الخدمات الرئيسية، آراء العملاء، وأزرار التواصل السريع |
 | **من نحن** | [`about-us.html`](./src/pages/about-us.astro) | رؤية الشركة، قيمها، خبراتها، والتزامها بأعلى معايير الأمان والجودة |
 | **دليل الخدمات العامة** | [`services.html`](./src/pages/services.astro) | استعراض شامل لكافة الخدمات الفنية المتاحة |
-| **المصاعد الكهربائية** | [`electric-elevator.html`](./src/pages/electric-elevator.astro) | التفاصيل الفنية والمواصفات للمصاعد الكهربائية التقليدية والحديثة |
-| **مصاعد الجيربوكس** | [`gearbox-elevator.html`](./src/pages/gearbox-elevator.astro) | مصاعد المحركات ذات التروس للمباني السكنية والتجارية |
-| **مصاعد الجيرليس** | [`gearless-elevator.html`](./src/pages/gearless-elevator.astro) | المصاعد الحديثة بدون تروس (موفرة للطاقة وهادئة جداً) |
-| **المصاعد الهيدروليكية والبانورامية** | [`hydraulic-panoramic-elevator.html`](./src/pages/hydraulic-panoramic-elevator.astro) | مصاعد الفيلات والمباني التي لا تحتوي على غرفة محرك علوية |
-| **مصاعد المستشفيات** | [`hospital-elevator.html`](./src/pages/hospital-elevator.astro) | المصاعد الطبية المجهزة لنقل الأسرة والمعدات الطبية بأعلى درجات السلاسة |
-| **المصاعد الخارجية** | [`outdoor-elevator.html`](./src/pages/outdoor-elevator.astro) | حلول المصاعد الخارجية للمباني القائمة والفيلات |
-| **عقود الصيانة والتحديث** | [`elevator-maintenance.html`](./src/pages/elevator-maintenance.astro) | خطط الصيانة الدورية والصيانة الطارئة وتجديد المصاعد القديمة |
-| **الأبواب الأوتوماتيكية** | [`gearbox-automatic-doors.html`](./src/pages/gearbox-automatic-doors.astro) | أبواب الكبائن والأدوار الأوتوماتيكية والنصف أوتوماتيكية |
+| **المصاعد الكهربائية** | [`electric-elevator.html`](./src/content/products/electric-elevator.json) | التفاصيل الفنية والمواصفات للمصاعد الكهربائية التقليدية والحديثة |
+| **مصاعد الجيربوكس** | [`gearbox-elevator.html`](./src/content/products/gearbox-elevator.json) | مصاعد المحركات ذات التروس للمباني السكنية والتجارية |
+| **مصاعد الجيرليس** | [`gearless-elevator.html`](./src/content/products/gearless-elevator.json) | المصاعد الحديثة بدون تروس (موفرة للطاقة وهادئة جداً) |
+| **المصاعد الهيدروليكية والبانورامية** | [`hydraulic-panoramic-elevator.html`](./src/content/products/hydraulic-panoramic-elevator.json) | مصاعد الفيلات والمباني التي لا تحتوي على غرفة محرك علوية |
+| **مصاعد المستشفيات** | [`hospital-elevator.html`](./src/content/products/hospital-elevator.json) | المصاعد الطبية المجهزة لنقل الأسرة والمعدات الطبية بأعلى درجات السلاسة |
+| **المصاعد الخارجية** | [`outdoor-elevator.html`](./src/content/products/outdoor-elevator.json) | حلول المصاعد الخارجية للمباني القائمة والفيلات |
+| **عقود الصيانة والتحديث** | [`elevator-maintenance.html`](./src/content/products/elevator-maintenance.json) | خطط الصيانة الدورية والصيانة الطارئة وتجديد المصاعد القديمة |
+| **الأبواب الأوتوماتيكية** | [`gearbox-automatic-doors.html`](./src/content/products/gearbox-automatic-doors.json) | أبواب الكبائن والأدوار الأوتوماتيكية والنصف أوتوماتيكية |
 | **مناطق التغطية والخدمة** | [`service-areas.html`](./src/pages/service-areas.astro) | المناطق المخدومة (القاهرة الجديدة، التجمع الخامس، زايد، الشروق، إلخ) |
 | **طلب عرض سعر** | [`request-quote.html`](./src/pages/request-quote.astro) | نموذج تفاعلي لطلب المقايسات والاستشارات الفنية |
 | **الأسئلة الشائعة** | [`faq.html`](./src/pages/faq.astro) | الإجابات الشاملة عن الأسئلة الفنية والهندسية الأكثر تكراراً |
