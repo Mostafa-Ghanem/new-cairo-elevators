@@ -1,13 +1,12 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 ---
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0A1724">
-<title>وصلنا طلبك | القاهرة الجديدة للمصاعد</title><meta name="description" content="شكرًا لتواصلك مع القاهرة الجديدة للمصاعد.">
-<meta name="robots" content="noindex, nofollow">
-
-
-
+<BaseLayout title="وصلنا طلبك | القاهرة الجديدة للمصاعد"
+  description="شكرًا لتواصلك مع القاهرة الجديدة للمصاعد."
+  robots="noindex, nofollow">
+<Fragment slot="head">
 <style is:inline>
 :root{
   --navy-950:#07121D;--navy-900:#0A1724;--navy-850:#0D1D2C;--navy-800:#11273A;--navy-700:#17344C;
@@ -67,8 +66,8 @@ p{color:var(--muted);font-size:var(--fs-body);line-height:1.9;font-weight:400}
 @media(max-width:560px){:root{--fs-body:15px;--fs-body-lg:16px;--fs-h3:22px;--fs-h2:clamp(30px,8vw,36px);--fs-h1:clamp(38px,10vw,46px)}.container{width:min(var(--container),calc(100% - 22px))}h1{line-height:1.38}h2{line-height:1.45}.hero-actions,.cta-actions{display:grid;grid-template-columns:1fr}.grid-2,.grid-3,.grid-4,.form-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.stat{border-left:0!important;border-bottom:1px solid var(--line)!important}.stat:last-child{border-bottom:0!important}.service-card{grid-template-columns:1fr}.service-card img{height:220px}.field.full{grid-column:auto}.hero-media{min-height:300px}}
 .thanks{min-height:66vh;display:grid;place-items:center;text-align:center;padding:64px 0}.thanks-check{width:84px;height:84px;margin:0 auto 22px;border-radius:50%;display:grid;place-items:center;background:var(--champagne-soft);color:#8B6632;border:1px solid #E4D4B8}.thanks-check svg{width:40px;height:40px;stroke:currentColor;fill:none;stroke-width:2}.thanks p{max-width:620px;margin-inline:auto}.thanks-steps{max-width:720px;margin:34px auto 0;text-align:right}
 @media (prefers-reduced-motion:no-preference){.thanks-check{animation:pop .5s var(--ease)}@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}}
-</style><link rel="stylesheet" href="assets/css/global.css?v=1.4">
-</head><body>
+</style>
+</Fragment>
 <SiteHeader /><main>
 <section class="thanks"><div class="container">
 <div class="thanks-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
@@ -103,4 +102,4 @@ p{color:var(--muted);font-size:var(--fs-body);line-height:1.9;font-weight:400}
   if (typeof window.fbq === 'function') window.fbq('track', 'Lead');
 })();
 </script>
-</body></html>
+</BaseLayout>

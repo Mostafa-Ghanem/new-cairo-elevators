@@ -2,6 +2,16 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-10-02 — Refactor phase 1
+
+### Changed — BaseLayout + SEO in Astro
+- `src/layouts/BaseLayout.astro` (جديد): الـ`<html>`/`<head>` المشترك بدل ما كل صفحة من الـ20 فيها نسختها. الصفحات بقت تبعت `title`/`description`/`robots` كـprops والـ`<style is:inline>` في `slot="head"`.
+- `src/lib/site.ts` (جديد): ثوابت الموقع وبيانات الشركة والـJSON-LD وقوائم صفحات المنتجات/الداخلية — مصدر واحد بدل ما كانت جوه `postbuild.mjs`.
+- `src/pages/sitemap.xml.ts` و`robots.txt.ts` (جداد): endpoints بتولّد نفس الملفين بالظبط (نفس الـURL المسجّل في Search Console).
+- `scripts/postbuild.mjs`: اتشال منه الـcanonical/OG/Twitter/JSON-LD/preload/sitemap/robots (حوالي 150 سطر)؛ فاضل فحص الروابط وclean URLs والـminify والـLQIP و`_redirects`.
+- **Bug اتصلّح:** صفحات المنتجات الـ7 (electric، maintenance، gearbox، gearbox-automatic-doors، hospital، hydraulic، outdoor) كان `og:description` و`twitter:description` والـdescription في الـSchema فاضيين، لأن الـregex القديم كان متوقع `name` قبل `content` في الـmeta. دلوقتي بيتاخدوا من الـprops.
+- اتقارن الناتج بـ`main`: الـbody والـCSS وترتيبه مطابقين في الـ20 صفحة، و`sitemap.xml`/`robots.txt`/`_redirects` مطابقين حرف بحرف. الفرق الوحيد في الـhead: ترتيب الـattributes، ومسافات `viewport`، والـdescriptions اللي اتصلّحت.
+
 ## 2026-10-02 — Astro
 
 ### Performance — Blurred image previews + no font flash
