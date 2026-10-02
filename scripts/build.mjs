@@ -151,6 +151,19 @@ function structuredData(file, html) {
   return html.replace('</head>', `<script type="application/ld+json">${json}</script>\n</head>`);
 }
 
+function minifyCss(css) {
+  return css
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/\s+/g, ' ')
+    .replace(/\s*([{}:;,])\s*/g, '$1')
+    .trim();
+}
+
+// Inline <style> blocks are most of each page's HTML weight; minifying them shortens time to first render.
+function minifyInlineStyles(html) {
+  return html.replace(/<style>([\s\S]*?)<\/style>/g, (match, css) => `<style>${minifyCss(css)}</style>`);
+}
+
 function performanceHints(file, html) {
   const hints = [
     '<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/alexandria-arabic.woff2" crossorigin>'
@@ -184,6 +197,7 @@ for (const file of htmlFiles) {
   if (html.includes(HEADER_MARKER)) html = html.replace(HEADER_MARKER, header);
   if (html.includes(FOOTER_MARKER)) html = html.replace(FOOTER_MARKER, footer);
   html = cleanInternalLinks(html);
+  html = minifyInlineStyles(html);
   html = performanceHints(file, html);
   html = socialMeta(file, html);
   html = structuredData(file, html);
@@ -198,12 +212,7 @@ for (const file of ['manifest.json']) {
 
 const globalCssPath = path.join(dist, 'assets', 'css', 'global.css');
 let globalCss = await readFile(globalCssPath, 'utf8');
-globalCss = globalCss
-  .replace(/@import\s+url\([^;]+\);?/gi, '')
-  .replace(/\/\*[\s\S]*?\*\//g, '')
-  .replace(/\s+/g, ' ')
-  .replace(/\s*([{}:;,])\s*/g, '$1')
-  .trim();
+globalCss = minifyCss(globalCss.replace(/@import\s+url\([^;]+\);?/gi, ''));
 await writeFile(globalCssPath, globalCss, 'utf8');
 
 const sitemapUrls = htmlFiles

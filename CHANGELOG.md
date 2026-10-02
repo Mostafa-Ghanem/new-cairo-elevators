@@ -4,6 +4,12 @@
 
 ## 2026-10-02
 
+### Performance — Inline CSS minify
+- `scripts/build.mjs`: دالة `minifyCss` مشتركة، وبقت تصغّر بلوكات `<style>` اللي جوه كل صفحة في `dist/` (الرئيسية 79KB → 75KB). PageSpeed موبايل محلي 90 → 92، وSpeed Index 1.4 ث.
+
+### Fixed — Brand tagline contrast
+- `assets/css/global.css`: لون «NEW CAIRO ELEVATORS» تحت اسم الشركة بقى `#5F6B76` في الهيدر و`#93A3B1` في الفوتر بدل `#85909A`/`#607688` (تباين 3.1 و4.0 → فوق 4.5:1). Accessibility ديسكتوب 96 → 100.
+
 ### Performance — Mobile speed (PageSpeed موبايل 75 → 90 في اختبار محلي)
 - `assets/css/global.css`: خط Alexandria بقى self-hosted (`assets/fonts/alexandria-arabic.woff2` + `alexandria-latin.woff2`, variable 400–800) بدل `@import` من Google Fonts — شال طلبين لدومينات خارجية وCLS بقى 0.
 - `scripts/build.mjs`: preload لخط العربي بدل روابط Google Fonts، وpreload صورة الهيرو بـ`imagesrcset`.
