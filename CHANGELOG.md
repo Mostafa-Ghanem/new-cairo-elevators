@@ -4,6 +4,9 @@
 
 ## 2026-10-02 — Astro
 
+### Fixed — Home "why" image gap on mobile
+- `src/pages/index.astro`: صورة سكشن «ليه تختارنا» (`.why-media`) بقت `absolute + object-fit:cover` بأبعاد صريحة وخلفية navy، فبقت تملا الكارت كله. قبل كده كانت أقصر من الكارت على الموبايل، فالـgradient الرمادي كان باين تحتها وقبل ما تحمّل.
+
 ### Changed — Migration to Astro
 - الموقع بقى مبني بـAstro 7 (`astro.config.mjs`، static، `build.format: 'file'`). نفس الـURLs ونفس الشكل؛ الـHTML الناتج اتقارن بالـbuild القديم صفحة بصفحة ومطابق.
 - `*.html` → `src/pages/*.astro`، و`components/site-*.html` → `src/components/SiteHeader.astro` / `SiteFooter.astro` بدل الـmarkers. كل `<style>`/`<script>` بقوا `is:inline` عشان يطلعوا زي ما هم.
