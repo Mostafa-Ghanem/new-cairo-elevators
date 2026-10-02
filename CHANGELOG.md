@@ -2,6 +2,25 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-10-02 — Astro
+
+### Performance — Mobile images (السبب في ظهور الكحلي تحت الصور)
+- كل `<img>` في `src/pages/*.astro` (72 صورة) بقى ليها `width`/`height` صريحين، فالكارت بياخد مقاسه الصح من الأول ومبقاش يكبر فجأة لما الصورة توصل.
+- 14 صورة أعرض من 800px بقى ليها نسخة موبايل `*-720.webp` (حوالي 50KB) بـ`srcset` و`sizes="(max-width: 820px) 100vw, 900px"`. الديسكتوب لسه بياخد الصورة الكبيرة. صور الرئيسية على الموبايل: 1355KB → 576KB.
+- `public/assets/css/global.css`: خلفية فاتحة `#E6E0D6` لصور المنتجات والرئيسية أثناء التحميل بدل ما الكارت الكحلي يبان من تحتها. و`global.css?v=1.3` في كل الصفحات.
+- اتقارنت مقاسات كل الصور في الـ20 صفحة على 390/768/1366/1920 قبل وبعد: مطابقة.
+
+### Fixed — Home "why" image gap on mobile
+- `src/pages/index.astro`: صورة سكشن «ليه تختارنا» (`.why-media`) بقت `absolute + object-fit:cover` بأبعاد صريحة وخلفية navy، فبقت تملا الكارت كله. قبل كده كانت أقصر من الكارت على الموبايل، فالـgradient الرمادي كان باين تحتها وقبل ما تحمّل.
+
+### Changed — Migration to Astro
+- الموقع بقى مبني بـAstro 7 (`astro.config.mjs`، static، `build.format: 'file'`). نفس الـURLs ونفس الشكل؛ الـHTML الناتج اتقارن بالـbuild القديم صفحة بصفحة ومطابق.
+- `*.html` → `src/pages/*.astro`، و`components/site-*.html` → `src/components/SiteHeader.astro` / `SiteFooter.astro` بدل الـmarkers. كل `<style>`/`<script>` بقوا `is:inline` عشان يطلعوا زي ما هم.
+- `assets/` و`manifest.json` اتنقلوا لـ`public/`.
+- `scripts/build.mjs` → `scripts/postbuild.mjs`: بيشتغل بعد `astro build` على `dist/` (فحص الروابط، clean URLs، canonical/OG، JSON-LD، preload، minify، sitemap، robots، `_redirects`).
+- `npm run build` = `astro build && node scripts/postbuild.mjs`، وفيه `npm run dev`. `.node-version` = 22 لـCloudflare Pages (Astro محتاج Node ≥ 22.12).
+- تحديث `AGENTS.md` و`README.md` و`docs/ARCHITECTURE.md` و`docs/RESPONSIVE.md` بالمسارات الجديدة.
+
 ## 2026-10-02
 
 ### Fixed — CSS cache busting

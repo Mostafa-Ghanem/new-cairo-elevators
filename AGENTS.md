@@ -11,10 +11,10 @@
 ## 2) Header / Footer / Navigation
 
 - ممنوع نسخ أو إنشاء Header/Footer مستقل داخل أي صفحة.
-- المصدر الوحيد للهيدر والـMega Menu: `components/site-header.html`.
-- المصدر الوحيد للفوتر: `components/site-footer.html`.
-- السلوك التفاعلي: `assets/js/site-navigation.js`.
-- Styling المشترك: `assets/css/global.css`.
+- المصدر الوحيد للهيدر والـMega Menu: `src/components/SiteHeader.astro`.
+- المصدر الوحيد للفوتر: `src/components/SiteFooter.astro`.
+- السلوك التفاعلي: `public/assets/js/site-navigation.js`.
+- Styling المشترك: `public/assets/css/global.css`.
 
 ## 3) Build قبل التسليم
 
@@ -30,9 +30,9 @@ npm run check
 
 `dist/` build artifact فقط وموجود في `.gitignore`. أي تعديل يجب أن يكون في source files/components/assets.
 
-## 5) Astro migration readiness
+## 5) Astro
 
-- لا تدخل Framework-specific hacks في الصفحات الحالية بدون ضرورة.
+- الموقع مبني بـAstro: الصفحات في `src/pages/*.astro` والملفات الثابتة في `public/`. أي `<style>`/`<script>` جوه صفحة لازم يكون `is:inline`.
 - حافظ على boundaries واضحة بين Page Content وShared Layout.
 - حافظ على URLs الحالية وأسماء الصفحات ما لم يوجد قرار SEO موثق.
 
@@ -50,7 +50,7 @@ npm run check
 - Output: `dist`.
 - لا تستخدم خدمة Cloudflare مدفوعة بدون قرار صريح من مالك المشروع.
 
-- ممنوع إضافة CSS/JS خاص بالـHeader أو Footer أو Navigation داخل صفحات منفردة؛ التعديل يتم حصريًا في الـshared shell (`components/*`, `assets/css/global.css`, `assets/js/site-navigation.js`).
+- ممنوع إضافة CSS/JS خاص بالـHeader أو Footer أو Navigation داخل صفحات منفردة؛ التعديل يتم حصريًا في الـshared shell (`src/components/*`, `public/assets/css/global.css`, `public/assets/js/site-navigation.js`).
 
 ## 8) Responsive
 

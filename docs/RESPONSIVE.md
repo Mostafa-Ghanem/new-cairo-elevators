@@ -58,5 +58,5 @@ npm run check
 
 ## 6) مكان الكود
 
-- القواعد المشتركة (هيرو، سكاشن، breakpoints الشاشة القصيرة): `assets/css/global.css` — قسم *Desktop viewport-height fit*.
+- القواعد المشتركة (هيرو، سكاشن، breakpoints الشاشة القصيرة): `public/assets/css/global.css` — قسم *Desktop viewport-height fit*.
 - ستايل خاص بصفحة: جوه الصفحة، بس لازم يحترم القواعد اللي فوق.

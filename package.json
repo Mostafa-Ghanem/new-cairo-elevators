@@ -1,13 +1,19 @@
 {
   "name": "new-cairo-elevators",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "New Cairo Elevators static site with build-time shared layout components",
+  "description": "New Cairo Elevators static site built with Astro",
   "scripts": {
-    "build": "node scripts/build.mjs",
-    "check": "node scripts/build.mjs"
+    "dev": "astro dev",
+    "build": "astro build && node scripts/postbuild.mjs",
+    "check": "npm run build",
+    "preview": "astro preview"
   },
   "engines": {
-    "node": ">=20"
-  }
+    "node": ">=22.12.0"
+  },
+  "devDependencies": {
+    "astro": "^7.3.5"
+  },
+  "type": "module"
 }

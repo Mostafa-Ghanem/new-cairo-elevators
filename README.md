@@ -22,25 +22,25 @@
 
 | اسم الصفحة | اسم الملف | الوصف والهدف |
 | :--- | :--- | :--- |
-| **الصفحة الرئيسية** | [`index.html`](./index.html) | الصفحة التعريفية الكبرى، الخدمات الرئيسية، آراء العملاء، وأزرار التواصل السريع |
-| **من نحن** | [`about-us.html`](./about-us.html) | رؤية الشركة، قيمها، خبراتها، والتزامها بأعلى معايير الأمان والجودة |
-| **دليل الخدمات العامة** | [`services.html`](./services.html) | استعراض شامل لكافة الخدمات الفنية المتاحة |
-| **المصاعد الكهربائية** | [`electric-elevator.html`](./electric-elevator.html) | التفاصيل الفنية والمواصفات للمصاعد الكهربائية التقليدية والحديثة |
-| **مصاعد الجيربوكس** | [`gearbox-elevator.html`](./gearbox-elevator.html) | مصاعد المحركات ذات التروس للمباني السكنية والتجارية |
-| **مصاعد الجيرليس** | [`gearless-elevator.html`](./gearless-elevator.html) | المصاعد الحديثة بدون تروس (موفرة للطاقة وهادئة جداً) |
-| **المصاعد الهيدروليكية والبانورامية** | [`hydraulic-panoramic-elevator.html`](./hydraulic-panoramic-elevator.html) | مصاعد الفيلات والمباني التي لا تحتوي على غرفة محرك علوية |
-| **مصاعد المستشفيات** | [`hospital-elevator.html`](./hospital-elevator.html) | المصاعد الطبية المجهزة لنقل الأسرة والمعدات الطبية بأعلى درجات السلاسة |
-| **المصاعد الخارجية** | [`outdoor-elevator.html`](./outdoor-elevator.html) | حلول المصاعد الخارجية للمباني القائمة والفيلات |
-| **عقود الصيانة والتحديث** | [`elevator-maintenance.html`](./elevator-maintenance.html) | خطط الصيانة الدورية والصيانة الطارئة وتجديد المصاعد القديمة |
-| **الأبواب الأوتوماتيكية** | [`gearbox-automatic-doors.html`](./gearbox-automatic-doors.html) | أبواب الكبائن والأدوار الأوتوماتيكية والنصف أوتوماتيكية |
-| **مناطق التغطية والخدمة** | [`service-areas.html`](./service-areas.html) | المناطق المخدومة (القاهرة الجديدة، التجمع الخامس، زايد، الشروق، إلخ) |
-| **طلب عرض سعر** | [`request-quote.html`](./request-quote.html) | نموذج تفاعلي لطلب المقايسات والاستشارات الفنية |
-| **الأسئلة الشائعة** | [`faq.html`](./faq.html) | الإجابات الشاملة عن الأسئلة الفنية والهندسية الأكثر تكراراً |
-| **اتصل بنا** | [`contact-us.html`](./contact-us.html) | معلومات الاتصال والموقع وأرقام الدعم الفني |
-| **سياسة الخصوصية** | [`privacy-policy.html`](./privacy-policy.html) | الشروط والأحكام وسياسة سرية البيانات |
-| **فهرس الصفحات** | [`review-pages.html`](./review-pages.html) | دليل تصفح سريع لكافة صفحات المشروع |
-| **معاينة نظام التصميم** | [`design-system-preview.html`](./design-system-preview.html) | مستند المعاينة البصرية لنظام الألوان والخطوط v3.2 |
-| **صفحة 404** | [`404.html`](./404.html) | صفحة الخطأ المخصصة لتوجيه الزوار |
+| **الصفحة الرئيسية** | [`index.html`](./src/pages/index.astro) | الصفحة التعريفية الكبرى، الخدمات الرئيسية، آراء العملاء، وأزرار التواصل السريع |
+| **من نحن** | [`about-us.html`](./src/pages/about-us.astro) | رؤية الشركة، قيمها، خبراتها، والتزامها بأعلى معايير الأمان والجودة |
+| **دليل الخدمات العامة** | [`services.html`](./src/pages/services.astro) | استعراض شامل لكافة الخدمات الفنية المتاحة |
+| **المصاعد الكهربائية** | [`electric-elevator.html`](./src/pages/electric-elevator.astro) | التفاصيل الفنية والمواصفات للمصاعد الكهربائية التقليدية والحديثة |
+| **مصاعد الجيربوكس** | [`gearbox-elevator.html`](./src/pages/gearbox-elevator.astro) | مصاعد المحركات ذات التروس للمباني السكنية والتجارية |
+| **مصاعد الجيرليس** | [`gearless-elevator.html`](./src/pages/gearless-elevator.astro) | المصاعد الحديثة بدون تروس (موفرة للطاقة وهادئة جداً) |
+| **المصاعد الهيدروليكية والبانورامية** | [`hydraulic-panoramic-elevator.html`](./src/pages/hydraulic-panoramic-elevator.astro) | مصاعد الفيلات والمباني التي لا تحتوي على غرفة محرك علوية |
+| **مصاعد المستشفيات** | [`hospital-elevator.html`](./src/pages/hospital-elevator.astro) | المصاعد الطبية المجهزة لنقل الأسرة والمعدات الطبية بأعلى درجات السلاسة |
+| **المصاعد الخارجية** | [`outdoor-elevator.html`](./src/pages/outdoor-elevator.astro) | حلول المصاعد الخارجية للمباني القائمة والفيلات |
+| **عقود الصيانة والتحديث** | [`elevator-maintenance.html`](./src/pages/elevator-maintenance.astro) | خطط الصيانة الدورية والصيانة الطارئة وتجديد المصاعد القديمة |
+| **الأبواب الأوتوماتيكية** | [`gearbox-automatic-doors.html`](./src/pages/gearbox-automatic-doors.astro) | أبواب الكبائن والأدوار الأوتوماتيكية والنصف أوتوماتيكية |
+| **مناطق التغطية والخدمة** | [`service-areas.html`](./src/pages/service-areas.astro) | المناطق المخدومة (القاهرة الجديدة، التجمع الخامس، زايد، الشروق، إلخ) |
+| **طلب عرض سعر** | [`request-quote.html`](./src/pages/request-quote.astro) | نموذج تفاعلي لطلب المقايسات والاستشارات الفنية |
+| **الأسئلة الشائعة** | [`faq.html`](./src/pages/faq.astro) | الإجابات الشاملة عن الأسئلة الفنية والهندسية الأكثر تكراراً |
+| **اتصل بنا** | [`contact-us.html`](./src/pages/contact-us.astro) | معلومات الاتصال والموقع وأرقام الدعم الفني |
+| **سياسة الخصوصية** | [`privacy-policy.html`](./src/pages/privacy-policy.astro) | الشروط والأحكام وسياسة سرية البيانات |
+| **فهرس الصفحات** | [`review-pages.html`](./src/pages/review-pages.astro) | دليل تصفح سريع لكافة صفحات المشروع |
+| **معاينة نظام التصميم** | [`design-system-preview.html`](./src/pages/design-system-preview.astro) | مستند المعاينة البصرية لنظام الألوان والخطوط v3.2 |
+| **صفحة 404** | [`404.html`](./src/pages/404.astro) | صفحة الخطأ المخصصة لتوجيه الزوار |
 | **إعدادات PWA** | [`manifest.json`](./manifest.json) | ملف تكوين الويب للتطبيق |
 
 ---
@@ -53,21 +53,23 @@
   - `Paper` (`#FBFAF8`) & `Surface` (`#FFFFFF`) — الخلفيات الفاتحة المريحة للعين.
 - **الخطوط**: خط `Alexandria` العربي المودرن من Google Fonts.
 - **الملفات البرمجية والتنسيق**:
-  - `assets/css/global.css`: المتغيرات والأشكال والأنماط العامة للموقع والمكونات المشتركة.
-  - `components/site-header.html`: الهيدر والـMega Menu الموحدان.
-  - `components/site-footer.html`: الفوتر الموحد.
-  - `assets/js/site-navigation.js`: تفاعل المنيو والحالة النشطة.
-  - `scripts/build.mjs`: تجميع الصفحات إلى `dist/`.
+  - `public/assets/css/global.css`: المتغيرات والأشكال والأنماط العامة للموقع والمكونات المشتركة.
+  - `src/components/SiteHeader.astro`: الهيدر والـMega Menu الموحدان.
+  - `src/components/SiteFooter.astro`: الفوتر الموحد.
+  - `public/assets/js/site-navigation.js`: تفاعل المنيو والحالة النشطة.
+  - `src/pages/*.astro` + Astro: بناء الصفحات إلى `dist/`، و`scripts/postbuild.mjs` لطبقة السيو.
 
 ---
 
 ## 🚀 طريقة التشغيل والنشر
 
 ### 1. التشغيل المحلي
-المشروع يستخدم **Build صغير بدون Dependencies** لتجميع الـHeader والـFooter المشتركين داخل كل صفحات HTML. يتطلب Node.js 20 أو أحدث:
+المشروع مبني بـ**Astro**. يتطلب Node.js 22.12 أو أحدث:
 
 ```bash
-npm run build
+npm install
+npm run dev     # معاينة محلية
+npm run build   # astro build + scripts/postbuild.mjs
 ```
 
 الناتج النهائي الجاهز للنشر يوجد داخل `dist/`. لا تعدّل `dist/` يدويًا لأنه ملف ناتج Build وغير محفوظ في Git.
@@ -84,14 +86,14 @@ npm run build
 
 ### 3. المكونات المشتركة
 
-- `components/site-header.html` — الـTopbar + Header + Desktop Mega Menu + Mobile Menu.
-- `components/site-footer.html` — الفوتر الموحد وروابط الموقع.
-- `assets/js/site-navigation.js` — الحالة النشطة للمنيو وسلوك الـMega Menu.
-- `scripts/build.mjs` — Compiler بسيط يجمع المكونات داخل صفحات HTML ويعمل فحصًا للروابط المحلية.
+- `src/components/SiteHeader.astro` — الـTopbar + Header + Desktop Mega Menu + Mobile Menu.
+- `src/components/SiteFooter.astro` — الفوتر الموحد وروابط الموقع.
+- `public/assets/js/site-navigation.js` — الحالة النشطة للمنيو وسلوك الـMega Menu.
+- `scripts/postbuild.mjs` — بعد `astro build`: فحص الروابط المحلية والسيو والأداء.
 
 > **مهم:** لا تنسخ Header أو Footer داخل صفحة منفردة. عدّل الـComponent المشترك فقط.
 
-التفاصيل المعمارية وخطة الانتقال إلى Astro موجودة في [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md).
+التفاصيل المعمارية وتفاصيل التحويل لـAstro موجودة في [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md).
 سياسة توثيق التعديلات موجودة في [`AGENTS.md`](./AGENTS.md) و[`CHANGELOG.md`](./CHANGELOG.md).
 
 ---
