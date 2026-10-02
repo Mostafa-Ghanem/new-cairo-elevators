@@ -153,12 +153,10 @@ function structuredData(file, html) {
 
 function performanceHints(file, html) {
   const hints = [
-    '<link rel="preconnect" href="https://fonts.googleapis.com">',
-    '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
-    '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&display=swap">'
+    '<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/alexandria-arabic.woff2" crossorigin>'
   ];
   if (file === 'index.html') {
-    hints.push('<link rel="preload" as="image" href="/assets/images/home/hero-luxury-elevator-lobby.webp" type="image/webp" fetchpriority="high">');
+    hints.push('<link rel="preload" as="image" href="/assets/images/home/hero-luxury-elevator-lobby.webp" imagesrcset="/assets/images/home/hero-luxury-elevator-lobby-860.webp 860w, /assets/images/home/hero-luxury-elevator-lobby.webp 1122w" imagesizes="(max-width: 900px) 100vw, 50vw" type="image/webp" fetchpriority="high">');
   }
   const block = `${hints.join('\n')}\n`;
   if (html.includes('<style>')) return html.replace('<style>', `${block}<style>`);
