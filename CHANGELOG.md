@@ -2,6 +2,16 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-10-02 — Astro
+
+### Changed — Migration to Astro
+- الموقع بقى مبني بـAstro 7 (`astro.config.mjs`، static، `build.format: 'file'`). نفس الـURLs ونفس الشكل؛ الـHTML الناتج اتقارن بالـbuild القديم صفحة بصفحة ومطابق.
+- `*.html` → `src/pages/*.astro`، و`components/site-*.html` → `src/components/SiteHeader.astro` / `SiteFooter.astro` بدل الـmarkers. كل `<style>`/`<script>` بقوا `is:inline` عشان يطلعوا زي ما هم.
+- `assets/` و`manifest.json` اتنقلوا لـ`public/`.
+- `scripts/build.mjs` → `scripts/postbuild.mjs`: بيشتغل بعد `astro build` على `dist/` (فحص الروابط، clean URLs، canonical/OG، JSON-LD، preload، minify، sitemap، robots، `_redirects`).
+- `npm run build` = `astro build && node scripts/postbuild.mjs`، وفيه `npm run dev`. `.node-version` = 22 لـCloudflare Pages (Astro محتاج Node ≥ 22.12).
+- تحديث `AGENTS.md` و`README.md` و`docs/ARCHITECTURE.md` و`docs/RESPONSIVE.md` بالمسارات الجديدة.
+
 ## 2026-10-02
 
 ### Fixed — CSS cache busting

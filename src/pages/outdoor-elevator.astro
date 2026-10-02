@@ -1,3 +1,7 @@
+---
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
 <!DOCTYPE html>
 
 <html dir="rtl" lang="ar">
@@ -5,15 +9,15 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
 <meta content="#0A1724" name="theme-color"/>
-<title>مصعد جيربوكس للمباني | القاهرة الجديدة للمصاعد</title>
-<meta content="مصاعد جيربوكس للمباني السكنية والتجارية بحلول تُحدد حسب عدد الأدوار والحمولة والبئر. اطلب معاينة وعرض فني." name="description"/>
+<title>مصعد خارجي للمباني والفيلات | القاهرة الجديدة للمصاعد</title>
+<meta content="حلول مصاعد خارجية للفيلات والمباني القائمة عند صعوبة تنفيذ المصعد داخل المبنى. اطلب معاينة لتقييم الواجهة والمساحة ومسار الحركة." name="description"/>
 
 
 
 
 
 
-<style>
+<style is:inline>
 /* =========================================================
    NEW CAIRO ELEVATORS
    PRODUCT PAGE DESIGN SYSTEM v1
@@ -557,16 +561,16 @@ p{
 <link rel="stylesheet" href="assets/css/global.css?v=1.2">
 </head>
 <body>
-<!-- @component:site-header -->
+<SiteHeader />
 <main>
-<div class="container breadcrumb"><a href="index.html">الرئيسية</a><span>›</span><a href="services.html">الخدمات والمنتجات</a><span>›</span>مصعد جيربوكس</div>
+<div class="container breadcrumb"><a href="index.html">الرئيسية</a><span>›</span><a href="services.html">الخدمات والمنتجات</a><span>›</span>مصعد خارجي</div>
 <section class="product-hero">
 <div class="container">
 <div class="hero-frame">
 <div class="hero-copy">
-<div class="kicker">GEARBOX ELEVATOR</div>
-<h1>مصعد جيربوكس: حل عملي ومجرَّب يناسب مشروعات كتير.</h1>
-<p>نظام جر كهربائي بماكينة فيها صندوق تروس بينقل الحركة لبكرة الجر. الماكينة والحمولة والأبواب والتحكم بيتحددوا حسب عدد الأدوار والبئر وطريقة الاستخدام.</p>
+<div class="kicker">OUTDOOR ELEVATOR</div>
+<h1>مصعد خارجي يسهّل الطلوع من غير ما تكسّر جوه المبنى.</h1>
+<p>حل للمباني والفيلات اللي محتاجة مصعد من برّه، وبندرس الواجهة والهيكل ومداخل الأدوار والتشطيب عشان المصعد يبقى لايق على المبنى.</p>
 <div class="hero-actions">
 <a class="btn btn-primary" href="#quote">
             اطلب معاينة
@@ -575,16 +579,16 @@ p{
 <a class="btn btn-outline" href="https://wa.me/201276611628?text=%D8%A3%D9%87%D9%84%D9%8B%D8%A7%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%B5%D8%B9%D8%AF%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9%20%D9%84%D9%84%D9%85%D8%B5%D8%A7%D8%B9%D8%AF" rel="noopener" target="_blank" rel="noopener">تواصل على واتساب</a>
 </div>
 <div class="hero-points">
-<div class="hero-point"><i></i><span>نظام جر كهربائي تقليدي</span></div>
-<div class="hero-point"><i></i><span>مناسب لعدد واسع من المباني</span></div>
-<div class="hero-point"><i></i><span>مواصفات مرنة حسب المشروع</span></div>
+<div class="hero-point"><i></i><span>مناسب لعدد من المباني القائمة</span></div>
+<div class="hero-point"><i></i><span>إمكانية تشطيب بانورامي أو مغلق</span></div>
+<div class="hero-point"><i></i><span>دراسة الواجهة ونقاط الدخول قبل التنفيذ</span></div>
 </div>
 </div>
 <div class="hero-media">
-<img loading="eager" decoding="async" alt="مصعد جيربوكس" src="assets/images/products/gearbox-elevator/hero.webp"/>
+<img loading="eager" decoding="async" alt="مصعد خارجي" src="assets/images/products/outdoor-elevator/hero.webp"/>
 <div class="hero-label">
 <small>PRODUCT PAGE / 01</small>
-<strong>GEARBOX ELEVATOR</strong>
+<strong>OUTDOOR ELEVATOR</strong>
 </div>
 </div>
 </div>
@@ -605,27 +609,27 @@ p{
 <div class="container content-layout">
 <article class="article">
 <section class="article-section" id="about">
-<div class="kicker">عن مصعد جيربوكس</div>
-<h2>محرك كهربائي وصندوق تروس ضمن منظومة الجر.</h2>
-<p class="info-lead">في الجيربوكس، حركة المحرك بتوصل لبكرة الجر عن طريق صندوق تروس، ومنها بتتحرك الكابينة والثقل الموازن جوه البئر. وده من أشهر الأنظمة، وينفع لمشروعات سكنية وتجارية كتير بعد ما نحدد الأبعاد والحمولة.</p>
+<div class="kicker">عن مصعد خارجي</div>
+<h2>المصعد بيتركب برّه جسم المبنى الأساسي.</h2>
+<p class="info-lead">المصعد الخارجي بيتركب على واجهة أو جنب المبنى لما يكون ده أسهل من عمل بئر جوه. ومحتاج دراسة لمكان الهيكل ومدخل كل دور والأبعاد والحماية وشكل الواجهة في الآخر.</p>
 <div class="how-grid">
 <div class="tech-image">
-<img loading="lazy" decoding="async" alt="مصعد جيربوكس" src="assets/images/products/gearbox-elevator/hero.webp"/>
+<img loading="lazy" decoding="async" alt="مصعد خارجي" src="assets/images/products/outdoor-elevator/hero.webp"/>
 </div>
-<div class="how-list"><div class="how-item"><div class="how-no">01</div><div><h3>المحرك والتروس</h3><p>صندوق التروس بينقل حركة المحرك وقوته لبكرة الجر.</p></div></div><div class="how-item"><div class="how-no">02</div><div><h3>بكرة الجر والحبال</h3><p>الكابينة والثقل الموازن بيتحركوا بمنظومة الجر.</p></div></div><div class="how-item"><div class="how-no">03</div><div><h3>لوحة التحكم</h3><p>بتدير الحركة والوقوف والأبواب حسب تجهيزات المصعد.</p></div></div></div>
+<div class="how-list"><div class="how-item"><div class="how-no">01</div><div><h3>تحديد مكان الهيكل</h3><p>بنختار مكان يوصّل لكل الأدوار بأقل تأثير على المبنى.</p></div></div><div class="how-item"><div class="how-no">02</div><div><h3>ربط الطوابق</h3><p>بنخطط المداخل والفتحات وطريق المستخدمين قبل ما نبدأ.</p></div></div><div class="how-item"><div class="how-no">03</div><div><h3>اختيار التشطيب</h3><p>التصميم ممكن يكون مقفول أو فيه زجاج حسب المشروع.</p></div></div></div>
 </div>
 </section>
 <section class="article-section" id="video">
   <div class="kicker">من أرض الواقع</div>
-  <h2>شوف مصعد جيربوكس شغّال على الطبيعة.</h2>
+  <h2>شوف مصعد خارجي شغّال على الطبيعة.</h2>
   <p>فيديو حقيقي من مشاريع نفّذناها، عشان تشوف الحركة والتشطيب بعينك قبل ما تقرر.</p>
   <div class="product-videos">
     <figure class="product-video">
-      <video controls playsinline preload="none" width="478" height="850" poster="assets/images/products/gearbox-elevator/overview-poster.webp" aria-label="تشغيل مصعد جيربوكس من تنفيذنا">
-        <source src="assets/videos/products/gearbox-elevator/overview.mp4" type="video/mp4">
-        المتصفح عندك مش بيشغّل الفيديو. <a href="assets/videos/products/gearbox-elevator/overview.mp4">حمّل الفيديو</a>.
+      <video controls playsinline preload="none" width="478" height="850" poster="assets/images/products/outdoor-elevator/overview-poster.webp" aria-label="مصعد خارجي على واجهة مبنى">
+        <source src="assets/videos/products/outdoor-elevator/overview.mp4" type="video/mp4">
+        المتصفح عندك مش بيشغّل الفيديو. <a href="assets/videos/products/outdoor-elevator/overview.mp4">حمّل الفيديو</a>.
       </video>
-      <figcaption>تشغيل مصعد جيربوكس من تنفيذنا</figcaption>
+      <figcaption>مصعد خارجي على واجهة مبنى</figcaption>
     </figure>
   </div>
 </section>
@@ -634,7 +638,7 @@ p{
 <div class="kicker">المميزات الرئيسية</div>
 <h2>المهم هو الحل هيفرق إزاي في استخدامك اليومي.</h2>
 <p>المواصفات النهائية بتتأكد بعد المعاينة والعرض الفني، ودي أهم النقط اللي بنراجعها وإحنا بنختار الحل.</p>
-<div class="feature-grid"><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"></path></svg></div><div><h3>حل عملي معروف</h3><p>تقنية مستخدمة في مباني كتير جدًا.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM8 12l3 3 5-6"></path></svg></div><div><h3>مرونة في المكونات</h3><p>الماكينة والتحكم والأبواب بيتحددوا حسب المشروع.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M13 2 6 13h5l-1 9 8-12h-5V2Z"></path></svg></div><div><h3>سكني وتجاري</h3><p>المواصفات بتتظبط حسب عدد الأدوار والحركة.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M4 20V4h16v16M12 4v16M8 12h1M15 12h1"></path></svg></div><div><h3>خبرة فنية متاحة</h3><p>نظام معروف، وسهل على الفنيين يشخّصوه ويصينوه.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M14 6a4 4 0 0 0-5.5 5.5L4 16l4 4 4.5-4.5A4 4 0 0 0 18 10l-3 3-4-4 3-3Z"></path></svg></div><div><h3>خيارات أبواب</h3><p>ينفع بأبواب مختلفة، منها الأوتوماتيك.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M4 20V7l8-4 8 4v13M8 20V9h8v11"></path></svg></div><div><h3>قابل للتحديث</h3><p>ممكن نقيّم الماكينة والتحكم والأبواب في المصاعد الموجودة.</p></div></div></div>
+<div class="feature-grid"><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"></path></svg></div><div><h3>حل للمباني القائمة</h3><p>بيخليك تضيف مصعد حتى لو صعب تعمل بئر جوه.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM8 12l3 3 5-6"></path></svg></div><div><h3>مرونة في التصميم</h3><p>ممكن ندرس أكتر من مكان على الواجهة.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M13 2 6 13h5l-1 9 8-12h-5V2Z"></path></svg></div><div><h3>شكل معماري متكامل</h3><p>التشطيب بيتعمل ماشي مع شكل الواجهة.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M4 20V4h16v16M12 4v16M8 12h1M15 12h1"></path></svg></div><div><h3>خيارات بانورامية</h3><p>ممكن نستخدم زجاج لو المشروع يسمح.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M14 6a4 4 0 0 0-5.5 5.5L4 16l4 4 4.5-4.5A4 4 0 0 0 18 10l-3 3-4-4 3-3Z"></path></svg></div><div><h3>وصول أسهل</h3><p>مش هتحتاج تطلع السلم كتير.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M4 20V7l8-4 8 4v13M8 20V9h8v11"></path></svg></div><div><h3>تنفيذ حسب الموقع</h3><p>الهيكل والأبواب والنظام بيتحددوا بعد المعاينة.</p></div></div></div>
 <div class="inline-cta">
 <div>
 <h3>مش متأكد إن ده الحل المناسب لمشروعك؟</h3>
@@ -647,13 +651,13 @@ p{
 <div class="kicker">الحل ده يناسب مين؟</div>
 <h2>طريقة الاستخدام هي اللي بتحدد الأولويات والمواصفات.</h2>
 <p>نفس نوع المصعد ممكن يحتاج تكوين مختلف حسب المبنى وحجم الحركة فيه.</p>
-<div class="use-grid"><div class="use-card"><span class="use-tag">RESIDENTIAL</span><h3>العمارات السكنية</h3><p>حل معروف للعمارات متعددة الأدوار.</p></div><div class="use-card"><span class="use-tag">COMMERCIAL</span><h3>المباني التجارية</h3><p>حسب السرعة والحمولة والاستخدام.</p></div><div class="use-card"><span class="use-tag">OFFICES</span><h3>المباني الإدارية</h3><p>لو محتاج نظام جر كهربائي عملي.</p></div><div class="use-card"><span class="use-tag">NEW BUILD</span><h3>مشروعات جديدة</h3><p>بنخطط البئر وتجهيزاته من الأول.</p></div><div class="use-card"><span class="use-tag">REPLACEMENT</span><h3>تحديث قائم</h3><p>نقيّم الماكينة أو التحكم أو الأبواب.</p></div><div class="use-card"><span class="use-tag">CUSTOM</span><h3>تشطيبات متعددة</h3><p>الكابينة والأبواب بتتفصّل على ذوقك.</p></div></div>
+<div class="use-grid"><div class="use-card"><span class="use-tag">VILLAS</span><h3>الفيلات</h3><p>لما تحتاج مصعد لكل الأدوار من غير ما تاخد من المساحة جوه.</p></div><div class="use-card"><span class="use-tag">EXISTING</span><h3>المباني القائمة</h3><p>لما مفيش بئر جاهز جوه المبنى.</p></div><div class="use-card"><span class="use-tag">CLINICS</span><h3>العيادات</h3><p>عشان الطلوع يبقى أسهل لو الواجهة تسمح.</p></div><div class="use-card"><span class="use-tag">OFFICES</span><h3>المكاتب</h3><p>ممكن نعمله للمباني الإدارية الموجودة.</p></div><div class="use-card"><span class="use-tag">ACCESS</span><h3>سهولة الوصول</h3><p>عشان محدش يتعب في السلم.</p></div><div class="use-card"><span class="use-tag">PREMIUM</span><h3>واجهات فاخرة</h3><p>الهيكل والزجاج يبقوا جزء من تصميم المبنى.</p></div></div>
 </section>
 <section class="article-section" id="decision">
 <div class="kicker">قبل اختيار الحل</div>
 <h2>4 حاجات بنراجعها قبل العرض.</h2>
 <p>هدفنا إن المواصفات تكون مبنية على المبنى والاستخدام الحقيقي، مش على اسم المنتج وبس.</p>
-<div class="factor-list"><div class="factor"><div class="factor-no">01</div><div><h3>عدد الطوابق</h3><p>بيأثر على قدرة الماكينة والسرعة المطلوبة.</p></div></div><div class="factor"><div class="factor-no">02</div><div><h3>الحمولة والاستخدام</h3><p>عدد الركاب وعدد المشاوير بيحددوا المواصفات.</p></div></div><div class="factor"><div class="factor-no">03</div><div><h3>البئر وغرفة الماكينة</h3><p>لازم نراجع الأبعاد والتجهيزات.</p></div></div><div class="factor"><div class="factor-no">04</div><div><h3>الأبواب والتحكم</h3><p>بتأثر على الاستخدام وطريقة التنفيذ.</p></div></div></div>
+<div class="factor-list"><div class="factor"><div class="factor-no">01</div><div><h3>مكان الهيكل</h3><p>بنراجع أماكن التثبيت والمسافة المتاحة ومكان المصعد من المداخل.</p></div></div><div class="factor"><div class="factor-no">02</div><div><h3>الوصول لكل طابق</h3><p>فتحة الدخول والطرقة من جوه لازم يكونوا عمليين.</p></div></div><div class="factor"><div class="factor-no">03</div><div><h3>العوامل الخارجية</h3><p>الخامات والحماية بنختارها حسب مكان المصعد.</p></div></div><div class="factor"><div class="factor-no">04</div><div><h3>الأعمال المدنية</h3><p>القاعدة والهيكل والفتحات بيتحددوا قبل ما نعتمد النظام.</p></div></div></div>
 </section>
 <section class="article-section" id="process">
 <div class="kicker">خطوات التنفيذ</div>
@@ -671,8 +675,8 @@ p{
 </section>
 <section class="article-section" id="faq">
 <div class="kicker">الأسئلة الشائعة</div>
-<h2>أسئلة مهمة عن مصعد جيربوكس.</h2>
-<div class="faq"><details open=""><summary>إيه الفرق بين الجيربوكس والجيرلس؟</summary><div class="answer">الجيربوكس فيه صندوق تروس، أما الجيرلس فبيشتغل بمحرك مباشر من غير صندوق تروس.</div></details><details><summary>يناسب العمارات؟</summary><div class="answer">أيوه في مشروعات كتير، بعد ما نحدد الارتفاع والحمولة والاستخدام.</div></details><details><summary>ينفع أبواب أوتوماتيك؟</summary><div class="answer">أيوه، وعندنا حل مخصوص جيربوكس بأبواب أوتوماتيك.</div></details><details><summary>ينفع أحدّث مصعد قديم؟</summary><div class="answer">بعد الفحص بنعرف حالة الماكينة والتحكم والأبواب ونقولك المطلوب.</div></details><details><summary>الصيانة مهمة؟</summary><div class="answer">أيوه، منظومة الجر والأبواب والتحكم محتاجين متابعة.</div></details><details><summary>آخد عرض سعر إزاي؟</summary><div class="answer">ابعت عدد الأدوار ونوع المبنى على واتساب 01276611628.</div></details></div>
+<h2>أسئلة مهمة عن مصعد خارجي.</h2>
+<div class="faq"><details open=""><summary>ينفع يتركب لمبنى قديم؟</summary><div class="answer">ينفع في حالات كتير، بعد ما نفحص الواجهة والمساحات والمداخل.</div></details><details><summary>ينفع يكون زجاج؟</summary><div class="answer">أيوه في تصميمات كتير، ونسبة الزجاج بتتحدد حسب النظام والمشروع.</div></details><details><summary>هيبوّظ شكل الواجهة؟</summary><div class="answer">خالص، التخطيط والتشطيب الكويس بيخلوا المصعد جزء من التصميم.</div></details><details><summary>محتاج هيكل مخصوص؟</summary><div class="answer">غالبًا أيوه، حل إنشائي مناسب للموقع.</div></details><details><summary>أنهي نظام الأنسب؟</summary><div class="answer">مفيش إجابة واحدة، الاختيار بيعتمد على الارتفاع والأبعاد والاستخدام.</div></details><details><summary>أبدأ إزاي؟</summary><div class="answer">ابعت صور الواجهة وعدد الأدوار على واتساب 01276611628.</div></details></div>
 </section>
 <section class="article-section">
 <div class="kicker">منتجات أخرى</div>
@@ -696,11 +700,11 @@ p{
 <aside class="form-card" id="quote">
 <div class="form-top">
 <div class="kicker">اطلب معاينة</div>
-<h3>هل الجيربوكس مناسب لمشروعك؟</h3>
+<h3>عايز تضيف مصعد من برّه المبنى؟</h3>
 <p>ابعت بيانات بسيطة وهنكلمك نحدد احتياجك والخطوة الجاية.</p>
 </div>
 <form class="form-body" data-lead-form>
-<input name="product" type="hidden" value="مصعد جيربوكس"/>
+<input name="product" type="hidden" value="مصعد خارجي"/>
 <div class="field">
 <label for="name">الاسم</label>
 <input id="name" name="name" placeholder="اكتب اسمك" required="" type="text"/>
@@ -765,7 +769,7 @@ p{
 </div>
 </section>
 </main>
-<!-- @component:site-footer -->
+<SiteFooter />
 <div class="mobile-actions">
 <a class="btn btn-outline" href="tel:01060781020">اتصال</a>
 <a class="btn btn-primary" href="https://wa.me/201276611628?text=%D8%A3%D9%87%D9%84%D9%8B%D8%A7%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%B5%D8%B9%D8%AF%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9%20%D9%84%D9%84%D9%85%D8%B5%D8%A7%D8%B9%D8%AF" rel="noopener" target="_blank" rel="noopener">واتساب</a>

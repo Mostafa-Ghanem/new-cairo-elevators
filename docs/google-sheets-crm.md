@@ -11,7 +11,7 @@
 1. أنشئ Google Sheet جديد باسم «CRM — القاهرة الجديدة للمصاعد».
 2. Extensions → Apps Script، والصق محتوى `docs/google-sheets-crm.gs` ثم Save.
 3. Deploy → New deployment → Web app — Execute as: **Me**، Who has access: **Anyone** → Deploy ووافق على الصلاحيات.
-4. انسخ رابط `/exec` وضعه في `components/site-footer.html` داخل `data-sheet-endpoint="..."`.
+4. انسخ رابط `/exec` وضعه في `src/components/SiteFooter.astro` داخل `data-sheet-endpoint="..."`.
 5. `npm run check` ثم ادفع للـ`main`.
 
 - يتم إنشاء تبويب `Leads` تلقائيًا بعناوين عربية، وعمود «الحالة» بقائمة (جديد / تم التواصل / معاينة محددة / عرض سعر / تم التعاقد / غير مهتم).

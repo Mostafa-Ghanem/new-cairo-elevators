@@ -1,24 +1,15 @@
-import { cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
+import { readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 const dist = path.join(root, 'dist');
-const headerPath = path.join(root, 'components', 'site-header.html');
-const footerPath = path.join(root, 'components', 'site-footer.html');
-const HEADER_MARKER = '<!-- @component:site-header -->';
-const FOOTER_MARKER = '<!-- @component:site-footer -->';
 
-const [header, footer] = await Promise.all([
-  readFile(headerPath, 'utf8'),
-  readFile(footerPath, 'utf8')
-]);
-
-await rm(dist, { recursive: true, force: true });
-await mkdir(dist, { recursive: true });
-
-const entries = await readdir(root, { withFileTypes: true });
+// Runs after `astro build`: Astro renders pages + shared layout into dist/,
+// this script adds the SEO/performance layer (clean links, canonical/OG, JSON-LD,
+// preloads, CSS minify, sitemap, robots, redirects).
+const entries = await readdir(dist, { withFileTypes: true });
 const htmlFiles = entries.filter((entry) => entry.isFile() && entry.name.endsWith('.html')).map((entry) => entry.name);
 
 const SITE = 'https://newcairoelevator.com';
@@ -189,25 +180,17 @@ const publicPages = new Set(htmlFiles);
 const linkPattern = /href=["'](?![a-z]+:)([^"'#?]+\.html)(?:[?#][^"']*)?["']/g;
 
 for (const file of htmlFiles) {
-  let html = await readFile(path.join(root, file), 'utf8');
+  let html = await readFile(path.join(dist, file), 'utf8');
   for (const match of html.matchAll(linkPattern)) {
     const local = match[1].replace(/^\.\//, '');
     if (!publicPages.has(local)) throw new Error(`Broken local page link in ${file}: ${match[1]}`);
   }
-  if (html.includes(HEADER_MARKER)) html = html.replace(HEADER_MARKER, header);
-  if (html.includes(FOOTER_MARKER)) html = html.replace(FOOTER_MARKER, footer);
   html = cleanInternalLinks(html);
   html = minifyInlineStyles(html);
   html = performanceHints(file, html);
   html = socialMeta(file, html);
   html = structuredData(file, html);
-  if (html.includes('@component:site-')) throw new Error(`Unresolved layout component in ${file}`);
   await writeFile(path.join(dist, file), html, 'utf8');
-}
-
-await cp(path.join(root, 'assets'), path.join(dist, 'assets'), { recursive: true });
-for (const file of ['manifest.json']) {
-  await cp(path.join(root, file), path.join(dist, file));
 }
 
 const globalCssPath = path.join(dist, 'assets', 'css', 'global.css');
@@ -235,4 +218,4 @@ const redirects = htmlFiles
   .map((file) => file === 'index.html' ? '/index.html / 301' : `/${file} ${cleanPath(file)} 301`);
 await writeFile(path.join(dist, '_redirects'), `${redirects.join('\n')}\n`, 'utf8');
 
-console.log(`Built ${htmlFiles.length} HTML pages into dist/ with clean URLs, structured data and SEO/performance optimizations.`);
+console.log(`Post-processed ${htmlFiles.length} Astro pages in dist/ with clean URLs, structured data and SEO/performance optimizations.`);

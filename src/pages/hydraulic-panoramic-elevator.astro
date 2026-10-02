@@ -1,3 +1,7 @@
+---
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
 <!DOCTYPE html>
 
 <html dir="rtl" lang="ar">
@@ -5,15 +9,15 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
 <meta content="#0A1724" name="theme-color"/>
-<title>مصعد مستشفيات في القاهرة | القاهرة الجديدة للمصاعد</title>
-<meta content="مصاعد مستشفيات لنقل المرضى والأسرة والمعدات داخل المنشآت الطبية. اطلب معاينة لتحديد أبعاد الكابينة والأبواب والحمولة المناسبة." name="description"/>
+<title>مصعد هيدروليك بانوراما للفيلات | القاهرة الجديدة للمصاعد</title>
+<meta content="مصعد هيدروليك بانوراما للفيلات والمشروعات منخفضة الارتفاع يجمع بين الحركة السلسة والتصميم الزجاجي. اطلب معاينة للموقع." name="description"/>
 
 
 
 
 
 
-<style>
+<style is:inline>
 /* =========================================================
    NEW CAIRO ELEVATORS
    PRODUCT PAGE DESIGN SYSTEM v1
@@ -557,16 +561,16 @@ p{
 <link rel="stylesheet" href="assets/css/global.css?v=1.2">
 </head>
 <body>
-<!-- @component:site-header -->
+<SiteHeader />
 <main>
-<div class="container breadcrumb"><a href="index.html">الرئيسية</a><span>›</span><a href="services.html">الخدمات والمنتجات</a><span>›</span>مصعد مستشفيات</div>
+<div class="container breadcrumb"><a href="index.html">الرئيسية</a><span>›</span><a href="services.html">الخدمات والمنتجات</a><span>›</span>مصعد هيدروليك بانوراما</div>
 <section class="product-hero">
 <div class="container">
 <div class="hero-frame">
 <div class="hero-copy">
-<div class="kicker">HOSPITAL ELEVATOR</div>
-<h1>مصعد مستشفيات متصمم على حركة المرضى والفريق الطبي.</h1>
-<p>حل للمستشفيات والمراكز الطبية بيراعي حركة السراير والكراسي والأجهزة، وبنخطط أبعاد الكابينة والأبواب والتشغيل حسب المنشأة وحجم الحركة اليومية.</p>
+<div class="kicker">PANORAMIC HYDRAULIC</div>
+<h1>هيدروليك بانوراما: حركة مريحة وتصميم بيفتح المكان.</h1>
+<p>حل بيجمع بين الرفع الهيدروليك والتشطيب البانوراما بالزجاج، للمشروعات اللي بتهتم بالشكل وراحة الاستخدام، خصوصًا الفيلات والمباني قليلة الأدوار.</p>
 <div class="hero-actions">
 <a class="btn btn-primary" href="#quote">
             اطلب معاينة
@@ -575,16 +579,16 @@ p{
 <a class="btn btn-outline" href="https://wa.me/201276611628?text=%D8%A3%D9%87%D9%84%D9%8B%D8%A7%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%B5%D8%B9%D8%AF%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9%20%D9%84%D9%84%D9%85%D8%B5%D8%A7%D8%B9%D8%AF" rel="noopener" target="_blank" rel="noopener">تواصل على واتساب</a>
 </div>
 <div class="hero-points">
-<div class="hero-point"><i></i><span>مساحة حركة مناسبة للاستخدام الطبي</span></div>
-<div class="hero-point"><i></i><span>أبواب وتجهيزات حسب احتياج المنشأة</span></div>
-<div class="hero-point"><i></i><span>تشغيل سلس للاستخدام اليومي</span></div>
+<div class="hero-point"><i></i><span>تشطيب بانورامي مميز</span></div>
+<div class="hero-point"><i></i><span>حل مناسب للفيلات ومشروعات مختارة</span></div>
+<div class="hero-point"><i></i><span>حركة هيدروليكية سلسة</span></div>
 </div>
 </div>
 <div class="hero-media">
-<img loading="eager" decoding="async" alt="مصعد مستشفيات" src="assets/images/products/hospital-elevator/hero.webp"/>
+<img loading="eager" decoding="async" alt="مصعد هيدروليك بانوراما" src="assets/images/products/hydraulic-panoramic-elevator/hero.webp"/>
 <div class="hero-label">
 <small>PRODUCT PAGE / 01</small>
-<strong>HOSPITAL ELEVATOR</strong>
+<strong>PANORAMIC HYDRAULIC</strong>
 </div>
 </div>
 </div>
@@ -605,27 +609,27 @@ p{
 <div class="container content-layout">
 <article class="article">
 <section class="article-section" id="about">
-<div class="kicker">عن مصعد مستشفيات</div>
-<h2>المقاسات وطريقة الحركة بتبدأ من احتياج المنشأة الطبية.</h2>
-<p class="info-lead">مصعد المستشفى بيتخطط عشان يخدم حركة المرضى والفريق الطبي والسراير والكراسي والأجهزة بين الأدوار. الاختيار مش على شكل الكابينة وبس، لكن على الأبعاد الحقيقية وعرض الأبواب وعدد الوقفات والحركة جوه المنشأة.</p>
+<div class="kicker">عن مصعد هيدروليك بانوراما</div>
+<h2>نظام رفع هيدروليك في تصميم بانوراما.</h2>
+<p class="info-lead">المصعد الهيدروليك بيعتمد على ضغط زيت بيرفع الكابينة. ولما يتعمل بانوراما، بنستخدم زجاج في الكابينة أو البئر عشان الرؤية تبقى أوسع والمصعد يبقى جزء من ديكور المكان.</p>
 <div class="how-grid">
 <div class="tech-image">
-<img loading="lazy" decoding="async" alt="مصعد مستشفيات" src="assets/images/products/hospital-elevator/hero.webp"/>
+<img loading="lazy" decoding="async" alt="مصعد هيدروليك بانوراما" src="assets/images/products/hydraulic-panoramic-elevator/hero.webp"/>
 </div>
-<div class="how-list"><div class="how-item"><div class="how-no">01</div><div><h3>حركة الأسرة والمعدات</h3><p>بنراجع أبعاد الأجهزة والسراير اللي هتتنقل عشان الكابينة والأبواب تكون مناسبة فعلًا.</p></div></div><div class="how-item"><div class="how-no">02</div><div><h3>سهولة الدخول والخروج</h3><p>طريقة فتح الأبواب والمساحة قدام المصعد أساسية في حركة المرضى والفريق الطبي.</p></div></div><div class="how-item"><div class="how-no">03</div><div><h3>تشغيل مستقر</h3><p>النظام والحمولة والسرعة بيتحددوا حسب عدد الأدوار وحجم الحركة واحتياج المشروع.</p></div></div></div>
+<div class="how-list"><div class="how-item"><div class="how-no">01</div><div><h3>وحدة هيدروليكية</h3><p>بتطلّع الضغط اللي بيحرك نظام الرفع.</p></div></div><div class="how-item"><div class="how-no">02</div><div><h3>كابينة وبئر بانورامي</h3><p>نسبة الزجاج والإطارات بتتصمم حسب الموقع.</p></div></div><div class="how-item"><div class="how-no">03</div><div><h3>تحكم وتوقف سلس</h3><p>الحركة بتتظبط على راحة المستخدم وطريقة الاستخدام.</p></div></div></div>
 </div>
 </section>
 <section class="article-section" id="video">
   <div class="kicker">من أرض الواقع</div>
-  <h2>شوف مصعد مستشفيات شغّال على الطبيعة.</h2>
+  <h2>شوف مصعد هيدروليك بانوراما شغّال على الطبيعة.</h2>
   <p>فيديو حقيقي من مشاريع نفّذناها، عشان تشوف الحركة والتشطيب بعينك قبل ما تقرر.</p>
   <div class="product-videos">
     <figure class="product-video">
-      <video controls playsinline preload="none" width="478" height="850" poster="assets/images/products/hospital-elevator/overview-poster.webp" aria-label="جولة في مصعد مستشفيات من تنفيذنا">
-        <source src="assets/videos/products/hospital-elevator/overview.mp4" type="video/mp4">
-        المتصفح عندك مش بيشغّل الفيديو. <a href="assets/videos/products/hospital-elevator/overview.mp4">حمّل الفيديو</a>.
+      <video controls playsinline preload="none" width="478" height="850" poster="assets/images/products/hydraulic-panoramic-elevator/overview-poster.webp" aria-label="تشغيل مصعد هيدروليك بانوراما">
+        <source src="assets/videos/products/hydraulic-panoramic-elevator/overview.mp4" type="video/mp4">
+        المتصفح عندك مش بيشغّل الفيديو. <a href="assets/videos/products/hydraulic-panoramic-elevator/overview.mp4">حمّل الفيديو</a>.
       </video>
-      <figcaption>جولة في مصعد مستشفيات من تنفيذنا</figcaption>
+      <figcaption>تشغيل مصعد هيدروليك بانوراما</figcaption>
     </figure>
   </div>
 </section>
@@ -634,7 +638,7 @@ p{
 <div class="kicker">المميزات الرئيسية</div>
 <h2>المهم هو الحل هيفرق إزاي في استخدامك اليومي.</h2>
 <p>المواصفات النهائية بتتأكد بعد المعاينة والعرض الفني، ودي أهم النقط اللي بنراجعها وإحنا بنختار الحل.</p>
-<div class="feature-grid"><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"></path></svg></div><div><h3>كبينة عملية</h3><p>مساحة داخلية بنختارها حسب المرضى والأجهزة اللي هتتنقل.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM8 12l3 3 5-6"></path></svg></div><div><h3>أبواب مناسبة</h3><p>مقاس ونوع الباب بيتحددوا حسب مسار الحركة والمساحة.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M13 2 6 13h5l-1 9 8-12h-5V2Z"></path></svg></div><div><h3>حركة سلسة</h3><p>قيام ووقوف ناعم، وده مهم جدًا لنقل المرضى وكبار السن.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M4 20V4h16v16M12 4v16M8 12h1M15 12h1"></path></svg></div><div><h3>تشطيبات مناسبة</h3><p>الخامات بنختارها حسب المنشأة وسهولة الاستخدام.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M14 6a4 4 0 0 0-5.5 5.5L4 16l4 4 4.5-4.5A4 4 0 0 0 18 10l-3 3-4-4 3-3Z"></path></svg></div><div><h3>تحمل الاستخدام المتكرر</h3><p>المكونات بنختارها حسب الحركة اليومية.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M4 20V7l8-4 8 4v13M8 20V9h8v11"></path></svg></div><div><h3>أنظمة تشغيل وأمان</h3><p>بتتحدد في العرض الفني حسب مواصفات المشروع.</p></div></div></div>
+<div class="feature-grid"><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"></path></svg></div><div><h3>تصميم بصري</h3><p>بيخلي المصعد جزء من شكل المكان.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM8 12l3 3 5-6"></path></svg></div><div><h3>مرونة للفيلات</h3><p>الهيدروليك مناسب لمشروعات كتير قليلة الأدوار.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M13 2 6 13h5l-1 9 8-12h-5V2Z"></path></svg></div><div><h3>حركة سلسة</h3><p>طبيعة النظام بتخلي الركوب مريح.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M4 20V4h16v16M12 4v16M8 12h1M15 12h1"></path></svg></div><div><h3>تخصيص الزجاج</h3><p>تقدر تختار الإطار والتشطيب اللي يعجبك.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M14 6a4 4 0 0 0-5.5 5.5L4 16l4 4 4.5-4.5A4 4 0 0 0 18 10l-3 3-4-4 3-3Z"></path></svg></div><div><h3>داخلي أو خارجي</h3><p>الموقع بيحدد البئر والحماية المطلوبة.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M4 20V7l8-4 8 4v13M8 20V9h8v11"></path></svg></div><div><h3>صيانة منظمة</h3><p>الوحدة والأبواب والتحكم محتاجين متابعة.</p></div></div></div>
 <div class="inline-cta">
 <div>
 <h3>مش متأكد إن ده الحل المناسب لمشروعك؟</h3>
@@ -647,13 +651,13 @@ p{
 <div class="kicker">الحل ده يناسب مين؟</div>
 <h2>طريقة الاستخدام هي اللي بتحدد الأولويات والمواصفات.</h2>
 <p>نفس نوع المصعد ممكن يحتاج تكوين مختلف حسب المبنى وحجم الحركة فيه.</p>
-<div class="use-grid"><div class="use-card"><span class="use-tag">HOSPITALS</span><h3>المستشفيات</h3><p>لنقل المرضى والسراير والأجهزة بين الأقسام.</p></div><div class="use-card"><span class="use-tag">MEDICAL CENTERS</span><h3>المراكز الطبية</h3><p>للمراكز اللي فيها أكتر من دور وحركة مرضى وزوار.</p></div><div class="use-card"><span class="use-tag">CLINICS</span><h3>مباني العيادات</h3><p>للمجمعات الطبية اللي عليها ضغط.</p></div><div class="use-card"><span class="use-tag">REHAB</span><h3>مراكز التأهيل</h3><p>لحركة كبار السن ومستخدمي الكراسي المتحركة.</p></div><div class="use-card"><span class="use-tag">LABS</span><h3>المعامل</h3><p>حسب حركة الناس والأجهزة في المبنى.</p></div><div class="use-card"><span class="use-tag">NEW PROJECTS</span><h3>المشروعات الجديدة</h3><p>عشان البئر ومسار الحركة يدخلوا في التصميم من الأول.</p></div></div>
+<div class="use-grid"><div class="use-card"><span class="use-tag">VILLAS</span><h3>الفيلات</h3><p>للراحة والتصميم معًا.</p></div><div class="use-card"><span class="use-tag">DUPLEX</span><h3>منازل متعددة المستويات</h3><p>لو المساحة والارتفاع مناسبين.</p></div><div class="use-card"><span class="use-tag">SHOWROOMS</span><h3>المعارض</h3><p>كعنصر شكله حلو في المكان.</p></div><div class="use-card"><span class="use-tag">LOBBIES</span><h3>اللوبيات</h3><p>كمصعد ظاهر في الاستقبال.</p></div><div class="use-card"><span class="use-tag">OUTDOOR</span><h3>الواجهات</h3><p>بعد دراسة الحماية والهيكل.</p></div><div class="use-card"><span class="use-tag">LOW-RISE</span><h3>منخفض الارتفاع</h3><p>من الأماكن اللي الهيدروليك بيناسبها.</p></div></div>
 </section>
 <section class="article-section" id="decision">
 <div class="kicker">قبل اختيار الحل</div>
 <h2>4 حاجات بنراجعها قبل العرض.</h2>
 <p>هدفنا إن المواصفات تكون مبنية على المبنى والاستخدام الحقيقي، مش على اسم المنتج وبس.</p>
-<div class="factor-list"><div class="factor"><div class="factor-no">01</div><div><h3>أبعاد السرير أو المعدات</h3><p>بنحدد أكبر حاجة هتدخل الكابينة.</p></div></div><div class="factor"><div class="factor-no">02</div><div><h3>عرض الأبواب ومسار الوصول</h3><p>بنراجع الطريق من الطرقة للمصعد، مش فتحة الباب بس.</p></div></div><div class="factor"><div class="factor-no">03</div><div><h3>عدد الأدوار وحجم الحركة</h3><p>بيحددوا النظام والأداء المطلوب.</p></div></div><div class="factor"><div class="factor-no">04</div><div><h3>حالة المبنى والتجهيزات</h3><p>المبنى القديم غير المشروع الجديد في الشغل اللي ينفع يتعمل.</p></div></div></div>
+<div class="factor-list"><div class="factor"><div class="factor-no">01</div><div><h3>داخلي أم خارجي</h3><p>بيأثر على الخامات والهيكل والحماية.</p></div></div><div class="factor"><div class="factor-no">02</div><div><h3>عدد الأدوار</h3><p>بيحدد إذا كان الهيدروليك مناسب.</p></div></div><div class="factor"><div class="factor-no">03</div><div><h3>نسبة الزجاج</h3><p>توازن بين الرؤية والخصوصية.</p></div></div><div class="factor"><div class="factor-no">04</div><div><h3>الأعمال المدنية</h3><p>بنقيس البئر والحفرة ومكان الوحدة.</p></div></div></div>
 </section>
 <section class="article-section" id="process">
 <div class="kicker">خطوات التنفيذ</div>
@@ -671,8 +675,8 @@ p{
 </section>
 <section class="article-section" id="faq">
 <div class="kicker">الأسئلة الشائعة</div>
-<h2>أسئلة مهمة عن مصعد مستشفيات.</h2>
-<div class="faq"><details open=""><summary>هو أي مصعد كبير ينفع مصعد مستشفى؟</summary><div class="answer">لأ، المساحة لوحدها مش كفاية، لازم الأبعاد والأبواب تناسب الاستخدام الطبي فعلًا.</div></details><details><summary>ينفع يتركب في مستشفى شغالة؟</summary><div class="answer">ده بيعتمد على مساحة البئر والتجهيزات ومسار الوصول، والمعاينة بتحدد اللي ينفع يتعمل.</div></details><details><summary>ينفع أفصّل الكابينة؟</summary><div class="answer">أيوه، حسب احتياج المشروع والعرض الفني.</div></details><details><summary>الحمولة بتتحدد إزاي؟</summary><div class="answer">بعد ما نعرف عدد الأشخاص والسراير أو الأجهزة اللي هتتنقل.</div></details><details><summary>محتاج صيانة دورية؟</summary><div class="answer">أيوه، المتابعة المنتظمة مهمة عشان المصعد ميقفش.</div></details><details><summary>أطلب عرض سعر إزاي؟</summary><div class="answer">كلمنا على 01060781020 أو ابعت واتساب على 01276611628.</div></details></div>
+<h2>أسئلة مهمة عن مصعد هيدروليك بانوراما.</h2>
+<div class="faq"><details open=""><summary>هل البانوراما يعني كله زجاج؟</summary><div class="answer">مش شرط، نسبة الزجاج بتتحدد حسب التصميم.</div></details><details><summary>ينفع للفيلات؟</summary><div class="answer">أيوه، لما الهيدروليك يناسب ارتفاع ومساحة الفيلا.</div></details><details><summary>ينفع يتعمل برّه المبنى؟</summary><div class="answer">ينفع في بعض المشروعات بعد دراسة الهيكل والحماية.</div></details><details><summary>محتاج غرفة ماكينة؟</summary><div class="answer">مكان الوحدة وتكوينها بيتحددوا حسب النظام والموقع.</div></details><details><summary>ينفع أختار شكل الأبواب؟</summary><div class="answer">أيوه، التشطيب جزء أساسي من أي مصعد بانوراما.</div></details><details><summary>أعرف إزاي إن الهيدروليك مناسب؟</summary><div class="answer">ابعت عدد الأدوار وصور الموقع على واتساب 01276611628.</div></details></div>
 </section>
 <section class="article-section">
 <div class="kicker">منتجات أخرى</div>
@@ -696,11 +700,11 @@ p{
 <aside class="form-card" id="quote">
 <div class="form-top">
 <div class="kicker">اطلب معاينة</div>
-<h3>محتاج مصعد مستشفى لمشروع جديد أو قايم؟</h3>
+<h3>بتفكر في هيدروليك بانوراما؟</h3>
 <p>ابعت بيانات بسيطة وهنكلمك نحدد احتياجك والخطوة الجاية.</p>
 </div>
 <form class="form-body" data-lead-form>
-<input name="product" type="hidden" value="مصعد مستشفيات"/>
+<input name="product" type="hidden" value="مصعد هيدروليك بانوراما"/>
 <div class="field">
 <label for="name">الاسم</label>
 <input id="name" name="name" placeholder="اكتب اسمك" required="" type="text"/>
@@ -765,7 +769,7 @@ p{
 </div>
 </section>
 </main>
-<!-- @component:site-footer -->
+<SiteFooter />
 <div class="mobile-actions">
 <a class="btn btn-outline" href="tel:01060781020">اتصال</a>
 <a class="btn btn-primary" href="https://wa.me/201276611628?text=%D8%A3%D9%87%D9%84%D9%8B%D8%A7%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%B5%D8%B9%D8%AF%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9%20%D9%84%D9%84%D9%85%D8%B5%D8%A7%D8%B9%D8%AF" rel="noopener" target="_blank" rel="noopener">واتساب</a>

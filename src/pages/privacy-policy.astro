@@ -1,9 +1,13 @@
+---
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
 <!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0A1724">
-<title>الأسئلة الشائعة عن المصاعد | القاهرة الجديدة للمصاعد</title><meta name="description" content="إجابات عن تركيب وصيانة المصاعد والجيرلس والجيربوكس والهيدروليك ومناطق الخدمة وطلب المعاينة.">
+<title>سياسة الخصوصية | القاهرة الجديدة للمصاعد</title><meta name="description" content="سياسة خصوصية موقع القاهرة الجديدة للمصاعد وبيانات نماذج التواصل وطلب المعاينة.">
 
 
 
-<style>
+<style is:inline>
 :root{
   --navy-950:#07121D;--navy-900:#0A1724;--navy-850:#0D1D2C;--navy-800:#11273A;--navy-700:#17344C;
   --champagne:#B99256;--champagne-2:#D7BC8A;--champagne-soft:#F2E9DA;
@@ -62,17 +66,22 @@ p{color:var(--muted);font-size:var(--fs-body);line-height:1.9;font-weight:400}
 @media(max-width:560px){:root{--fs-body:15px;--fs-body-lg:16px;--fs-h3:22px;--fs-h2:clamp(30px,8vw,36px);--fs-h1:clamp(38px,10vw,46px)}.container{width:min(var(--container),calc(100% - 22px))}h1{line-height:1.38}h2{line-height:1.45}.hero-actions,.cta-actions{display:grid;grid-template-columns:1fr}.grid-2,.grid-3,.grid-4,.form-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.stat{border-left:0!important;border-bottom:1px solid var(--line)!important}.stat:last-child{border-bottom:0!important}.service-card{grid-template-columns:1fr}.service-card img{height:220px}.field.full{grid-column:auto}.hero-media{min-height:300px}}
 </style><link rel="stylesheet" href="assets/css/global.css?v=1.2">
 </head><body>
-<!-- @component:site-header --><main>
-<div class="container breadcrumb"><a href="index.html">الرئيسية</a><span>›</span>الأسئلة الشائعة</div>
-<section class="page-hero"><div class="container"><div class="hero-box">
-<div class="hero-copy"><div class="kicker">FAQ</div><h1>إجابات واضحة <span style="color:var(--champagne)">قبل ما تاخد قرار المصعد.</span></h1><p>جمعنالك أهم الأسئلة عن التوريد والتركيب والصيانة. وبما إن كل مبنى مختلف، المعاينة هي اللي بتحسم المواصفات في الآخر.</p>
-<div class="hero-actions"><a class="btn btn-primary" href="request-quote.html">اطلب معاينة</a><a class="btn btn-outline" href="contact-us.html">تواصل معنا</a></div></div>
-<div class="hero-media"><img loading="eager" decoding="async" src="assets/images/products/gearless-elevator/gallery-02.webp" alt="أسئلة شائعة عن المصاعد"><div class="hero-label"><small>KNOW BEFORE YOU BUY</small><strong>FAQ</strong></div></div>
-</div></div></section>
-<section class="section pattern"><div class="container" style="max-width:960px"><div class="faq"><details open><summary>إيه أول خطوة لتركيب مصعد جديد؟</summary><div class="answer">تبعتلنا بيانات المشروع الأساسية، وبعدها المعاينة على الطبيعة. ساعتها نقدر نحدد النظام والمكونات والأبواب والتشطيب بدقة.</div></details><details><summary>أعرف نوع المصعد المناسب إزاي؟</summary><div class="answer">نوع المبنى وعدد الأدوار ومساحة البئر والحمولة والاستخدام هما اللي بيحددوا. عشان كده مش بننصح تختار النوع من اسمه بس.</div></details><details><summary>بتوردوا وتركبوا كل أنواع المصاعد؟</summary><div class="answer">أيوه، بنورّد ونركّب ونصين كل أنواع المصاعد.</div></details><details><summary>بتعملوا صيانة لمصاعد موجودة؟</summary><div class="answer">أيوه. الصيانة بتشمل الفحص والتشخيص، وبعدها نحدد المطلوب: إصلاح أو ظبط أو تحديث، حسب حالة المصعد.</div></details><details><summary>ينفع أركّب مصعد في مبنى قديم؟</summary><div class="answer">في حالات كتير ينفع، بس الحل بيعتمد على المساحة والبئر، أو إمكانية عمل مصعد خارجي، وشغل المدني المطلوب.</div></details><details><summary>إيه الفرق بين الجيرلس والجيربوكس؟</summary><div class="answer">الجيرلس بيشتغل بمحرك مباشر من غير صندوق تروس، أما الجيربوكس فبيستخدم صندوق تروس في منظومة الجر. والأنسب بيتحدد حسب مشروعك.</div></details><details><summary>فيه مصعد مناسب للفيلات؟</summary><div class="answer">أيوه، فيه حلول كهرباء وهيدروليك وبانوراما وخارجي، ونختار منهم حسب المساحة وعدد الأدوار والتصميم.</div></details><details><summary>عندكم أبواب أوتوماتيك؟</summary><div class="answer">أيوه، وعندنا كمان حل جيربوكس بأبواب أوتوماتيك.</div></details><details><summary>بتشتغلوا برّه القاهرة الجديدة؟</summary><div class="answer">شغلنا الأساسي في القاهرة والقاهرة الجديدة، وممكن نشتغل في المحافظات حسب المشروع.</div></details><details><summary>إيه أهم المناطق اللي بتخدموها؟</summary><div class="answer">نخدم: بيت الوطن، التجمع الأول والثاني، جميع مناطق القاهرة الجديدة، العاصمة الإدارية، سراي، لافيستا، الشيخ زايد، الأندلس وبيفرلي هيلز، مع خدمة القاهرة عمومًا.</div></details><details><summary>أطلب معاينة إزاي؟</summary><div class="answer">كلمنا على 01060781020، أو ابعت واتساب على 01276611628، أو املا الفورم في صفحة طلب المعاينة.</div></details><details><summary>ينفع أختار شكل الكابينة؟</summary><div class="answer">أيوه، بنتفق على خامات وتشطيب الكابينة والأبواب في العرض الفني بما يناسب مشروعك.</div></details></div></div></section>
-<section class="section-sm section-soft"><div class="container"><div class="cta"><div><h2>سؤالك مرتبط بمبنى معين؟</h2><p>ابعتلنا البيانات الأساسية بدل ما تعتمد على إجابة عامة.</p></div><div class="cta-actions"><a class="btn btn-gold" href="request-quote.html">طلب معاينة</a><a class="btn btn-light" href="https://wa.me/201276611628?text=%D8%A3%D9%87%D9%84%D9%8B%D8%A7%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%B5%D8%B9%D8%AF%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9%20%D9%84%D9%84%D9%85%D8%B5%D8%A7%D8%B9%D8%AF" target="_blank" rel="noopener">واتساب</a></div></div></div></section>
+<SiteHeader /><main>
+<div class="container breadcrumb"><a href="index.html">الرئيسية</a><span>›</span>سياسة الخصوصية</div>
+<section class="section"><div class="container policy">
+<div class="kicker">سياسة الخصوصية</div><h1>خصوصية بيانات زوار الموقع.</h1>
+<p>توضح هذه الصفحة بصورة مبسطة كيف يمكن لموقع newcairoelevator.com التعامل مع البيانات التي يرسلها الزائر عبر نماذج التواصل وطلب المعاينة.</p>
+
+<section><h2>1. البيانات التي قد نجمعها</h2><p>قد يطلب الموقع الاسم، رقم الهاتف، المنطقة، نوع المبنى، عدد الأدوار، نوع الطلب وأي ملاحظات يضيفها المستخدم طوعًا في نموذج التواصل أو طلب المعاينة.</p></section>
+<section><h2>2. لماذا نستخدم البيانات؟</h2><p>تُستخدم البيانات للرد على طلبك، فهم المشروع، تنسيق المعاينة، إعداد التواصل الفني أو التجاري ومتابعة الخدمة المطلوبة.</p></section>
+<section><h2>3. وسائل التواصل الخارجية</h2><p>عند الضغط على روابط واتساب أو Instagram أو خرائط Google فإنك تنتقل إلى خدمات خارجية تخضع لسياسات الخصوصية الخاصة بها.</p></section>
+<section><h2>4. أدوات القياس والتتبع</h2><p>قد يستخدم الموقع أدوات تحليل وقياس أداء وإعلانات لفهم استخدام الموقع وقياس الحملات. عند تفعيل أي أدوات تتطلب موافقة أو إشعارًا إضافيًا، يجب ضبط إشعار الموافقة وفق الأدوات المستخدمة فعليًا وقت النشر.</p></section>
+<section><h2>5. مشاركة البيانات</h2><p>لا ينبغي مشاركة بيانات طلبات العملاء إلا مع الجهات أو مقدمي الخدمة اللازمين لتنفيذ التواصل أو تشغيل الموقع، وبالقدر اللازم لذلك.</p></section>
+<section><h2>6. مدة الاحتفاظ</h2><p>يتم الاحتفاظ بالبيانات بالقدر اللازم لمتابعة الطلبات والأعمال والسجلات التشغيلية، مع مراعاة أي متطلبات قانونية أو تعاقدية مطبقة.</p></section>
+<section><h2>7. التواصل بخصوص البيانات</h2><p>لأي استفسار متعلق بالبيانات التي أرسلتها عبر الموقع، يمكنك التواصل على 01060781020 أو واتساب 01276611628.</p></section>
+</div></section>
 </main>
-<!-- @component:site-footer -->
+<SiteFooter />
 <div class="mobile-actions"><a class="btn btn-outline" href="tel:01060781020">اتصال</a><a class="btn btn-primary" href="https://wa.me/201276611628?text=%D8%A3%D9%87%D9%84%D9%8B%D8%A7%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%B5%D8%B9%D8%AF%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9%20%D9%84%D9%84%D9%85%D8%B5%D8%A7%D8%B9%D8%AF" target="_blank" rel="noopener">واتساب</a></div>
 
 </body></html>

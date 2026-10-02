@@ -1,46 +1,52 @@
 # Architecture — New Cairo Elevators
 
-_Last updated: 2026-09-14_
+_Last updated: 2026-10-02_
 
 ## الهدف
 
-المشروع ما زال HTML/CSS/JS بسيطًا أثناء مرحلة التطوير، لكن هيكلته من الآن تشبه Theme Builder / Astro Layouts: الـHeader والـFooter لهما مصدر واحد، ويتم توليد صفحات HTML كاملة وقت الـbuild. هذا يمنع تكرار نفس الـnavigation في 19 صفحة ويحافظ على SEO لأن النسخة المنشورة تحتوي HTML كاملًا وليست Client-side includes.
+الموقع مبني بـ**Astro** (static output). الـHeader والـFooter components مشتركة، وكل صفحة `.astro` بتحتوي محتواها بس. الناتج HTML كامل (مش Client-side includes) عشان الـSEO. بعد Astro فيه خطوة `scripts/postbuild.mjs` بتضيف طبقة السيو والأداء.
 
 ## الهيكل الحالي
 
 ```text
 /
-├─ *.html                         # Page source files + component markers
-├─ components/
-│  ├─ site-header.html            # Topbar + Header + Mega Menu + Mobile Menu
-│  └─ site-footer.html            # Shared footer
-├─ assets/
-│  ├─ css/global.css              # Global design system + shared component CSS
-│  └─ js/site-navigation.js       # Active state + accessible menu interactions
-├─ scripts/
-│  └─ build.mjs                   # Static layout compiler + link validation
-├─ package.json
-├─ CHANGELOG.md
-├─ AGENTS.md
+├─ src/
+│  ├─ pages/*.astro               # صفحة لكل URL (index.astro → /، gearless-elevator.astro → /gearless-elevator)
+│  └─ components/
+│     ├─ SiteHeader.astro         # Topbar + Header + Mega Menu + Mobile Menu
+│     └─ SiteFooter.astro         # Shared footer + shared scripts
+├─ public/                        # بيتنسخ زي ما هو لـdist/
+│  ├─ assets/css/global.css       # Global design system + shared component CSS
+│  ├─ assets/js/                  # site-navigation.js, lead-form.js
+│  ├─ assets/fonts|images|videos/
+│  └─ manifest.json
+├─ scripts/postbuild.mjs          # SEO/performance layer على dist/
+├─ astro.config.mjs
+├─ .node-version                  # Node 22 (Astro محتاج ≥ 22.12)
 └─ dist/                          # Generated output; ignored by Git
 ```
 
 ## Build flow
 
-1. كل صفحة مصدر تحتوي:
-   - `<!-- @component:site-header -->`
-   - `<!-- @component:site-footer -->`
-2. `scripts/build.mjs` يقرأ `components/site-header.html` و`components/site-footer.html`.
-3. يستبدل الـmarkers داخل كل ملفات `.html`.
-4. ينسخ `assets/` و`manifest.json` إلى `dist/`.
-5. يفحص روابط `.html` المحلية ويوقف الـbuild إذا وجد رابط صفحة مكسور.
-6. Cloudflare Pages ينشر `dist/`.
+`npm run build` = `astro build && node scripts/postbuild.mjs`
+
+1. Astro بيبني كل `src/pages/*.astro` لـ`dist/<slug>.html` (`build.format: 'file'`، `compressHTML: false`) وبينسخ `public/`.
+2. كل `<style>` و`<script>` في الصفحات مكتوبين `is:inline` عشان Astro مايعملهمش scope أو bundle — الـCSS/JS بيطلع زي ما هو.
+3. `scripts/postbuild.mjs`:
+   - يفحص روابط `.html` المحلية ويوقف الـbuild لو فيه رابط مكسور.
+   - يحوّل الروابط الداخلية لـclean URLs.
+   - يصغّر الـCSS المكتوب جوه الصفحات و`global.css`.
+   - يضيف preload للخط وصورة الهيرو، canonical/Open Graph/Twitter، وJSON-LD.
+   - يولّد `sitemap.xml` و`robots.txt` و`_redirects` (301 من `.html`).
+4. Cloudflare Pages ينشر `dist/`.
+
+`npm run dev` يشغّل Astro dev server للمعاينة (من غير خطوة الـpostbuild).
 
 ## قواعد الـShared Layout
 
-- أي تعديل على الـHeader أو الـMega Menu يتم في `components/site-header.html` فقط.
-- أي تعديل على الـFooter يتم في `components/site-footer.html` فقط.
-- CSS الخاص بالمكونات المشتركة يكون في `assets/css/global.css`.
+- أي تعديل على الـHeader أو الـMega Menu يتم في `src/components/SiteHeader.astro` فقط.
+- أي تعديل على الـFooter يتم في `src/components/SiteFooter.astro` فقط.
+- CSS الخاص بالمكونات المشتركة يكون في `public/assets/css/global.css`.
 - لا يتم نسخ HTML الخاص بالـHeader/Footer يدويًا داخل الصفحات.
 - الصفحات تملك محتواها الخاص فقط.
 - `dist/` ناتج آلي ولا يتم تعديله أو Commit له.
@@ -58,7 +64,7 @@ _Last updated: 2026-09-14_
 - Hospital
 - Maintenance
 
-الحالة النشطة وسلوك click / Escape / outside-click يتمان في `assets/js/site-navigation.js`. الموبايل يستخدم Accordion مستقل داخل نفس الـHeader component.
+الحالة النشطة وسلوك click / Escape / outside-click يتمان في `public/assets/js/site-navigation.js`. الموبايل يستخدم Accordion مستقل داخل نفس الـHeader component.
 
 ## Cloudflare Pages
 
@@ -71,32 +77,31 @@ Output directory: dist
 Root directory: /
 ```
 
-## مسار التحويل إلى Astro
+## التحويل إلى Astro (2026-10-02)
 
-التحويل المستقبلي مقصود أن يكون Mechanical قدر الإمكان:
+اتعمل تحويل Mechanical: نفس المحتوى ونفس الـURLs، والـHTML الناتج مطابق للـbuild القديم (الفرق الوحيد `<!DOCTYPE>` وطريقة قفل عناصر SVG).
 
-| الحالي | Astro لاحقًا |
+| قبل | دلوقتي |
 |---|---|
-| `components/site-header.html` | `src/components/SiteHeader.astro` |
-| `components/site-footer.html` | `src/components/SiteFooter.astro` |
-| `*.html` | `src/pages/*.astro` |
-| `assets/css/global.css` | `src/styles/global.css` |
-| `assets/js/site-navigation.js` | inline/module script داخل component عند الحاجة |
-| `scripts/build.mjs` | يتم حذفه؛ Astro يتولى الـbuild |
+| `src/components/SiteHeader.astro` | `src/components/SiteHeader.astro` |
+| `src/components/SiteFooter.astro` | `src/components/SiteFooter.astro` |
+| `*.html` + markers | `src/pages/*.astro` |
+| `assets/`, `manifest.json` | `public/assets/`, `public/manifest.json` |
+| `scripts/postbuild.mjs` | Astro + `scripts/postbuild.mjs` |
 
-عند بدء الهجرة لا يتم تغيير الـURLs الحالية إلا بقرار موثق؛ الحفاظ على نفس slugs مهم للـSEO.
+خطوات لاحقة اختيارية: نقل الـCSS المكرر في الصفحات لـlayout مشترك، وصفحات المنتجات لـcontent collection.
 
 ### Shared shell ownership invariant
-- `components/site-header.html`, `components/site-footer.html`, `assets/css/global.css`, and `assets/js/site-navigation.js` exclusively own shared header/footer/navigation behavior.
+- `src/components/SiteHeader.astro`, `src/components/SiteFooter.astro`, `public/assets/css/global.css`, and `public/assets/js/site-navigation.js` exclusively own shared header/footer/navigation behavior.
 - Page-level `<style>` or `<script>` blocks must not target `.site-header`, `.mobile-menu`, `.mobile-products`, `.desktop-nav`, `.mega-menu`, or other shared-shell selectors.
 - Responsive navigation changes are made once in the shared shell and validated at desktop, tablet, and mobile widths before deployment.
 
 ## SEO output
 
-`scripts/build.mjs` generates `dist/sitemap.xml` and `dist/robots.txt` at build time; internal pages (`review-pages.html`, `design-system-preview.html`, `404.html`) are excluded.
+`scripts/postbuild.mjs` generates `dist/sitemap.xml` and `dist/robots.txt` at build time; internal pages (`review-pages.html`, `design-system-preview.html`, `404.html`) are excluded.
 
 ## Social meta & leads
 
-- Build injects canonical/Open Graph/Twitter tags per public page (`socialMeta` in `scripts/build.mjs`).
-- All images are served locally from `assets/images/` (WebP); no third-party image hosts.
-- Lead forms use `assets/js/lead-form.js` → Google Sheets (Apps Script web app) + WhatsApp. See `docs/google-sheets-crm.md`.
+- Build injects canonical/Open Graph/Twitter tags per public page (`socialMeta` in `scripts/postbuild.mjs`).
+- All images are served locally from `public/assets/images/` (WebP); no third-party image hosts.
+- Lead forms use `public/assets/js/lead-form.js` → Google Sheets (Apps Script web app) + WhatsApp. See `docs/google-sheets-crm.md`.

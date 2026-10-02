@@ -1,3 +1,7 @@
+---
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
 <!DOCTYPE html>
 
 <html dir="rtl" lang="ar">
@@ -5,15 +9,15 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
 <meta content="#0A1724" name="theme-color"/>
-<title>صيانة وإصلاح المصاعد في القاهرة الجديدة | القاهرة الجديدة للمصاعد</title>
-<meta content="صيانة وفحص وإصلاح المصاعد للمباني والفيلات والمنشآت. اطلب زيارة فنية لتقييم حالة المصعد وتحديد المطلوب." name="description"/>
+<title>مصعد جيربوكس للمباني | القاهرة الجديدة للمصاعد</title>
+<meta content="مصاعد جيربوكس للمباني السكنية والتجارية بحلول تُحدد حسب عدد الأدوار والحمولة والبئر. اطلب معاينة وعرض فني." name="description"/>
 
 
 
 
 
 
-<style>
+<style is:inline>
 /* =========================================================
    NEW CAIRO ELEVATORS
    PRODUCT PAGE DESIGN SYSTEM v1
@@ -557,16 +561,16 @@ p{
 <link rel="stylesheet" href="assets/css/global.css?v=1.2">
 </head>
 <body>
-<!-- @component:site-header -->
+<SiteHeader />
 <main>
-<div class="container breadcrumb"><a href="index.html">الرئيسية</a><span>›</span><a href="services.html">الخدمات والمنتجات</a><span>›</span>صيانة وإصلاح المصاعد</div>
+<div class="container breadcrumb"><a href="index.html">الرئيسية</a><span>›</span><a href="services.html">الخدمات والمنتجات</a><span>›</span>مصعد جيربوكس</div>
 <section class="product-hero">
 <div class="container">
 <div class="hero-frame">
 <div class="hero-copy">
-<div class="kicker">ELEVATOR MAINTENANCE</div>
-<h1>صيانة المصاعد: بنكشف المشكلة قبل ما توقّف المصعد.</h1>
-<p>فحص ومتابعة وإصلاح للمصاعد الموجودة عشان تفضل شغالة بكفاءة والأعطال تقل، وبنقيّم الماكينة والأبواب والتحكم ومكونات الحركة حسب حالة كل مصعد.</p>
+<div class="kicker">GEARBOX ELEVATOR</div>
+<h1>مصعد جيربوكس: حل عملي ومجرَّب يناسب مشروعات كتير.</h1>
+<p>نظام جر كهربائي بماكينة فيها صندوق تروس بينقل الحركة لبكرة الجر. الماكينة والحمولة والأبواب والتحكم بيتحددوا حسب عدد الأدوار والبئر وطريقة الاستخدام.</p>
 <div class="hero-actions">
 <a class="btn btn-primary" href="#quote">
             اطلب معاينة
@@ -575,23 +579,24 @@ p{
 <a class="btn btn-outline" href="https://wa.me/201276611628?text=%D8%A3%D9%87%D9%84%D9%8B%D8%A7%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%B5%D8%B9%D8%AF%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9%20%D9%84%D9%84%D9%85%D8%B5%D8%A7%D8%B9%D8%AF" rel="noopener" target="_blank" rel="noopener">تواصل على واتساب</a>
 </div>
 <div class="hero-points">
-<div class="hero-point"><i></i><span>فحص حالة التشغيل</span></div>
-<div class="hero-point"><i></i><span>إصلاح أعطال حسب التشخيص</span></div>
-<div class="hero-point"><i></i><span>خطط متابعة وصيانة دورية</span></div>
+<div class="hero-point"><i></i><span>نظام جر كهربائي تقليدي</span></div>
+<div class="hero-point"><i></i><span>مناسب لعدد واسع من المباني</span></div>
+<div class="hero-point"><i></i><span>مواصفات مرنة حسب المشروع</span></div>
 </div>
 </div>
 <div class="hero-media">
-<img loading="eager" decoding="async" alt="صيانة وإصلاح المصاعد" src="assets/images/products/elevator-maintenance/hero.webp"/>
+<img loading="eager" decoding="async" alt="مصعد جيربوكس" src="assets/images/products/gearbox-elevator/hero.webp"/>
 <div class="hero-label">
 <small>PRODUCT PAGE / 01</small>
-<strong>ELEVATOR MAINTENANCE</strong>
+<strong>GEARBOX ELEVATOR</strong>
 </div>
 </div>
 </div>
 <div class="page-nav">
 <div class="page-nav-inner">
 <a href="#about">عن الخدمة</a>
-<a href="#features">المميزات</a>
+<a href="#video">فيديو من التنفيذ</a>
+        <a href="#features">المميزات</a>
 <a href="#suitable">الاستخدامات</a>
 <a href="#decision">عوامل الاختيار</a>
 <a href="#process">خطوات التنفيذ</a>
@@ -604,21 +609,36 @@ p{
 <div class="container content-layout">
 <article class="article">
 <section class="article-section" id="about">
-<div class="kicker">عن صيانة وإصلاح المصاعد</div>
-<h2>الصيانة بتبدأ بالتشخيص، مش بتغيير قطع وخلاص.</h2>
-<p class="info-lead">بنفحص حالة التشغيل ونعرف مصدر العطل الأول قبل ما نعمل أي حاجة. بنقيّم منظومة الحركة والأبواب والتحكم وكل اللي بيأثر على الأداء، وبعدها نحدد المطلوب: إصلاح، ظبط، ولا تحديث.</p>
+<div class="kicker">عن مصعد جيربوكس</div>
+<h2>محرك كهربائي وصندوق تروس ضمن منظومة الجر.</h2>
+<p class="info-lead">في الجيربوكس، حركة المحرك بتوصل لبكرة الجر عن طريق صندوق تروس، ومنها بتتحرك الكابينة والثقل الموازن جوه البئر. وده من أشهر الأنظمة، وينفع لمشروعات سكنية وتجارية كتير بعد ما نحدد الأبعاد والحمولة.</p>
 <div class="how-grid">
 <div class="tech-image">
-<img loading="lazy" decoding="async" alt="صيانة وإصلاح المصاعد" src="assets/images/products/elevator-maintenance/hero.webp"/>
+<img loading="lazy" decoding="async" alt="مصعد جيربوكس" src="assets/images/products/gearbox-elevator/hero.webp"/>
 </div>
-<div class="how-list"><div class="how-item"><div class="how-no">01</div><div><h3>فحص وتشخيص</h3><p>بنراجع أعراض العطل وحالة المكونات قبل ما نقترح الإصلاح.</p></div></div><div class="how-item"><div class="how-no">02</div><div><h3>إصلاح وضبط</h3><p>بنعالج السبب نفسه ونظبط المكونات المرتبطة بيه.</p></div></div><div class="how-item"><div class="how-no">03</div><div><h3>متابعة دورية</h3><p>الصيانة الوقائية بتكشف أي مشكلة بدري.</p></div></div></div>
+<div class="how-list"><div class="how-item"><div class="how-no">01</div><div><h3>المحرك والتروس</h3><p>صندوق التروس بينقل حركة المحرك وقوته لبكرة الجر.</p></div></div><div class="how-item"><div class="how-no">02</div><div><h3>بكرة الجر والحبال</h3><p>الكابينة والثقل الموازن بيتحركوا بمنظومة الجر.</p></div></div><div class="how-item"><div class="how-no">03</div><div><h3>لوحة التحكم</h3><p>بتدير الحركة والوقوف والأبواب حسب تجهيزات المصعد.</p></div></div></div>
 </div>
 </section>
+<section class="article-section" id="video">
+  <div class="kicker">من أرض الواقع</div>
+  <h2>شوف مصعد جيربوكس شغّال على الطبيعة.</h2>
+  <p>فيديو حقيقي من مشاريع نفّذناها، عشان تشوف الحركة والتشطيب بعينك قبل ما تقرر.</p>
+  <div class="product-videos">
+    <figure class="product-video">
+      <video controls playsinline preload="none" width="478" height="850" poster="assets/images/products/gearbox-elevator/overview-poster.webp" aria-label="تشغيل مصعد جيربوكس من تنفيذنا">
+        <source src="assets/videos/products/gearbox-elevator/overview.mp4" type="video/mp4">
+        المتصفح عندك مش بيشغّل الفيديو. <a href="assets/videos/products/gearbox-elevator/overview.mp4">حمّل الفيديو</a>.
+      </video>
+      <figcaption>تشغيل مصعد جيربوكس من تنفيذنا</figcaption>
+    </figure>
+  </div>
+</section>
+
 <section class="article-section" id="features">
 <div class="kicker">المميزات الرئيسية</div>
 <h2>المهم هو الحل هيفرق إزاي في استخدامك اليومي.</h2>
 <p>المواصفات النهائية بتتأكد بعد المعاينة والعرض الفني، ودي أهم النقط اللي بنراجعها وإحنا بنختار الحل.</p>
-<div class="feature-grid"><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"></path></svg></div><div><h3>تقليل الأعطال</h3><p>المتابعة بتكشف المشاكل من بدري.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM8 12l3 3 5-6"></path></svg></div><div><h3>فحص الأبواب</h3><p>الأبواب محتاجة ظبط ومراجعة بشكل دوري.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M13 2 6 13h5l-1 9 8-12h-5V2Z"></path></svg></div><div><h3>مراجعة الماكينة</h3><p>حسب نوع المصعد جيربوكس أو جيرلس أو هيدروليك.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M4 20V4h16v16M12 4v16M8 12h1M15 12h1"></path></svg></div><div><h3>مراجعة التحكم</h3><p>الفحص بيشمل لوحة التحكم والحساسات.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M14 6a4 4 0 0 0-5.5 5.5L4 16l4 4 4.5-4.5A4 4 0 0 0 18 10l-3 3-4-4 3-3Z"></path></svg></div><div><h3>توصيات بالتحديث</h3><p>ممكن نقترح تحديث بدل ما تفضل تصلّح نفس العطل.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M4 20V7l8-4 8 4v13M8 20V9h8v11"></path></svg></div><div><h3>تقرير حالة</h3><p>عشان تعرف المشكلة إيه والمطلوب إيه بالظبط.</p></div></div></div>
+<div class="feature-grid"><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"></path></svg></div><div><h3>حل عملي معروف</h3><p>تقنية مستخدمة في مباني كتير جدًا.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM8 12l3 3 5-6"></path></svg></div><div><h3>مرونة في المكونات</h3><p>الماكينة والتحكم والأبواب بيتحددوا حسب المشروع.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M13 2 6 13h5l-1 9 8-12h-5V2Z"></path></svg></div><div><h3>سكني وتجاري</h3><p>المواصفات بتتظبط حسب عدد الأدوار والحركة.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M4 20V4h16v16M12 4v16M8 12h1M15 12h1"></path></svg></div><div><h3>خبرة فنية متاحة</h3><p>نظام معروف، وسهل على الفنيين يشخّصوه ويصينوه.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M14 6a4 4 0 0 0-5.5 5.5L4 16l4 4 4.5-4.5A4 4 0 0 0 18 10l-3 3-4-4 3-3Z"></path></svg></div><div><h3>خيارات أبواب</h3><p>ينفع بأبواب مختلفة، منها الأوتوماتيك.</p></div></div><div class="feature"><div class="feature-icon"><svg viewbox="0 0 24 24"><path d="M4 20V7l8-4 8 4v13M8 20V9h8v11"></path></svg></div><div><h3>قابل للتحديث</h3><p>ممكن نقيّم الماكينة والتحكم والأبواب في المصاعد الموجودة.</p></div></div></div>
 <div class="inline-cta">
 <div>
 <h3>مش متأكد إن ده الحل المناسب لمشروعك؟</h3>
@@ -631,13 +651,13 @@ p{
 <div class="kicker">الحل ده يناسب مين؟</div>
 <h2>طريقة الاستخدام هي اللي بتحدد الأولويات والمواصفات.</h2>
 <p>نفس نوع المصعد ممكن يحتاج تكوين مختلف حسب المبنى وحجم الحركة فيه.</p>
-<div class="use-grid"><div class="use-card"><span class="use-tag">RESIDENTIAL</span><h3>عمارات سكنية</h3><p>لمتابعة المصعد اللي بيشتغل كل يوم.</p></div><div class="use-card"><span class="use-tag">VILLAS</span><h3>فيلات</h3><p>للهيدروليك والكهربائي حسب التكوين.</p></div><div class="use-card"><span class="use-tag">OFFICES</span><h3>إداري</h3><p>عشان المصعد ميقفش على الموظفين.</p></div><div class="use-card"><span class="use-tag">COMMERCIAL</span><h3>تجاري</h3><p>للمصاعد ذات الاستخدام المتكرر.</p></div><div class="use-card"><span class="use-tag">MEDICAL</span><h3>منشآت طبية</h3><p>عشان حركة المرضى والزوار متقفش.</p></div><div class="use-card"><span class="use-tag">OLD LIFTS</span><h3>مصاعد قديمة</h3><p>عشان نقيّم: إصلاح ولا تحديث.</p></div></div>
+<div class="use-grid"><div class="use-card"><span class="use-tag">RESIDENTIAL</span><h3>العمارات السكنية</h3><p>حل معروف للعمارات متعددة الأدوار.</p></div><div class="use-card"><span class="use-tag">COMMERCIAL</span><h3>المباني التجارية</h3><p>حسب السرعة والحمولة والاستخدام.</p></div><div class="use-card"><span class="use-tag">OFFICES</span><h3>المباني الإدارية</h3><p>لو محتاج نظام جر كهربائي عملي.</p></div><div class="use-card"><span class="use-tag">NEW BUILD</span><h3>مشروعات جديدة</h3><p>بنخطط البئر وتجهيزاته من الأول.</p></div><div class="use-card"><span class="use-tag">REPLACEMENT</span><h3>تحديث قائم</h3><p>نقيّم الماكينة أو التحكم أو الأبواب.</p></div><div class="use-card"><span class="use-tag">CUSTOM</span><h3>تشطيبات متعددة</h3><p>الكابينة والأبواب بتتفصّل على ذوقك.</p></div></div>
 </section>
 <section class="article-section" id="decision">
 <div class="kicker">قبل اختيار الحل</div>
 <h2>4 حاجات بنراجعها قبل العرض.</h2>
 <p>هدفنا إن المواصفات تكون مبنية على المبنى والاستخدام الحقيقي، مش على اسم المنتج وبس.</p>
-<div class="factor-list"><div class="factor"><div class="factor-no">01</div><div><h3>نوع المصعد</h3><p>طريقة الصيانة بتختلف حسب النظام.</p></div></div><div class="factor"><div class="factor-no">02</div><div><h3>تاريخ الأعطال</h3><p>تكرار نفس العطل ممكن يكون وراه سبب أساسي.</p></div></div><div class="factor"><div class="factor-no">03</div><div><h3>الأبواب والتحكم</h3><p>بيأثروا مباشرة على اعتمادية المصعد.</p></div></div><div class="factor"><div class="factor-no">04</div><div><h3>عمر المكونات</h3><p>بيساعدنا نقرر: إصلاح ولا تحديث.</p></div></div></div>
+<div class="factor-list"><div class="factor"><div class="factor-no">01</div><div><h3>عدد الطوابق</h3><p>بيأثر على قدرة الماكينة والسرعة المطلوبة.</p></div></div><div class="factor"><div class="factor-no">02</div><div><h3>الحمولة والاستخدام</h3><p>عدد الركاب وعدد المشاوير بيحددوا المواصفات.</p></div></div><div class="factor"><div class="factor-no">03</div><div><h3>البئر وغرفة الماكينة</h3><p>لازم نراجع الأبعاد والتجهيزات.</p></div></div><div class="factor"><div class="factor-no">04</div><div><h3>الأبواب والتحكم</h3><p>بتأثر على الاستخدام وطريقة التنفيذ.</p></div></div></div>
 </section>
 <section class="article-section" id="process">
 <div class="kicker">خطوات التنفيذ</div>
@@ -655,8 +675,8 @@ p{
 </section>
 <section class="article-section" id="faq">
 <div class="kicker">الأسئلة الشائعة</div>
-<h2>أسئلة مهمة عن صيانة وإصلاح المصاعد.</h2>
-<div class="faq"><details open=""><summary>كل كام يحتاج صيانة؟</summary><div class="answer">ده بيعتمد على نوع المصعد وقد إيه بيتستخدم وحالة المكونات.</div></details><details><summary>هي الصيانة بتمنع كل الأعطال؟</summary><div class="answer">محدش يقدر يضمن ده، بس بتقلل فرص التوقف وبتكشف المشاكل بدري.</div></details><details><summary>بتصلحوا كل الأنواع؟</summary><div class="answer">بنعرف نوع النظام وحالته الأول، وبعدها نأكدلك نطاق الخدمة.</div></details><details><summary>إمتى أحتاج تحديث؟</summary><div class="answer">لما الأعطال تتكرر أو المكونات تقدم، بنقدر ندرس تحديث أجزاء من النظام.</div></details><details><summary>ينفع أطلب زيارة لعطل عندي دلوقتي؟</summary><div class="answer">أيوه، ابعتلنا وصف العطل ونوع المصعد والمنطقة.</div></details><details><summary>أتواصل معاكم إزاي؟</summary><div class="answer">كلمنا على 01060781020 أو واتساب 01276611628.</div></details></div>
+<h2>أسئلة مهمة عن مصعد جيربوكس.</h2>
+<div class="faq"><details open=""><summary>إيه الفرق بين الجيربوكس والجيرلس؟</summary><div class="answer">الجيربوكس فيه صندوق تروس، أما الجيرلس فبيشتغل بمحرك مباشر من غير صندوق تروس.</div></details><details><summary>يناسب العمارات؟</summary><div class="answer">أيوه في مشروعات كتير، بعد ما نحدد الارتفاع والحمولة والاستخدام.</div></details><details><summary>ينفع أبواب أوتوماتيك؟</summary><div class="answer">أيوه، وعندنا حل مخصوص جيربوكس بأبواب أوتوماتيك.</div></details><details><summary>ينفع أحدّث مصعد قديم؟</summary><div class="answer">بعد الفحص بنعرف حالة الماكينة والتحكم والأبواب ونقولك المطلوب.</div></details><details><summary>الصيانة مهمة؟</summary><div class="answer">أيوه، منظومة الجر والأبواب والتحكم محتاجين متابعة.</div></details><details><summary>آخد عرض سعر إزاي؟</summary><div class="answer">ابعت عدد الأدوار ونوع المبنى على واتساب 01276611628.</div></details></div>
 </section>
 <section class="article-section">
 <div class="kicker">منتجات أخرى</div>
@@ -680,11 +700,11 @@ p{
 <aside class="form-card" id="quote">
 <div class="form-top">
 <div class="kicker">اطلب معاينة</div>
-<h3>عندك عطل أو عايز عقد صيانة؟</h3>
+<h3>هل الجيربوكس مناسب لمشروعك؟</h3>
 <p>ابعت بيانات بسيطة وهنكلمك نحدد احتياجك والخطوة الجاية.</p>
 </div>
 <form class="form-body" data-lead-form>
-<input name="product" type="hidden" value="صيانة وإصلاح المصاعد"/>
+<input name="product" type="hidden" value="مصعد جيربوكس"/>
 <div class="field">
 <label for="name">الاسم</label>
 <input id="name" name="name" placeholder="اكتب اسمك" required="" type="text"/>
@@ -749,7 +769,7 @@ p{
 </div>
 </section>
 </main>
-<!-- @component:site-footer -->
+<SiteFooter />
 <div class="mobile-actions">
 <a class="btn btn-outline" href="tel:01060781020">اتصال</a>
 <a class="btn btn-primary" href="https://wa.me/201276611628?text=%D8%A3%D9%87%D9%84%D9%8B%D8%A7%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%B5%D8%B9%D8%AF%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9%20%D9%84%D9%84%D9%85%D8%B5%D8%A7%D8%B9%D8%AF" rel="noopener" target="_blank" rel="noopener">واتساب</a>

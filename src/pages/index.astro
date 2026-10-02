@@ -1,3 +1,7 @@
+---
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
@@ -11,7 +15,7 @@
 
 
 
-<style>
+<style is:inline>
 /* =========================================================
    NEW CAIRO ELEVATORS
    Premium Corporate — Design System v3.2
@@ -1249,7 +1253,7 @@ p{
 
 <body>
 
-<!-- @component:site-header -->
+<SiteHeader />
 
 <main id="top">
 
@@ -1676,7 +1680,7 @@ p{
 
 </main>
 
-<!-- @component:site-footer -->
+<SiteFooter />
 
 <div class="mobile-actions">
   <a class="btn btn-outline" href="tel:01060781020">اتصال</a>
