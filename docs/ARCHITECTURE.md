@@ -49,7 +49,7 @@ _Last updated: 2026-10-02_
 
 1. Astro بيبني كل `src/pages/*.astro` لـ`dist/<slug>.html` (`build.format: 'file'`، `compressHTML: false`) وبينسخ `public/`.
 2. كل `<style>` و`<script>` في الصفحات مكتوبين `is:inline` عشان Astro مايعملهمش scope أو bundle — الـCSS/JS بيطلع زي ما هو.
-3. كل صفحة بتستخدم `BaseLayout` وبتبعتله `title` و`description` (و`robots` للصفحات الداخلية). الـ`<style is:inline>` الخاص بالصفحة بيتحط في `<Fragment slot="head">`. الـLayout بيطلّع الـhead كله: الـmeta، preload الخط (وصورة الهيرو لو اتبعت `preloadImage`)، `global.css`، الـcanonical والـOG والـTwitter والـJSON-LD من `src/lib/site.ts`.
+3. كل صفحة بتستخدم `BaseLayout` وبتبعتله `title` و`description` (و`robots` للصفحات الداخلية). الـ`<style is:inline>` الخاص بالصفحة بيتحط في `<Fragment slot="head">`. الـLayout بيطلّع الـhead كله: الـmeta، preload الخط (وصورة الهيرو لو اتبعت `preloadImage`)، `global.css` (inline كـ`<style>` من غير request منفصل؛ مسارات الخط بتتحوّل لـ`/assets/fonts/`)، الـcanonical والـOG والـTwitter والـJSON-LD من `src/lib/site.ts`.
 4. `src/pages/sitemap.xml.ts` و`robots.txt.ts` بيولّدوا الملفين من نفس بيانات `site.ts`.
 5. `scripts/postbuild.mjs` بيعمل اللي محتاج الـHTML النهائي بس:
    - يفحص روابط `.html` المحلية ويوقف الـbuild لو فيه رابط مكسور.

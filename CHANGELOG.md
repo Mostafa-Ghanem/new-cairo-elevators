@@ -2,6 +2,11 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-10-03 — Inline global.css
+
+### Changed
+- `src/layouts/BaseLayout.astro`: `global.css` بقى بيتحط جوه كل صفحة كـ`<style>` (بـ`?raw`) بدل `<link rel="stylesheet">`، فمبقاش فيه request بيوقف الرسم قبل أول ظهور (Lighthouse "Render-blocking requests"). روابط الخط `../fonts/` بتتحوّل لـ`/assets/fonts/`. الملف نفسه لسه مصدره `public/assets/css/global.css` والـminify بيحصل في `postbuild`. visual-diff: الـ80 صورة identical.
+
 ## 2026-10-02 — Refactor phase 4
 
 ### Changed — AVIF images + CI

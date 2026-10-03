@@ -3,6 +3,7 @@
 // and JSON-LD. Pages pass their own <style is:inline> through the "head" slot and their body
 // markup through the default slot.
 import { SITE_NAME, INTERNAL_PAGES, slugFromPath, cleanUrl, ogImage, structuredData } from '../lib/site';
+import globalCssRaw from '../../public/assets/css/global.css?raw';
 
 interface Props {
   title: string;
@@ -28,7 +29,9 @@ const {
   preloadImage
 } = Astro.props;
 
-const GLOBAL_CSS = 'assets/css/global.css?v=1.6';
+// global.css is inlined into every page (no render-blocking request before first paint).
+// Its font URLs are relative to /assets/css/, so they are rewritten to absolute paths.
+const GLOBAL_CSS = globalCssRaw.replaceAll('../fonts/', '/assets/fonts/');
 const slug = slugFromPath(Astro.url.pathname);
 const seo = !INTERNAL_PAGES.has(slug);
 const url = cleanUrl(slug);
@@ -46,9 +49,9 @@ const jsonLd = seo ? structuredData(slug, title, description ?? '') : '';
 {robots && <meta name="robots" content={robots}>}
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/alexandria-arabic.woff2" crossorigin>
 {preloadImage && <link rel="preload" as="image" href={preloadImage.href} imagesrcset={preloadImage.srcset} imagesizes={preloadImage.sizes} type="image/avif" fetchpriority="high">}
-{globalCssFirst && <link rel="stylesheet" href={GLOBAL_CSS}>}
+{globalCssFirst && <style is:inline set:html={GLOBAL_CSS}></style>}
 <slot name="head" />
-{!globalCssFirst && <link rel="stylesheet" href={GLOBAL_CSS}>}
+{!globalCssFirst && <style is:inline set:html={GLOBAL_CSS}></style>}
 {seo && (
   <>
     <link rel="canonical" href={url}>
