@@ -47,6 +47,9 @@ const jsonLd = seo ? structuredData(slug, title, description ?? '') : '';
 <title>{title}</title>
 {description && <meta name="description" content={description}>}
 {robots && <meta name="robots" content={robots}>}
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/alexandria-arabic.woff2" crossorigin>
 {preloadImage && <link rel="preload" as="image" href={preloadImage.href} imagesrcset={preloadImage.srcset} imagesizes={preloadImage.sizes} type="image/avif" fetchpriority="high">}
 {globalCssFirst && <style is:inline set:html={GLOBAL_CSS}></style>}

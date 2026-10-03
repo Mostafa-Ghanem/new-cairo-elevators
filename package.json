@@ -9,7 +9,8 @@
     "check": "astro check && npm run build",
     "preview": "astro preview",
     "typecheck": "astro check",
-    "images": "node scripts/make-images.mjs"
+    "images": "node scripts/make-images.mjs",
+    "favicons": "node scripts/make-favicons.mjs"
   },
   "engines": {
     "node": ">=22.12.0"

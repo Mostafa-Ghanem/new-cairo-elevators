@@ -2,6 +2,11 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-10-03 — Favicon
+
+### Added
+- أيقونة الموقع في التاب (favicon) من لوجو الشركة: `public/favicon.ico` و`favicon-32.png` و`apple-touch-icon.png` (180px لشاشة الآيفون الرئيسية)، بتتولد بـ`npm run favicons` (`scripts/make-favicons.mjs` من `logo-source.png`). الروابط في `BaseLayout.astro` فبتظهر في كل الصفحات، وcache أسبوع في `public/_headers`.
+
 ## 2026-10-03 — Inline global.css
 
 ### Changed
