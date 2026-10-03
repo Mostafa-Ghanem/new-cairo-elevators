@@ -2,6 +2,12 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-10-03 — Content fixes
+
+### Fixed
+- تصحيح typo «مصعد كهرباءء» → «مصعد كهرباء» (breadcrumb وkicker وalt) في `src/content/products/electric-elevator.json` و`index.astro` و`services.astro`.
+- `SiteHeader.astro`: صورة المعاينة الافتراضية في الـMega Menu كانت صورة الصيانة والعنوان/الـalt «مصعد جيرلس»؛ بقت صورة الجيرلس (`gallery-01-720.webp`) زي `data-preview-image` بتاع العنصر النشط. visual-diff: الفرق الوحيد نص صفحة المصعد الكهرباء.
+
 ## 2026-10-03 — Favicon
 
 ### Added
