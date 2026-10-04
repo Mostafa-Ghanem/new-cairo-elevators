@@ -48,19 +48,6 @@
       }
     ]
   },
-  "video": {
-    "h2": "شوف مصعد كهرباء شغّال على الطبيعة.",
-    "videos": [
-      {
-        "poster": "assets/images/products/electric-elevator/overview-poster.webp",
-        "src": "assets/videos/products/electric-elevator/overview.mp4",
-        "width": 478,
-        "height": 850,
-        "label": "تشغيل مصعد كهرباء من تنفيذنا",
-        "caption": "تشغيل مصعد كهرباء من تنفيذنا"
-      }
-    ]
-  },
   "features": {
     "kicker": "المميزات الرئيسية",
     "h2": "المهم هو الحل هيفرق إزاي في استخدامك اليومي.",

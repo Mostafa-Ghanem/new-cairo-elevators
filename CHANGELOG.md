@@ -2,10 +2,15 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-10-04 — Remove electric elevator video
+
+### Removed
+- فيديو صفحة المصعد الكهرباء (مصعد بضائع مش مناسب للصفحة): اتشال `video` من `src/content/products/electric-elevator.json` (فاتشال قسم الفيديو ولينك «فيديو من التنفيذ» من الـpage-nav تلقائيًا)، واتحذف `overview.mp4` و`overview-poster.webp`.
+
 ## 2026-10-04 — Electric elevator image
 
 ### Changed
-- صورة المصعد الكهرباء (`public/assets/images/products/electric-elevator/hero.*` و`hero-720.*` و`og.jpg`) كانت مصعد بضائع؛ اتبدلت بصورة باب مصعد ركاب من صاحب المشروع. بتظهر في كارت الرئيسية والخدمات والهيرو وقسم «عن المصعد» والـMega Menu. AVIF والنسخ الصغيرة والـLQIP اتولدوا بـ`npm run images`. الفيديو (poster بضائع) لسه زي ما هو لحد قرار.
+- صورة المصعد الكهرباء (`public/assets/images/products/electric-elevator/hero.*` و`hero-720.*` و`og.jpg`) كانت مصعد بضائع؛ اتبدلت بصورة باب مصعد ركاب من صاحب المشروع. بتظهر في كارت الرئيسية والخدمات والهيرو وقسم «عن المصعد» والـMega Menu. AVIF والنسخ الصغيرة والـLQIP اتولدوا بـ`npm run images`. 
 
 ## 2026-10-03 — Content fixes
 
