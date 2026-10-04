@@ -2,6 +2,11 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-10-04 — Electric elevator image
+
+### Changed
+- صورة المصعد الكهرباء (`public/assets/images/products/electric-elevator/hero.*` و`hero-720.*` و`og.jpg`) كانت مصعد بضائع؛ اتبدلت بصورة باب مصعد ركاب من صاحب المشروع. بتظهر في كارت الرئيسية والخدمات والهيرو وقسم «عن المصعد» والـMega Menu. AVIF والنسخ الصغيرة والـLQIP اتولدوا بـ`npm run images`. الفيديو (poster بضائع) لسه زي ما هو لحد قرار.
+
 ## 2026-10-03 — Content fixes
 
 ### Fixed
