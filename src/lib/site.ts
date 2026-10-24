@@ -12,7 +12,7 @@ export const INTERNAL_PAGES = new Set(['design-system-preview', 'review-pages', 
 export const ROBOTS_BLOCKED = ['review-pages', 'design-system-preview', 'thank-you'];
 /** Product pages: own OG image (assets/images/products/<slug>/og.jpg) and a Service node. */
 export const PRODUCT_PAGES = new Set([
-  'gearless-elevator', 'gearbox-elevator', 'gearbox-automatic-doors', 'electric-elevator',
+  'gearless-elevator', 'gearbox-elevator', 'freight-elevator',
   'hydraulic-panoramic-elevator', 'hospital-elevator', 'outdoor-elevator', 'elevator-maintenance'
 ]);
 
