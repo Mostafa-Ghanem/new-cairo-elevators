@@ -72,6 +72,9 @@ await writeFile(globalCssPath, globalCss, 'utf8');
 const redirects = htmlFiles
   .filter((file) => !internalPages.has(file))
   .map((file) => file === 'index.html' ? '/index.html / 301' : `/${file} ${cleanPath(file)} 301`);
+// Retired pages kept alive for SEO: electric-elevator was a duplicate of gearbox (owner decision, 2026-10-24).
+const retired = { 'electric-elevator': 'gearbox-elevator' };
+for (const [from, to] of Object.entries(retired)) redirects.push(`/${from} /${to} 301`, `/${from}.html /${to} 301`);
 await writeFile(path.join(dist, '_redirects'), `${redirects.join('\n')}\n`, 'utf8');
 
 console.log(`Post-processed ${htmlFiles.length} Astro pages in dist/ (link check, clean URLs, minify, redirects).`);

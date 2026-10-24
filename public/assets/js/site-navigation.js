@@ -4,7 +4,7 @@
     'gearless-elevator.html',
     'gearbox-elevator.html',
     'gearbox-automatic-doors.html',
-    'electric-elevator.html',
+    'freight-elevator.html',
     'hydraulic-panoramic-elevator.html',
     'outdoor-elevator.html',
     'hospital-elevator.html',

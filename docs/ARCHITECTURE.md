@@ -56,7 +56,7 @@ _Last updated: 2026-10-02_
    - يحوّل الروابط الداخلية لـclean URLs.
    - يصغّر الـCSS المكتوب جوه الصفحات و`global.css`.
    - يتأكد إن كل ملف في `src`/`srcset`/`poster` موجود (صورة ناقصة = الـbuild يقف).
-   - يولّد `_redirects` (301 من `.html`).
+   - يولّد `_redirects` (301 من `.html`، و301 للصفحات الملغية في قائمة `retired` زي `electric-elevator` → `gearbox-elevator`).
 6. Cloudflare Pages ينشر `dist/`، ويطبّق `public/_headers` (cache طويل للصور والخطوط، أسبوع للـCSS/JS المتعلّمين بـ`?v=`).
 
 `npm run dev` يشغّل Astro dev server للمعاينة (من غير خطوة الـpostbuild).

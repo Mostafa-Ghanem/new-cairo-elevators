@@ -25,7 +25,7 @@
 | **الصفحة الرئيسية** | [`index.html`](./src/pages/index.astro) | الصفحة التعريفية الكبرى، الخدمات الرئيسية، آراء العملاء، وأزرار التواصل السريع |
 | **من نحن** | [`about-us.html`](./src/pages/about-us.astro) | رؤية الشركة، قيمها، خبراتها، والتزامها بأعلى معايير الأمان والجودة |
 | **دليل الخدمات العامة** | [`services.html`](./src/pages/services.astro) | استعراض شامل لكافة الخدمات الفنية المتاحة |
-| **المصاعد الكهربائية** | [`electric-elevator.html`](./src/content/products/electric-elevator.json) | التفاصيل الفنية والمواصفات للمصاعد الكهربائية التقليدية والحديثة |
+| **مصاعد البضائع** | [`freight-elevator.html`](./src/content/products/freight-elevator.json) | مصاعد البضائع للمصانع والمخازن والمولات (مصعد الكهرباء = الجيربوكس، و`/electric-elevator` بيتحول له بـ301) |
 | **مصاعد الجيربوكس** | [`gearbox-elevator.html`](./src/content/products/gearbox-elevator.json) | مصاعد المحركات ذات التروس للمباني السكنية والتجارية |
 | **مصاعد الجيرليس** | [`gearless-elevator.html`](./src/content/products/gearless-elevator.json) | المصاعد الحديثة بدون تروس (موفرة للطاقة وهادئة جداً) |
 | **المصاعد الهيدروليكية والبانورامية** | [`hydraulic-panoramic-elevator.html`](./src/content/products/hydraulic-panoramic-elevator.json) | مصاعد الفيلات والمباني التي لا تحتوي على غرفة محرك علوية |

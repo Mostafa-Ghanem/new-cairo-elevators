@@ -2,6 +2,22 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-10-24 — Freight elevator page; electric folded into gearbox
+
+قرار صاحب الشركة (واتساب 24 أكتوبر): «مصعد الكهرباء» هو نفسه «الجيربوكس» فكانوا كارتين مكررين، والخانة اللي اسمها «مصعد كهرباء» كان محتواها الأصلي مصعد بضائع، ومكانش فيه خانة للبضائع.
+
+### Added
+- صفحة `freight-elevator` (`src/content/products/freight-elevator.json`) بمحتوى مصاعد البضائع للمصانع والمخازن والمولات، بدون أرقام حمولة غير مؤكدة.
+- رجوع صورة وفيديو البضائع من الـgit history (قبل `bdad637` و`c3afbd4`) في `public/assets/images/products/freight-elevator/` و`public/assets/videos/products/freight-elevator/`؛ AVIF والنسخ الصغيرة والـLQIP بـ`npm run images`.
+- `scripts/postbuild.mjs`: قائمة `retired` بتضيف 301 من `/electric-elevator` و`/electric-elevator.html` لـ`/gearbox-elevator`.
+
+### Changed
+- كارت «مصعد كهرباء» بقى «مصعد بضائع» (أيقونة صندوق) في الرئيسية والخدمات والـMega Menu ومنيو الموبايل والفوتر و`site-navigation.js` و`review-pages` و`PRODUCT_PAGES` في `src/lib/site.ts`.
+- `gearbox-elevator.json`: العنوان والوصف والـlead بقوا يذكروا «مصعد كهرباء» كاسم تاني للجيربوكس، وسؤال FAQ جديد يوضح الفرق عن البضائع.
+
+### Removed
+- `src/content/products/electric-elevator.json` وصور `products/electric-elevator/` (صورة باب الركاب اللي كانت بديل مؤقت).
+
 ## 2026-10-04 — Remove electric elevator video
 
 ### Removed
