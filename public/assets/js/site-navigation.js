@@ -3,7 +3,6 @@
   const productFiles = new Set([
     'gearless-elevator.html',
     'gearbox-elevator.html',
-    'gearbox-automatic-doors.html',
     'freight-elevator.html',
     'hydraulic-panoramic-elevator.html',
     'outdoor-elevator.html',

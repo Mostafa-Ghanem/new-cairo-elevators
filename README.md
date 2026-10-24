@@ -32,7 +32,6 @@
 | **مصاعد المستشفيات** | [`hospital-elevator.html`](./src/content/products/hospital-elevator.json) | المصاعد الطبية المجهزة لنقل الأسرة والمعدات الطبية بأعلى درجات السلاسة |
 | **المصاعد الخارجية** | [`outdoor-elevator.html`](./src/content/products/outdoor-elevator.json) | حلول المصاعد الخارجية للمباني القائمة والفيلات |
 | **عقود الصيانة والتحديث** | [`elevator-maintenance.html`](./src/content/products/elevator-maintenance.json) | خطط الصيانة الدورية والصيانة الطارئة وتجديد المصاعد القديمة |
-| **الأبواب الأوتوماتيكية** | [`gearbox-automatic-doors.html`](./src/content/products/gearbox-automatic-doors.json) | أبواب الكبائن والأدوار الأوتوماتيكية والنصف أوتوماتيكية |
 | **مناطق التغطية والخدمة** | [`service-areas.html`](./src/pages/service-areas.astro) | المناطق المخدومة (القاهرة الجديدة، التجمع الخامس، زايد، الشروق، إلخ) |
 | **طلب عرض سعر** | [`request-quote.html`](./src/pages/request-quote.astro) | نموذج تفاعلي لطلب المقايسات والاستشارات الفنية |
 | **الأسئلة الشائعة** | [`faq.html`](./src/pages/faq.astro) | الإجابات الشاملة عن الأسئلة الفنية والهندسية الأكثر تكراراً |

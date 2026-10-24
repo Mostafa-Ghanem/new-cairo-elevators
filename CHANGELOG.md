@@ -2,6 +2,18 @@
 
 كل تعديل فعلي على المشروع يجب توثيقه هنا في نفس الـcommit.
 
+## 2026-10-24 — Merge gearbox automatic doors into the electric/gearbox page
+
+بعد مراجعة الـpreview: «جيربوكس» و«جيربوكس أبواب أوتوماتيك» كانوا لسه كارتين لنفس الماكينة؛ الأبواب الأوتوماتيك اختيار في نفس المصعد مش نوع مستقل (فولدرات العميل نفسها اسمها «مصاعد كهربا جيربوكس» و«مصاعد كهربا جيربوكس أبواب أوتوماتيك»).
+
+### Changed
+- `gearbox-elevator.json` بقى صفحة «مصعد كهرباء (جيربوكس)»: العنوان والـH1 والـbreadcrumb والفورم، قسم الفيديو فيه فيديوهين (التشغيل + الأبواب الأوتوماتيك)، ميزة «أبواب عادية أو أوتوماتيك»، وسؤالين FAQ عن الأبواب.
+- الكارت باسم «مصعد كهرباء (جيربوكس)» في الرئيسية والخدمات والـMega Menu ومنيو الموبايل والفوتر و`review-pages`.
+- `scripts/postbuild.mjs`: `gearbox-automatic-doors` اتضاف لقائمة `retired` (301 → `/gearbox-elevator`).
+
+### Removed
+- `src/content/products/gearbox-automatic-doors.json` وصورها، وكارتها من كل الأماكن و`PRODUCT_PAGES` و`site-navigation.js` والـREADME. فيديو الأبواب والـposter اتنقلوا لـ`products/gearbox-elevator/`.
+
 ## 2026-10-24 — Freight elevator page; electric folded into gearbox
 
 قرار صاحب الشركة (واتساب 24 أكتوبر): «مصعد الكهرباء» هو نفسه «الجيربوكس» فكانوا كارتين مكررين، والخانة اللي اسمها «مصعد كهرباء» كان محتواها الأصلي مصعد بضائع، ومكانش فيه خانة للبضائع.
